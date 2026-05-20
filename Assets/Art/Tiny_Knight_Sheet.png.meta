@@ -1,0 +1,2250 @@
+fileFormatVersion: 2
+guid: 2ec2edb2e14fd82489813bed66c42688
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6831752873337548987
+    second: Tiny_Knight_Sheet_0
+  - first:
+      213: 8245106368504564459
+    second: Tiny_Knight_Sheet_1
+  - first:
+      213: 3498210042133564942
+    second: Tiny_Knight_Sheet_2
+  - first:
+      213: -468820438915364087
+    second: Tiny_Knight_Sheet_3
+  - first:
+      213: -7698730262122433917
+    second: Tiny_Knight_Sheet_4
+  - first:
+      213: -6273739964368238875
+    second: Tiny_Knight_Sheet_5
+  - first:
+      213: -2510889812312948490
+    second: Tiny_Knight_Sheet_6
+  - first:
+      213: 7877305920031659956
+    second: Tiny_Knight_Sheet_7
+  - first:
+      213: -5184852434559028963
+    second: Tiny_Knight_Sheet_8
+  - first:
+      213: -1574146719278924981
+    second: Tiny_Knight_Sheet_9
+  - first:
+      213: 5398239831195734707
+    second: Tiny_Knight_Sheet_10
+  - first:
+      213: -7665451467189752874
+    second: Tiny_Knight_Sheet_11
+  - first:
+      213: -8742933768571926322
+    second: Tiny_Knight_Sheet_12
+  - first:
+      213: -5521564285502566219
+    second: Tiny_Knight_Sheet_13
+  - first:
+      213: -8156501798778555858
+    second: Tiny_Knight_Sheet_14
+  - first:
+      213: -6437767704958878579
+    second: Tiny_Knight_Sheet_15
+  - first:
+      213: 8112781739834401001
+    second: Tiny_Knight_Sheet_16
+  - first:
+      213: -7891078584689387667
+    second: Tiny_Knight_Sheet_17
+  - first:
+      213: -7557656378373075389
+    second: Tiny_Knight_Sheet_18
+  - first:
+      213: -4577634637754746432
+    second: Tiny_Knight_Sheet_19
+  - first:
+      213: -3274120514624470529
+    second: Tiny_Knight_Sheet_20
+  - first:
+      213: -3959757242008131180
+    second: Tiny_Knight_Sheet_21
+  - first:
+      213: 5830091046591514355
+    second: Tiny_Knight_Sheet_22
+  - first:
+      213: 6740372029117868292
+    second: Tiny_Knight_Sheet_23
+  - first:
+      213: 3997923773644638549
+    second: Tiny_Knight_Sheet_24
+  - first:
+      213: 4352111417731383177
+    second: Tiny_Knight_Sheet_25
+  - first:
+      213: 4408429559955052953
+    second: Tiny_Knight_Sheet_26
+  - first:
+      213: -789195194165668413
+    second: Tiny_Knight_Sheet_27
+  - first:
+      213: -2604917011853799291
+    second: Tiny_Knight_Sheet_28
+  - first:
+      213: -5039826731408993092
+    second: Tiny_Knight_Sheet_29
+  - first:
+      213: 1042337342064708158
+    second: Tiny_Knight_Sheet_30
+  - first:
+      213: -5158281767521725393
+    second: Tiny_Knight_Sheet_31
+  - first:
+      213: -1670289068139335019
+    second: Tiny_Knight_Sheet_32
+  - first:
+      213: -3631087129506852518
+    second: Tiny_Knight_Sheet_33
+  - first:
+      213: 3363545038463792527
+    second: Tiny_Knight_Sheet_34
+  - first:
+      213: -7940747416524774040
+    second: Tiny_Knight_Sheet_35
+  - first:
+      213: 5094912742267730603
+    second: Tiny_Knight_Sheet_36
+  - first:
+      213: 2863844331039107399
+    second: Tiny_Knight_Sheet_37
+  - first:
+      213: -5836542188362592713
+    second: Tiny_Knight_Sheet_38
+  - first:
+      213: 3747670439418167988
+    second: Tiny_Knight_Sheet_39
+  - first:
+      213: 597569963529988535
+    second: Tiny_Knight_Sheet_40
+  - first:
+      213: -9136445264082424258
+    second: Tiny_Knight_Sheet_41
+  - first:
+      213: 4095958312533069938
+    second: Tiny_Knight_Sheet_42
+  - first:
+      213: -4373535205576728652
+    second: Tiny_Knight_Sheet_43
+  - first:
+      213: 7884774354342729111
+    second: Tiny_Knight_Sheet_44
+  - first:
+      213: -6012274568339830391
+    second: Tiny_Knight_Sheet_45
+  - first:
+      213: -3132996255569521687
+    second: Tiny_Knight_Sheet_46
+  - first:
+      213: -5299807383197749807
+    second: Tiny_Knight_Sheet_47
+  - first:
+      213: -3176924735166927925
+    second: Tiny_Knight_Sheet_48
+  - first:
+      213: -2403956542650087155
+    second: Tiny_Knight_Sheet_49
+  - first:
+      213: -5917172564781175167
+    second: Tiny_Knight_Sheet_50
+  - first:
+      213: -8260576575834863031
+    second: Tiny_Knight_Sheet_51
+  - first:
+      213: -8628966927758029678
+    second: Tiny_Knight_Sheet_52
+  - first:
+      213: -1446311970972480725
+    second: Tiny_Knight_Sheet_53
+  - first:
+      213: 6459050217026659282
+    second: Tiny_Knight_Sheet_54
+  - first:
+      213: -1623814125745171928
+    second: Tiny_Knight_Sheet_55
+  - first:
+      213: -6578618055134401149
+    second: Tiny_Knight_Sheet_56
+  - first:
+      213: -5359955102553186015
+    second: Tiny_Knight_Sheet_57
+  - first:
+      213: -1430644751378678565
+    second: Tiny_Knight_Sheet_58
+  - first:
+      213: -935111549129255391
+    second: Tiny_Knight_Sheet_59
+  - first:
+      213: -5783644006347850709
+    second: Tiny_Knight_Sheet_60
+  - first:
+      213: -8674316386421893700
+    second: Tiny_Knight_Sheet_61
+  - first:
+      213: 8538361523285343874
+    second: Tiny_Knight_Sheet_62
+  - first:
+      213: -4145145085547675275
+    second: Tiny_Knight_Sheet_63
+  - first:
+      213: 3761055113638938290
+    second: Tiny_Knight_Sheet_64
+  - first:
+      213: -2994623098451717091
+    second: Tiny_Knight_Sheet_65
+  - first:
+      213: 4936045391772539911
+    second: Tiny_Knight_Sheet_66
+  - first:
+      213: -7237963871235548101
+    second: Tiny_Knight_Sheet_67
+  - first:
+      213: 9046123025111278484
+    second: Tiny_Knight_Sheet_68
+  - first:
+      213: -194693786148885082
+    second: Tiny_Knight_Sheet_69
+  - first:
+      213: 1057272519644820023
+    second: Tiny_Knight_Sheet_70
+  - first:
+      213: -7753721572875233476
+    second: Tiny_Knight_Sheet_71
+  - first:
+      213: 2577392025213588099
+    second: Tiny_Knight_Sheet_72
+  - first:
+      213: 9101039546094048665
+    second: Tiny_Knight_Sheet_73
+  - first:
+      213: -1022843968257797144
+    second: Tiny_Knight_Sheet_74
+  - first:
+      213: 7115629008932864100
+    second: Tiny_Knight_Sheet_75
+  - first:
+      213: -280384507732373661
+    second: Tiny_Knight_Sheet_76
+  - first:
+      213: -6062912647923158505
+    second: Tiny_Knight_Sheet_77
+  - first:
+      213: -4468767387148337474
+    second: Tiny_Knight_Sheet_78
+  - first:
+      213: 3075585043844100744
+    second: Tiny_Knight_Sheet_79
+  - first:
+      213: -4108708716026919234
+    second: Tiny_Knight_Sheet_80
+  - first:
+      213: -8837308964035031509
+    second: Tiny_Knight_Sheet_81
+  - first:
+      213: -37585692600362846
+    second: Tiny_Knight_Sheet_82
+  - first:
+      213: 5914980390492433971
+    second: Tiny_Knight_Sheet_83
+  - first:
+      213: 7168865138753944440
+    second: Tiny_Knight_Sheet_84
+  - first:
+      213: 4994789775922058427
+    second: Tiny_Knight_Sheet_85
+  - first:
+      213: -2388022778608328852
+    second: Tiny_Knight_Sheet_86
+  - first:
+      213: 1298779724868161316
+    second: Tiny_Knight_Sheet_87
+  - first:
+      213: -1581640227741867993
+    second: Tiny_Knight_Sheet_88
+  - first:
+      213: -5816113056366215488
+    second: Tiny_Knight_Sheet_89
+  - first:
+      213: 546452437584308661
+    second: Tiny_Knight_Sheet_90
+  - first:
+      213: 1751049210303351722
+    second: Tiny_Knight_Sheet_91
+  - first:
+      213: -5287497333302410221
+    second: Tiny_Knight_Sheet_92
+  - first:
+      213: 1117853294916027160
+    second: Tiny_Knight_Sheet_93
+  - first:
+      213: 1054185230013503493
+    second: Tiny_Knight_Sheet_94
+  - first:
+      213: 6518549852116918684
+    second: Tiny_Knight_Sheet_95
+  - first:
+      213: 398106454634678007
+    second: Tiny_Knight_Sheet_96
+  - first:
+      213: 2176043012292561923
+    second: Tiny_Knight_Sheet_97
+  - first:
+      213: 4434353332779744380
+    second: Tiny_Knight_Sheet_98
+  - first:
+      213: -5774022942379654740
+    second: Tiny_Knight_Sheet_99
+  - first:
+      213: -6838716331290115134
+    second: Tiny_Knight_Sheet_100
+  - first:
+      213: 1419189312983041886
+    second: Tiny_Knight_Sheet_101
+  - first:
+      213: -2220050867191548676
+    second: Tiny_Knight_Sheet_102
+  - first:
+      213: -7379430267318284811
+    second: Tiny_Knight_Sheet_103
+  - first:
+      213: -5971526740905507307
+    second: Tiny_Knight_Sheet_104
+  - first:
+      213: -4301403231834223682
+    second: Tiny_Knight_Sheet_105
+  - first:
+      213: 41534411455828624
+    second: Tiny_Knight_Sheet_106
+  - first:
+      213: -5406789087949698499
+    second: Tiny_Knight_Sheet_107
+  - first:
+      213: -99063837025562534
+    second: Tiny_Knight_Sheet_108
+  - first:
+      213: 3682350189263312214
+    second: Tiny_Knight_Sheet_109
+  - first:
+      213: 5668395692378296922
+    second: Tiny_Knight_Sheet_110
+  - first:
+      213: -2162013254946551332
+    second: Tiny_Knight_Sheet_111
+  - first:
+      213: -387962740328072780
+    second: Tiny_Knight_Sheet_112
+  - first:
+      213: 1512184517158558078
+    second: Tiny_Knight_Sheet_113
+  - first:
+      213: 2422252015615056667
+    second: Tiny_Knight_Sheet_114
+  - first:
+      213: 8748896122633914669
+    second: Tiny_Knight_Sheet_115
+  - first:
+      213: -2743367629615096496
+    second: Tiny_Knight_Sheet_116
+  - first:
+      213: -7349488063129260157
+    second: Tiny_Knight_Sheet_117
+  - first:
+      213: -5443062636582216742
+    second: Tiny_Knight_Sheet_118
+  - first:
+      213: -3135138616594232331
+    second: Tiny_Knight_Sheet_119
+  - first:
+      213: 8925146993761727383
+    second: Tiny_Knight_Sheet_120
+  - first:
+      213: -7890667377381850159
+    second: Tiny_Knight_Sheet_121
+  - first:
+      213: 2391186339230165904
+    second: Tiny_Knight_Sheet_122
+  - first:
+      213: 4552296847406234036
+    second: Tiny_Knight_Sheet_123
+  - first:
+      213: -8919311726199497206
+    second: Tiny_Knight_Sheet_124
+  - first:
+      213: -2200239804369146324
+    second: Tiny_Knight_Sheet_125
+  - first:
+      213: -1599372688469360099
+    second: Tiny_Knight_Sheet_126
+  - first:
+      213: 57289435928520326
+    second: Tiny_Knight_Sheet_127
+  - first:
+      213: -5095684369852339381
+    second: Tiny_Knight_Sheet_128
+  - first:
+      213: 2967245680520977681
+    second: Tiny_Knight_Sheet_129
+  - first:
+      213: 891194478557449155
+    second: Tiny_Knight_Sheet_130
+  - first:
+      213: 5513492363737917855
+    second: Tiny_Knight_Sheet_131
+  - first:
+      213: -7538718178243495051
+    second: Tiny_Knight_Sheet_132
+  - first:
+      213: -1009364117369513120
+    second: Tiny_Knight_Sheet_133
+  - first:
+      213: 839255419666296068
+    second: Tiny_Knight_Sheet_134
+  - first:
+      213: -627083458234592574
+    second: Tiny_Knight_Sheet_135
+  - first:
+      213: -2701407393801239596
+    second: Tiny_Knight_Sheet_136
+  - first:
+      213: 8846901571904998452
+    second: Tiny_Knight_Sheet_137
+  - first:
+      213: 5608730119587326834
+    second: Tiny_Knight_Sheet_138
+  - first:
+      213: 830705613831322265
+    second: Tiny_Knight_Sheet_139
+  - first:
+      213: -6164438367245227757
+    second: Tiny_Knight_Sheet_140
+  - first:
+      213: 167106005389460087
+    second: Tiny_Knight_Sheet_141
+  - first:
+      213: 5221600369976450228
+    second: Tiny_Knight_Sheet_142
+  - first:
+      213: 5685847871238846622
+    second: Tiny_Knight_Sheet_143
+  - first:
+      213: -2102965715086069179
+    second: Tiny_Knight_Sheet_144
+  - first:
+      213: -2341729784858694180
+    second: Tiny_Knight_Sheet_145
+  - first:
+      213: 394803928631130401
+    second: Tiny_Knight_Sheet_146
+  - first:
+      213: 5278338751557425211
+    second: Tiny_Knight_Sheet_147
+  - first:
+      213: 6013475571017689692
+    second: Tiny_Knight_Sheet_148
+  - first:
+      213: 8090850175950044872
+    second: Tiny_Knight_Sheet_149
+  - first:
+      213: -8761068451066991427
+    second: Tiny_Knight_Sheet_150
+  - first:
+      213: 6838195058577008689
+    second: Tiny_Knight_Sheet_151
+  - first:
+      213: -5993269591993357863
+    second: Tiny_Knight_Sheet_152
+  - first:
+      213: 399871842570182913
+    second: Tiny_Knight_Sheet_153
+  - first:
+      213: -891820282255149043
+    second: Tiny_Knight_Sheet_154
+  - first:
+      213: 7391709740654654304
+    second: Tiny_Knight_Sheet_155
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f067735fcb031a0800000000000000
+      internalID: -6831752873337548987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea8606ce808c6270800000000000000
+      internalID: 8245106368504564459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e431fbf732c8030800000000000000
+      internalID: 3498210042133564942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90bc1037b4a6e79f0800000000000000
+      internalID: -468820438915364087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38274a0cd9d982590800000000000000
+      internalID: -7698730262122433917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e6c8aafdb23fe8a0800000000000000
+      internalID: -6273739964368238875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f080fad407872dd0800000000000000
+      internalID: -2510889812312948490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7919e9fffc15d60800000000000000
+      internalID: 7877305920031659956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d113a496e24bb08b0800000000000000
+      internalID: -5184852434559028963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b780526e1872ae0800000000000000
+      internalID: -1574146719278924981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b259ce76866aea40800000000000000
+      internalID: 5398239831195734707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db682ff088de9590800000000000000
+      internalID: -7665451467189752874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8c08d3f0cdaa680800000000000000
+      internalID: -8742933768571926322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0d22e69867f53b0800000000000000
+      internalID: -5521564285502566219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2238f934d84ece80800000000000000
+      internalID: -8156501798778555858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8cb17f816478a6a0800000000000000
+      internalID: -6437767704958878579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0ea1f4204669070800000000000000
+      internalID: 8112781739834401001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6795e006d14d7290800000000000000
+      internalID: -7891078584689387667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e8b98e09fcd1790800000000000000
+      internalID: -7557656378373075389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9ba11ec89f870c0800000000000000
+      internalID: -4577634637754746432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff14dfd2dbcff82d0800000000000000
+      internalID: -3274120514624470529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4992351a4cd1c09c0800000000000000
+      internalID: -3959757242008131180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6c540fae4a8e050800000000000000
+      internalID: 5830091046591514355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409ac8106ac9a8d50800000000000000
+      internalID: 6740372029117868292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5598d2f7d7a7b7730800000000000000
+      internalID: 3997923773644638549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98ffcc4a64ec56c30800000000000000
+      internalID: 4352111417731383177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999d372f353ed2d30800000000000000
+      internalID: 4408429559955052953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c55f49f6273c05f0800000000000000
+      internalID: -789195194165668413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580151777c979dbd0800000000000000
+      internalID: -2604917011853799291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb459d83a40fe0ab0800000000000000
+      internalID: -5039826731408993092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a44e14a40277e00800000000000000
+      internalID: 1042337342064708158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f245e7bef0a1a68b0800000000000000
+      internalID: -5158281767521725393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592365d21f0f1d8e0800000000000000
+      internalID: -1670289068139335019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5150497e79cb9dc0800000000000000
+      internalID: -3631087129506852518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8579a34466bdae20800000000000000
+      internalID: 3363545038463792527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865a0faeb4cccc190800000000000000
+      internalID: -7940747416524774040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baaba742524c4b640800000000000000
+      internalID: 5094912742267730603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7492a9bee3b6eb720800000000000000
+      internalID: 2863844331039107399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e01129dcf600fa0800000000000000
+      internalID: -5836542188362592713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b280cc9866620430800000000000000
+      internalID: 3747670439418167988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9e5ac37befa4800800000000000000
+      internalID: 597569963529988535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e21947073d43180800000000000000
+      internalID: -9136445264082424258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27097594264c7d830800000000000000
+      internalID: 4095958312533069938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf1fea07e41e43c0800000000000000
+      internalID: -4373535205576728652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79555bcff785c6d60800000000000000
+      internalID: 7884774354342729111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9894dfd622c109ca0800000000000000
+      internalID: -6012274568339830391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e35620418c5584d0800000000000000
+      internalID: -3132996255569521687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb293219cb49e3d0800000000000000
+      internalID: -3176924735166927925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ee78127eaf1eda0800000000000000
+      internalID: -5917172564781175167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a4375ee598c5d80800000000000000
+      internalID: -8260576575834863031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c83642c40cf3880800000000000000
+      internalID: -8628966927758029678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b4acfdceaadebe0800000000000000
+      internalID: -1446311970972480725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d3a84c63f723a950800000000000000
+      internalID: 6459050217026659282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82292bde7ad0779e0800000000000000
+      internalID: -1623814125745171928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d2ebedbbd04b4a0800000000000000
+      internalID: -6578618055134401149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12166448b3d9d95b0800000000000000
+      internalID: -5359955102553186015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdcfb42bd24552ce0800000000000000
+      internalID: -1430644751378678565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12619c02001d503f0800000000000000
+      internalID: -935111549129255391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2cb1565b6e5cbfa0800000000000000
+      internalID: -5783644006347850709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb519fd7433ae9780800000000000000
+      internalID: -8674316386421893700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e3947319a5e7670800000000000000
+      internalID: 8538361523285343874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5718971b18c7976c0800000000000000
+      internalID: -4145145085547675275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b68d1de2b3f13430800000000000000
+      internalID: 3761055113638938290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d141b9c7826f076d0800000000000000
+      internalID: -2994623098451717091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c5ecba12b508440800000000000000
+      internalID: 4936045391772539911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3cd4ed15369d8b90800000000000000
+      internalID: -7237963871235548101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4936d3286f84a8d70800000000000000
+      internalID: 9046123025111278484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6adae94780f4c4df0800000000000000
+      internalID: -194693786148885082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732363441cf2cae00800000000000000
+      internalID: 1057272519644820023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c371d797f4f356490800000000000000
+      internalID: -7753721572875233476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382d7cd246cb4c320800000000000000
+      internalID: 2577392025213588099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 995d7bf6f336d4e70800000000000000
+      internalID: 9101039546094048665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e3d75384d02ec1f0800000000000000
+      internalID: -1022843968257797144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46088e622eacfb260800000000000000
+      internalID: 7115629008932864100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36fc61896cfdb1cf0800000000000000
+      internalID: -280384507732373661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiny_Knight_Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7123154c1153cdba0800000000000000
+      internalID: -6062912647923158505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tiny_Knight_Sheet_8: -5184852434559028963
+      Tiny_Knight_Sheet_10: 5398239831195734707
+      Tiny_Knight_Sheet_32: -1670289068139335019
+      Tiny_Knight_Sheet_28: -2604917011853799291
+      Tiny_Knight_Sheet_65: -2994623098451717091
+      Tiny_Knight_Sheet_46: -3132996255569521687
+      Tiny_Knight_Sheet_64: 3761055113638938290
+      Tiny_Knight_Sheet_11: -7665451467189752874
+      Tiny_Knight_Sheet_35: -7940747416524774040
+      Tiny_Knight_Sheet_53: -1446311970972480725
+      Tiny_Knight_Sheet_31: -5158281767521725393
+      Tiny_Knight_Sheet_37: 2863844331039107399
+      Tiny_Knight_Sheet_77: -6062912647923158505
+      Tiny_Knight_Sheet_76: -280384507732373661
+      Tiny_Knight_Sheet_69: -194693786148885082
+      Tiny_Knight_Sheet_50: -5917172564781175167
+      Tiny_Knight_Sheet_27: -789195194165668413
+      Tiny_Knight_Sheet_72: 2577392025213588099
+      Tiny_Knight_Sheet_3: -468820438915364087
+      Tiny_Knight_Sheet_14: -8156501798778555858
+      Tiny_Knight_Sheet_30: 1042337342064708158
+      Tiny_Knight_Sheet_20: -3274120514624470529
+      Tiny_Knight_Sheet_2: 3498210042133564942
+      Tiny_Knight_Sheet_75: 7115629008932864100
+      Tiny_Knight_Sheet_43: -4373535205576728652
+      Tiny_Knight_Sheet_13: -5521564285502566219
+      Tiny_Knight_Sheet_15: -6437767704958878579
+      Tiny_Knight_Sheet_39: 3747670439418167988
+      Tiny_Knight_Sheet_54: 6459050217026659282
+      Tiny_Knight_Sheet_16: 8112781739834401001
+      Tiny_Knight_Sheet_48: -3176924735166927925
+      Tiny_Knight_Sheet_55: -1623814125745171928
+      Tiny_Knight_Sheet_41: -9136445264082424258
+      Tiny_Knight_Sheet_23: 6740372029117868292
+      Tiny_Knight_Sheet_19: -4577634637754746432
+      Tiny_Knight_Sheet_22: 5830091046591514355
+      Tiny_Knight_Sheet_9: -1574146719278924981
+      Tiny_Knight_Sheet_17: -7891078584689387667
+      Tiny_Knight_Sheet_36: 5094912742267730603
+      Tiny_Knight_Sheet_73: 9101039546094048665
+      Tiny_Knight_Sheet_4: -7698730262122433917
+      Tiny_Knight_Sheet_70: 1057272519644820023
+      Tiny_Knight_Sheet_26: 4408429559955052953
+      Tiny_Knight_Sheet_44: 7884774354342729111
+      Tiny_Knight_Sheet_21: -3959757242008131180
+      Tiny_Knight_Sheet_33: -3631087129506852518
+      Tiny_Knight_Sheet_5: -6273739964368238875
+      Tiny_Knight_Sheet_34: 3363545038463792527
+      Tiny_Knight_Sheet_0: -6831752873337548987
+      Tiny_Knight_Sheet_40: 597569963529988535
+      Tiny_Knight_Sheet_45: -6012274568339830391
+      Tiny_Knight_Sheet_42: 4095958312533069938
+      Tiny_Knight_Sheet_38: -5836542188362592713
+      Tiny_Knight_Sheet_7: 7877305920031659956
+      Tiny_Knight_Sheet_68: 9046123025111278484
+      Tiny_Knight_Sheet_60: -5783644006347850709
+      Tiny_Knight_Sheet_12: -8742933768571926322
+      Tiny_Knight_Sheet_24: 3997923773644638549
+      Tiny_Knight_Sheet_25: 4352111417731383177
+      Tiny_Knight_Sheet_52: -8628966927758029678
+      Tiny_Knight_Sheet_57: -5359955102553186015
+      Tiny_Knight_Sheet_29: -5039826731408993092
+      Tiny_Knight_Sheet_1: 8245106368504564459
+      Tiny_Knight_Sheet_67: -7237963871235548101
+      Tiny_Knight_Sheet_56: -6578618055134401149
+      Tiny_Knight_Sheet_18: -7557656378373075389
+      Tiny_Knight_Sheet_58: -1430644751378678565
+      Tiny_Knight_Sheet_59: -935111549129255391
+      Tiny_Knight_Sheet_62: 8538361523285343874
+      Tiny_Knight_Sheet_61: -8674316386421893700
+      Tiny_Knight_Sheet_71: -7753721572875233476
+      Tiny_Knight_Sheet_66: 4936045391772539911
+      Tiny_Knight_Sheet_51: -8260576575834863031
+      Tiny_Knight_Sheet_74: -1022843968257797144
+      Tiny_Knight_Sheet_63: -4145145085547675275
+      Tiny_Knight_Sheet_6: -2510889812312948490
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

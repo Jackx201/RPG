@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060dc08d09156ee4b911e489d6d1889c, type: 3}
+  m_Name: DashSelector
+  m_EditorClassIdentifier: 
+  mySprite: {fileID: 21300000, guid: 87e3fb63a11cbdd4cb9c3e00cf94691a, type: 3}
+  myName: Dash
+  myDescription: Move fast Towards One direction.
+  isUsable: 0
+  isUnique: 1
+  numberHeld: 1
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3458189973457265257, guid: e778e033111ef9f4d848c4ce43737cc3,
+          type: 3}
+        m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
