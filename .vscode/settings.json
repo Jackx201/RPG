@@ -1,7 +1,10 @@
 {
     "files.exclude": {
-        "**/.DS_Store": true,
         "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
         "**/.gitignore": true,
         "**/.gitmodules": true,
         "**/*.booproj": true,
@@ -50,7 +53,8 @@
         "Obj/": true,
         "ProjectSettings/": true,
         "temp/": true,
-        "Temp/": true
+        "Temp/": true,
+        ".mule": true
     },
     "python.pythonPath": "C:\\Users\\User072020\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
     "dotnet.defaultSolution": "RPG.sln"
