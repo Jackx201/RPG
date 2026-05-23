@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,7 +58,6 @@ public class PlayerMovement : Movement
             StartCoroutine(WeaponCo());
             //tempMovement = Vector2.zero;
             Motion(tempMovement);
-            screenKick.Raise();
         }
 
         if(Input.GetButtonDown("skill") && currentAbility.canUse)
