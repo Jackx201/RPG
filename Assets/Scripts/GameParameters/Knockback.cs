@@ -24,7 +24,8 @@ public class Knockback : MonoBehaviour
                 // (direction.normalized * knockStrength), knockTime); 
                 Vector3 tempdirection = temp.transform.position 
                 + (Vector3) direction.normalized * knockStrength;
-                temp.transform.DOMove(tempdirection, knockTime);
+                //temp.transform.DOMove(tempdirection, knockTime);
+                temp.DOMove(tempdirection, knockTime).SetUpdate(UpdateType.Fixed);
             }
         }
     }
