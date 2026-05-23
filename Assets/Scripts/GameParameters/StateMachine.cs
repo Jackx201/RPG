@@ -10,7 +10,8 @@ public enum GenericState
     stun,
     dead,
     receiveItem,
-    ability
+    ability,
+    dying
 }
 
 public class StateMachine : MonoBehaviour

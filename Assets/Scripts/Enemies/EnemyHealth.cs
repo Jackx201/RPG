@@ -6,6 +6,17 @@ public class EnemyHealth : Health
 {
 
     [SerializeField] private GameObject deathEffect;
+    [SerializeField] private LootTable thisLoot;
+
+    private void DropLoot()
+    {
+        if (thisLoot == null) return;
+        PowerUp current = thisLoot.LootPowerUp();
+        if (current != null)
+        {
+            Instantiate(current.gameObject, transform.position, Quaternion.identity);
+        }
+    }
 
 
     public override void Damage(int damage)
@@ -17,23 +28,11 @@ public class EnemyHealth : Health
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void Die()
     {
         
         Instantiate(deathEffect, transform.position, transform.rotation);
+        DropLoot();
         this.transform.parent.gameObject.SetActive(false);
     }
 
