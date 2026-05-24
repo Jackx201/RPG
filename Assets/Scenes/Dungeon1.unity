@@ -51352,6 +51352,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1756121058}
+  - {fileID: 7129912256769434754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756121057
@@ -51636,7 +51637,7 @@ Transform:
   m_GameObject: {fileID: 1846026200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 5.39, z: -8}
+  m_LocalPosition: {x: -2.0000002, y: 38, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54114,13 +54115,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInRange: 0
   otherTag: Player
-  myNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4, type: 2}
+  myNotification: {fileID: 0}
   animm: {fileID: 0}
   thisDoorType: 1
   open: 0
   playerInventory: {fileID: 11400000, guid: 8a2b1fcbbd43ec84eb0562f5bb1350d6, type: 2}
   keyItem: {fileID: 0}
-  doorSprite: {fileID: 0}
+  doorSprite: {fileID: 2432789418901282460}
   physicsColider: {fileID: 1262360504}
 --- !u!61 &2432789418683590490
 BoxCollider2D:
@@ -54740,7 +54741,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
   thisLoot: {fileID: 0}
-  roomSignal: {fileID: 11400000, guid: 7b19611e82866844bafaca67f0654f07, type: 2}
+  roomSignal: {fileID: 0}
   myRigidBody2D: {fileID: 5521078455938048394}
   target: {fileID: 475989081}
   chaseRadious: 4
@@ -55003,7 +55004,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
   thisLoot: {fileID: 0}
-  roomSignal: {fileID: 11400000, guid: 7b19611e82866844bafaca67f0654f07, type: 2}
+  roomSignal: {fileID: 0}
   myRigidBody2D: {fileID: 0}
   target: {fileID: 0}
   chaseRadious: 4
@@ -55266,7 +55267,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
   thisLoot: {fileID: 0}
-  roomSignal: {fileID: 11400000, guid: 7b19611e82866844bafaca67f0654f07, type: 2}
+  roomSignal: {fileID: 0}
   myRigidBody2D: {fileID: 0}
   target: {fileID: 0}
   chaseRadious: 4
@@ -55520,7 +55521,8 @@ MonoBehaviour:
   - {fileID: 5521078455938048395}
   - {fileID: 5521078457563466571}
   - {fileID: 5521078456243734891}
-  pots: []
+  pots:
+  - {fileID: 4574713192538420110}
   virtualCamera: {fileID: 0}
   doors:
   - {fileID: 2432789418683590489}
@@ -55591,7 +55593,6 @@ Transform:
   - {fileID: 5521078455938048392}
   - {fileID: 5521078457563466568}
   - {fileID: 5521078456243734888}
-  - {fileID: 7129912256769434754}
   - {fileID: 1906058575288471012}
   - {fileID: 2432789418901282451}
   - {fileID: 274000353}
@@ -56084,7 +56085,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6520637183141268539}
+  m_Father: {fileID: 1701134958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7963678968414723246
 Animator:

@@ -12,21 +12,47 @@ public class Interactable : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
+        if (string.IsNullOrEmpty(otherTag) || other == null)
+        {
+            return;
+        }
+
         if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            animm.SetAnimParameter("contextActive", true);
+            if (animm != null)
+            {
+                animm.SetAnimParameter("contextActive", true);
+            }
+
             playerInRange = true;
-			myNotification.Raise();
+
+            if (myNotification != null)
+            {
+                myNotification.Raise();
+            }
         }
     }
 
     public virtual void OnTriggerExit2D(Collider2D other)
     {
+        if (string.IsNullOrEmpty(otherTag) || other == null)
+        {
+            return;
+        }
+
         if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            animm.SetAnimParameter("contextActive", false);
+            if (animm != null)
+            {
+                animm.SetAnimParameter("contextActive", false);
+            }
+
             playerInRange = false;
-			myNotification.Raise();
+
+            if (myNotification != null)
+            {
+                myNotification.Raise();
+            }
         }
     }
 }

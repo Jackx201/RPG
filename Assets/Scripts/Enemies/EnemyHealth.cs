@@ -8,6 +8,7 @@ public class EnemyHealth : Health
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private LootTable thisLoot;
 
+
     private void DropLoot()
     {
         if (thisLoot == null) return;
@@ -30,7 +31,15 @@ public class EnemyHealth : Health
 
     void Die()
     {
-        
+        Debug.Log("Enemy died.");
+
+/*
+            if(roomSignal != null)
+            {
+                Debug.Log("Enemy defeated, sending room signal.");
+                roomSignal.Raise();
+            }          
+*/            
         Instantiate(deathEffect, transform.position, transform.rotation);
         DropLoot();
         this.transform.parent.gameObject.SetActive(false);
