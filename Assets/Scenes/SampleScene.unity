@@ -83792,6 +83792,7 @@ MonoBehaviour:
   currentHealth: 5
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
+  thisLoot: {fileID: 0}
 --- !u!114 &719477967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83821,6 +83822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 1
+  hitSignal: {fileID: 0}
 --- !u!850595691 &727093324
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -84295,6 +84297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 1
+  hitSignal: {fileID: 0}
 --- !u!114 &850216307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84326,6 +84329,7 @@ MonoBehaviour:
   currentHealth: 5
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
+  thisLoot: {fileID: 0}
 --- !u!61 &850216309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89741,6 +89745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 1
+  hitSignal: {fileID: 0}
 --- !u!114 &1315411400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89772,6 +89777,7 @@ MonoBehaviour:
   currentHealth: 3
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
+  thisLoot: {fileID: 0}
 --- !u!61 &1315411402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90282,6 +90288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 2
+  hitSignal: {fileID: 0}
 --- !u!4 &1429623459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6916445868364136176, guid: 91dc77b3997eed64fa96d965b94b00c0,
@@ -90939,6 +90946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 2
+  hitSignal: {fileID: 0}
 --- !u!1 &1530590784
 GameObject:
   m_ObjectHideFlags: 0
@@ -127137,6 +127145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 2
+  hitSignal: {fileID: 0}
 --- !u!114 &1597558445 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8880527240149831054, guid: a841abc9112036944bfe9118f54fc1c6,
@@ -128097,6 +128106,7 @@ MonoBehaviour:
   currentHealth: 3
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
+  thisLoot: {fileID: 0}
 --- !u!61 &1951185215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128872,6 +128882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 2
+  hitSignal: {fileID: 0}
 --- !u!1 &2071800129
 GameObject:
   m_ObjectHideFlags: 0
