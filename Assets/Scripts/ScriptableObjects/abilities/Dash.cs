@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ public class Dash : GenericAbility
 {
     public float dashForce;
     [SerializeField] private float cooldown;
+    [SerializeField] private int enemyLayer = 8; // Número de layer de enemigos (verificar en Unity: Edit > Project Settings > Tags & Layers)
     private Magic myMagic;
     
 
@@ -22,6 +23,23 @@ public class Dash : GenericAbility
             (Vector3)playerFacingDirection.normalized * dashForce;
             playerRigidbody.DOMove(dashVector, duration);
             usePlayerMagic.Raise();
+
+            // Ignorar colisión con la capa de enemigos durante el dash
+            int playerLayer = playerRigidbody.gameObject.layer;
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+
+            // Restaurar colisión al terminar el dash usando la MonoBehaviour del jugador
+            MonoBehaviour playerMono = playerRigidbody.GetComponent<MonoBehaviour>();
+            if (playerMono != null)
+            {
+                playerMono.StartCoroutine(RestoreCollisionCo(playerLayer, enemyLayer, duration));
+            }
         }
+    }
+
+    private IEnumerator RestoreCollisionCo(int playerLayer, int enemLayer, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Physics2D.IgnoreLayerCollision(playerLayer, enemLayer, false);
     }
 }
