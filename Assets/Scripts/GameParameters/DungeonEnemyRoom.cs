@@ -9,13 +9,15 @@
 
      public void CheckEnemies()
      {
+        Debug.Log("Checking if all enemies are defeated...");
          for( int i = 0; i < enemies.Length; i++)
          {
-             if(enemies[i].gameObject.activeInHierarchy && i < enemies.Length - 1)
+             if(enemies[i].gameObject.activeInHierarchy)
              {
                  return;
              }
          }
+         Debug.Log("All enemies defeated, opening doors.");
          OpenDoors();
      }
 
@@ -70,7 +72,7 @@
          }
      }
 
-         public void OpenDoors()
+    public void OpenDoors()
      {
          int NumberOfDoors = doors.Length;
          for(int i=0; i < NumberOfDoors; i++)

@@ -46,7 +46,7 @@ public class Enemmy : MonoBehaviour
         currentState = EnemyState.idle;
     }
     
-    private void TakeDamage(float damage){
+    /* private void TakeDamage(float damage){
         health -= damage;
         if(health <= 0){
             DeathEffect();
@@ -54,12 +54,13 @@ public class Enemmy : MonoBehaviour
 
             if(roomSignal != null)
             {
+            Debug.Log("Enemy defeated, sending room signal.");
             roomSignal.Raise();
             }
 
             this.gameObject.SetActive(false);
         }
-    }
+    }*/
 
     private void MakeLoot()
     {

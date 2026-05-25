@@ -40,6 +40,7 @@
          doorSprite.enabled = false;
          open = true;
          physicsColider.enabled = false;
+         this.gameObject.SetActive(false);
      }
 
      public void CloseDoor()

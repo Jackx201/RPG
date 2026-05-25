@@ -12,6 +12,7 @@ public class PlayerMovement : Movement
     public GenericAbility currentAbility;
     public GenericAbility secondaryAbility;
 
+
     public Vector2 tempMovement = Vector2.left;
     private Vector2 facingDirection = Vector2.down;
     public SignalSender screenKick;
@@ -128,7 +129,7 @@ public class PlayerMovement : Movement
      {
          myState.ChangeState(GenericState.ability);
          currentAbility.Ability(transform.position, facingDirection, anim.anim, myRigidbody);
-         yield return new WaitForSeconds(0.3f );
+         yield return new WaitForSeconds(0.3f);
          myState.ChangeState(GenericState.idle);
      }
 
