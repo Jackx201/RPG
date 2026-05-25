@@ -18,28 +18,42 @@ public class Dash : GenericAbility
     {
         if (playerRigidbody && playerMagic.RuntimeValue >= costMagic)
         {
+            // Activar animación de dash con la dirección correcta
+            if (playerAnimator != null)
+            {
+                playerAnimator.SetFloat("moveX", Mathf.Round(playerFacingDirection.x));
+                playerAnimator.SetFloat("moveY", Mathf.Round(playerFacingDirection.y));
+                playerAnimator.SetBool("Dashing", true);
+            }
+
             playerMagic.RuntimeValue -= costMagic;
             Vector3 dashVector = playerRigidbody.transform.position + 
             (Vector3)playerFacingDirection.normalized * dashForce;
             playerRigidbody.DOMove(dashVector, duration);
             usePlayerMagic.Raise();
 
+
+
             // Ignorar colisión con la capa de enemigos durante el dash
             int playerLayer = playerRigidbody.gameObject.layer;
             Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
 
-            // Restaurar colisión al terminar el dash usando la MonoBehaviour del jugador
+            // Restaurar colisión y animación al terminar el dash
             MonoBehaviour playerMono = playerRigidbody.GetComponent<MonoBehaviour>();
             if (playerMono != null)
             {
-                playerMono.StartCoroutine(RestoreCollisionCo(playerLayer, enemyLayer, duration));
+                playerMono.StartCoroutine(RestoreCollisionCo(playerLayer, enemyLayer, duration, playerAnimator));
             }
         }
     }
 
-    private IEnumerator RestoreCollisionCo(int playerLayer, int enemLayer, float delay)
+    private IEnumerator RestoreCollisionCo(int playerLayer, int enemLayer, float delay, Animator playerAnimator)
     {
         yield return new WaitForSeconds(delay);
         Physics2D.IgnoreLayerCollision(playerLayer, enemLayer, false);
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("Dashing", false);
+        }
     }
 }
