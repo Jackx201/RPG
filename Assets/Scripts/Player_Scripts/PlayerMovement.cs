@@ -9,6 +9,8 @@ public class PlayerMovement : Movement
     [SerializeField] private float WeaponAttackDuration;
     [SerializeField] private ReceiveItem myItem;
     [SerializeField] private GlobalAbilities abilities;
+    [SerializeField] private Inventory playerInventory;
+    [SerializeField] private InventoryItem swordItem;
     public GenericAbility currentAbility;
     public GenericAbility secondaryAbility;
 
@@ -56,9 +58,12 @@ public class PlayerMovement : Movement
     {
         if(Input.GetButtonDown("Weapon Attack"))
         {
-            StartCoroutine(WeaponCo());
-            //tempMovement = Vector2.zero;
-            Motion(tempMovement);
+            if (playerInventory != null && swordItem != null && playerInventory.IsItemInInventory(swordItem))
+            {
+                StartCoroutine(WeaponCo());
+                //tempMovement = Vector2.zero;
+                Motion(tempMovement);
+            }
         }
 
         if(Input.GetButtonDown("skill") && currentAbility.canUse)
