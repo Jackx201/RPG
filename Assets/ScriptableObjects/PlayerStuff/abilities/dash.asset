@@ -20,5 +20,5 @@ MonoBehaviour:
   coolDown: 0
   uiImage: {fileID: 21300000, guid: 87e3fb63a11cbdd4cb9c3e00cf94691a, type: 3}
   dashForce: 5
-  cooldown: 3
+  postDashImmunity: 2
   enemyLayer: 8
