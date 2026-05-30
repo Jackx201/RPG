@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class Dash : GenericAbility
 {
     public float dashForce;
-    [SerializeField] private float cooldown;
+    [SerializeField] private float postDashImmunity = 2f;
     [SerializeField] private int enemyLayer = 8; // Número de layer de enemigos (verificar en Unity: Edit > Project Settings > Tags & Layers)
     private Magic myMagic;
     
@@ -16,7 +16,7 @@ public class Dash : GenericAbility
     public override void Ability(Vector2 playerPosition, Vector2 playerFacingDirection, 
     Animator playerAnimator = null, Rigidbody2D playerRigidbody = null) 
     {
-        if (playerRigidbody && playerMagic.RuntimeValue >= costMagic)
+        if (playerRigidbody && playerMagic.RuntimeValue >= costMagic && canUse)
         {
             // Activar animación de dash con la dirección correcta
             if (playerAnimator != null)
@@ -40,20 +40,38 @@ public class Dash : GenericAbility
 
             // Restaurar colisión y animación al terminar el dash
             MonoBehaviour playerMono = playerRigidbody.GetComponent<MonoBehaviour>();
+            PlayerHealth playerHealth = playerRigidbody.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.isInvincible = true;
+            }
+
             if (playerMono != null)
             {
-                playerMono.StartCoroutine(RestoreCollisionCo(playerLayer, enemyLayer, duration, playerAnimator));
+                playerMono.StartCoroutine(RestoreCollisionCo(playerLayer, enemyLayer, duration, playerAnimator, playerHealth));
+                StartCooldown(playerMono);
             }
         }
     }
 
-    private IEnumerator RestoreCollisionCo(int playerLayer, int enemLayer, float delay, Animator playerAnimator)
+    private IEnumerator RestoreCollisionCo(int playerLayer, int enemLayer, float delay, Animator playerAnimator, PlayerHealth playerHealth)
     {
         yield return new WaitForSeconds(delay);
+        
         Physics2D.IgnoreLayerCollision(playerLayer, enemLayer, false);
+
         if (playerAnimator != null)
         {
             playerAnimator.SetBool("Dashing", false);
+        }
+
+        // Wait an additional 1 second for post-dash immunity
+        yield return new WaitForSeconds(postDashImmunity);
+        
+        if (playerHealth != null)
+        {
+            playerHealth.isInvincible = false;
         }
     }
 }

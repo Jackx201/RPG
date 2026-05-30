@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -15,6 +15,9 @@ public class Knockback : MonoBehaviour
     {
         if (other.gameObject.CompareTag(otherTag) && other.isTrigger)
         {
+            PlayerHealth ph = other.GetComponentInParent<PlayerHealth>();
+            if (ph != null && ph.isInvincible) return;
+
             Rigidbody2D temp = other.GetComponentInParent<Rigidbody2D>();
             if (temp)
             {
