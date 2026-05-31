@@ -6,11 +6,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnInterval;
     [SerializeField] private float spawnRadius;
+    [SerializeField] private GameObject spawnEffect;
 
     [Header("Kill Tracking")]
     [SerializeField] private SignalSender enemyDefeatedSignal;
     [SerializeField] private int killTarget; // How many kills to stop spawning
     [SerializeField] private GameObject chestToActivate;
+    [SerializeField] private GameObject chestAppearEffect;
+    [SerializeField] private Transform chestEffectAnchor; // Child of the chest for position & layer
+    [SerializeField] private float chestEffectDuration = 1f; // Fallback if no ParticleSystem found
 
     private int enemiesDefeated;
     private float spawnTimer;
@@ -39,8 +43,28 @@ public class EnemySpawner : MonoBehaviour
         {
             isPlayerInZone = false; // Stop spawning
             if (chestToActivate != null)
+            {
                 chestToActivate.SetActive(true);
+                PlayChestEffect();
+            }
         }
+    }
+
+    private void PlayChestEffect()
+    {
+        if (chestAppearEffect == null) return;
+
+        Transform anchor = chestEffectAnchor != null ? chestEffectAnchor : chestToActivate.transform;
+        GameObject effect = Instantiate(chestAppearEffect, anchor.position, anchor.rotation, anchor);
+
+        // Unparent so it stays in world space
+        effect.transform.SetParent(null);
+
+        // Auto-read duration from ParticleSystem, otherwise use fallback
+        ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+        float duration = ps != null ? ps.main.duration + ps.main.startLifetime.constantMax : chestEffectDuration;
+
+        Destroy(effect, duration);
     }
     private void Update()
     {
@@ -62,6 +86,17 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPosition = transform.position + new Vector3(randomPos.x, randomPos.y, 0f);
         
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+        // Inject this spawner's death signal so kills are tracked per-spawner
+        EnemyHealth enemyHealth = enemy.GetComponentInChildren<EnemyHealth>();
+        if (enemyHealth != null)
+        {
+            if (enemyDefeatedSignal != null)
+                enemyHealth.SetDeathSignal(enemyDefeatedSignal);
+
+            if (spawnEffect != null)
+                enemyHealth.SetSpawnEffect(spawnEffect);
+        }
 
         // Automatically assign player variables to the instantiated enemy
         log enemyLog = enemy.GetComponent<log>();

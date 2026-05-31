@@ -51,8 +51,10 @@ MonoBehaviour:
   currentHealth: 5
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
+  spawnEffect: {fileID: 0}
   thisLoot: {fileID: 11400000, guid: 3a579f0a45dd98642b42bd2cc185166b, type: 2}
   onDeathSignal: {fileID: 11400000, guid: 22286d83fd2fab045a79cadf053e47d1, type: 2}
+  spawnEffectDuration: 1
 --- !u!61 &8290531099340090485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -346,6 +348,7 @@ MonoBehaviour:
   attackRadious: 1.2
   playerState: {fileID: 0}
   anim: {fileID: 0}
+  spawnDelay: 2
 --- !u!114 &5521078457330481152
 MonoBehaviour:
   m_ObjectHideFlags: 0

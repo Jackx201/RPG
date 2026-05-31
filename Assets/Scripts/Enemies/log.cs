@@ -16,6 +16,9 @@ public class log : Enemmy //Herencia del Script Enemy
     [Header("animator")]
     public Animator anim;
 
+    [Header("Spawn Delay")]
+    [SerializeField] private float spawnDelay = 1f;
+    private bool isSpawning = true;
 
     void Start()
     {
@@ -34,12 +37,21 @@ public class log : Enemmy //Herencia del Script Enemy
         }
         
         anim.SetBool("WakeUp", true);
+        StartCoroutine(SpawnDelayCo());
+    }
+
+    private IEnumerator SpawnDelayCo()
+    {
+        isSpawning = true;
+        yield return new WaitForSeconds(spawnDelay);
+        isSpawning = false;
     }
 
     
     void FixedUpdate()
     {
-        CheckDistance();
+        if (!isSpawning)
+            CheckDistance();
     }
     public virtual void CheckDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaseRadious
