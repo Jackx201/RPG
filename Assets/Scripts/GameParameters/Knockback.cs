@@ -22,13 +22,18 @@ public class Knockback : MonoBehaviour
             if (temp)
             {
                 Vector2 direction = other.transform.position - transform.position;
-                //temp.transform.DOMove((Vector2)other.transform.position + (direction.normalized * knockStrength), knockTime);  
-                // temp.DOMove((Vector2) other.transform.position + 
-                // (direction.normalized * knockStrength), knockTime); 
                 Vector3 tempdirection = temp.transform.position 
                 + (Vector3) direction.normalized * knockStrength;
-                //temp.transform.DOMove(tempdirection, knockTime);
+                
                 temp.DOMove(tempdirection, knockTime).SetUpdate(UpdateType.Fixed);
+                
+                // Set the enemy state to stagger so it doesn't fight the knockback
+                Enemmy enemy = other.GetComponentInParent<Enemmy>();
+                if (enemy != null)
+                {
+                    enemy.currentState = EnemyState.stagger;
+                    enemy.Knock(temp, knockTime);
+                }
             }
         }
     }

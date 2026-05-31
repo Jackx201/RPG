@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +22,17 @@ public class log : Enemmy //Herencia del Script Enemy
         currentState = EnemyState.idle;
         myRigidBody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform;
+        
+        if (target == null)
+        {
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                target = playerObj.transform;
+                playerState = playerObj.GetComponentInChildren<StateMachine>();
+            }
+        }
+        
         anim.SetBool("WakeUp", true);
     }
 

@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : Health
 {
-
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private LootTable thisLoot;
+    [SerializeField] private SignalSender onDeathSignal;
 
 
     private void DropLoot()
@@ -31,15 +31,11 @@ public class EnemyHealth : Health
 
     void Die()
     {
-        Debug.Log("Enemy died.");
+        if (onDeathSignal != null)
+        {
+            onDeathSignal.Raise();
+        }
 
-/*
-            if(roomSignal != null)
-            {
-                Debug.Log("Enemy defeated, sending room signal.");
-                roomSignal.Raise();
-            }          
-*/            
         Instantiate(deathEffect, transform.position, transform.rotation);
         DropLoot();
         this.transform.parent.gameObject.SetActive(false);
