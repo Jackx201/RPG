@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+ using System.Collections;
  using System.Collections.Generic;
  using UnityEngine;
  using UnityEngine.UI;
@@ -51,10 +51,14 @@
      //Agregar Objetos al Inventario
      playerInventory.AddItem(content);
      context.Raise();
+     if (animm != null)
+     {
+         animm.SetAnimParameter("contextActive", false);
+     }
      //Dejar Abierto el cofre
      isOpen = true;
      anim.SetBool("opened", true);
-        storedOpen.value = isOpen;
+     storedOpen.value = isOpen;
  }
 
  public void OpenedChest()
@@ -70,15 +74,26 @@
          if (other.CompareTag("Player") && !other.isTrigger && !isOpen){
              context.Raise();
              playerInRange = true;
-
+             if (animm != null)
+             {
+                 animm.SetAnimParameter("contextActive", true);
+             }
          }
      }
 
      private void OnTriggerExit2D(Collider2D other)
      {
-         if (other.CompareTag("Player") && !other.isTrigger && !isOpen){
-         context.Raise();
-         playerInRange = false;
+         if (other.CompareTag("Player") && !other.isTrigger)
+         {
+             if (!isOpen)
+             {
+                 context.Raise();
+             }
+             playerInRange = false;
+             if (animm != null)
+             {
+                 animm.SetAnimParameter("contextActive", false);
+             }
          }
      }
 

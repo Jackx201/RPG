@@ -285,7 +285,6 @@ MonoBehaviour:
   enemyName: Mike
   baseAttack: 1
   maxHealth: {fileID: 11400000, guid: cfe71bf58d013d64aa997790aef1703f, type: 2}
-  homePosition: {x: -10, y: 8}
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
   thisLoot: {fileID: 11400000, guid: 3a579f0a45dd98642b42bd2cc185166b, type: 2}
@@ -395,6 +394,7 @@ MonoBehaviour:
   currentHealth: 5
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
+  thisLoot: {fileID: 0}
 --- !u!114 &1293343145160245937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherString: Player
   damageAmount: 1
+  hitSignal: {fileID: 0}
 --- !u!114 &1903337799148304722
 MonoBehaviour:
   m_ObjectHideFlags: 0
