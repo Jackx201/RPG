@@ -10,6 +10,14 @@ public class Interactable : MonoBehaviour
 	[SerializeField] public Notification myNotification;
     [SerializeField] public AnimatorController animm;
 
+    protected virtual void OnAnimationEnter()
+    {
+        if (animm != null)
+        {
+            animm.SetAnimParameter("contextActive", true);
+        }
+    }
+
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (string.IsNullOrEmpty(otherTag) || other == null)
@@ -19,11 +27,7 @@ public class Interactable : MonoBehaviour
 
         if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            if (animm != null)
-            {
-                
-                animm.SetAnimParameter("contextActive", true);
-            }
+            OnAnimationEnter();
 
             playerInRange = true;
 
@@ -32,6 +36,14 @@ public class Interactable : MonoBehaviour
                 Debug.Log("Entered zone, Raising Notification");
                 myNotification.Raise();
             }
+        }
+    }
+
+    protected virtual void OnAnimationExit()
+    {
+        if (animm != null)
+        {
+            animm.SetAnimParameter("contextActive", false);
         }
     }
 
@@ -44,10 +56,7 @@ public class Interactable : MonoBehaviour
 
         if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            if (animm != null)
-            {
-                animm.SetAnimParameter("contextActive", false);
-            }
+            OnAnimationExit();
 
             playerInRange = false;
 

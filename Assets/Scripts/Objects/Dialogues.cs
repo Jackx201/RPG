@@ -47,19 +47,26 @@ public class Dialogues : Interactable
         }
     }
 
+    protected override void OnAnimationEnter()
+    {
+        // Only set dialogueClue, skip contextActive
+        if (animm != null)
+        {
+            animm.SetAnimParameter("dialogueClue", true);
+        }
+    }
+
     public override void OnTriggerEnter2D(Collider2D other)
     {
-         animm.SetAnimParameter("contextActive", true);
-
         base.OnTriggerEnter2D(other);
-        
-        // Debug check to help find why the context animation isn't activating for Dialogues
-        if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
+    }
+
+    protected override void OnAnimationExit()
+    {
+        // Only clear dialogueClue, skip contextActive
+        if (animm != null)
         {
-            if (animm != null)
-            {
-                animm.SetAnimParameter("contextActive", true);
-            }
+            animm.SetAnimParameter("dialogueClue", false);
         }
     }
 
