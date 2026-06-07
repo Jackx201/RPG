@@ -47,6 +47,22 @@ public class Dialogues : Interactable
         }
     }
 
+    public override void OnTriggerEnter2D(Collider2D other)
+    {
+         animm.SetAnimParameter("contextActive", true);
+
+        base.OnTriggerEnter2D(other);
+        
+        // Debug check to help find why the context animation isn't activating for Dialogues
+        if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
+        {
+            if (animm != null)
+            {
+                animm.SetAnimParameter("contextActive", true);
+            }
+        }
+    }
+
     public override void OnTriggerExit2D(Collider2D other)
     {
         base.OnTriggerExit2D(other);

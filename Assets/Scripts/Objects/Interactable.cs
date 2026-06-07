@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +21,7 @@ public class Interactable : MonoBehaviour
         {
             if (animm != null)
             {
+                
                 animm.SetAnimParameter("contextActive", true);
             }
 
@@ -28,6 +29,7 @@ public class Interactable : MonoBehaviour
 
             if (myNotification != null)
             {
+                Debug.Log("Entered zone, Raising Notification");
                 myNotification.Raise();
             }
         }
@@ -51,6 +53,7 @@ public class Interactable : MonoBehaviour
 
             if (myNotification != null)
             {
+                Debug.Log("Exited zone, Raising Notification");
                 myNotification.Raise();
             }
         }
