@@ -49,7 +49,7 @@ public class Dialogues : Interactable
 
     protected override void OnAnimationEnter()
     {
-        // Only set dialogueClue, skip contextActive
+        
         if (animm != null)
         {
             animm.SetAnimParameter("dialogueClue", true);
@@ -63,7 +63,6 @@ public class Dialogues : Interactable
 
     protected override void OnAnimationExit()
     {
-        // Only clear dialogueClue, skip contextActive
         if (animm != null)
         {
             animm.SetAnimParameter("dialogueClue", false);
