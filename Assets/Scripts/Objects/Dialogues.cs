@@ -33,13 +33,18 @@ public class Dialogues : Interactable
     [Header("Branching Mode (overrides Sequential)")]
     [SerializeField] private DialogNode[] dialogNodes;
 
+    [Header("RPG Maker-Style Dialogue (overrides all above)")]
+    [SerializeField] private RPGDialogueSystem.RPGDialogue rpgDialogue;
+
     public virtual void Update()
     {
         if (playerInRange)
         {
             if (Input.GetButtonDown("Check"))
             {
-                if (dialogNodes != null && dialogNodes.Length > 0)
+                if (rpgDialogue != null)
+                    dialogController.StartDialog(rpgDialogue.Commands);
+                else if (dialogNodes != null && dialogNodes.Length > 0)
                     dialogController.StartDialog(dialogNodes);
                 else
                     dialogController.StartDialog(dialogLines, sequentialSpeakerName, sequentialSpeakerAnimParam);

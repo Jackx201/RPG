@@ -1,0 +1,18 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "Toadberto",
+            "speakerAnimParam": "store_owner",
+            "text": "Hola Buenas tardes.",
+            "choices": []
+        },
+        {
+            "type": 0,
+            "speakerName": "Bell",
+            "speakerAnimParam": "player",
+            "text": "Mucho gusto",
+            "choices": []
+        }
+    ]
+}

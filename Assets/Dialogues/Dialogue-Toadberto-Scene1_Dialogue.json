@@ -1,0 +1,11 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "Toadberto",
+            "speakerAnimParam": "store_owner",
+            "text": "Bienvenido a la tienda de Toadberto donde siempre esta abierto",
+            "choices": []
+        }
+    ]
+}

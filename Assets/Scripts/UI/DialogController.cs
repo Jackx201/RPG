@@ -61,6 +61,16 @@ public class DialogController : MonoBehaviour
     private int currentNodeIndex = 0;
     private bool branchingMode = false;
 
+    // RPG dialogue mode
+    private Stack<RPGDialogueState> rpgStateStack = new Stack<RPGDialogueState>();
+    private bool rpgMode = false;
+
+    private class RPGDialogueState
+    {
+        public List<RPGDialogueSystem.RPGDialogueCommand> commands;
+        public int index;
+    }
+
     // -------------------------------------------------------
     // LEGACY: ActivateDialog — used by Sign and existing objects
     // -------------------------------------------------------
@@ -246,12 +256,150 @@ public class DialogController : MonoBehaviour
     void SelectChoiceA()
     {
         if (!waitingForChoice) return;
+        if (rpgMode)
+        {
+            if (rpgStateStack.Count > 0)
+            {
+                var currentState = rpgStateStack.Peek();
+                int cmdIndex = currentState.index - 1;
+                if (cmdIndex >= 0 && cmdIndex < currentState.commands.Count)
+                {
+                    var cmd = currentState.commands[cmdIndex];
+                    if (cmd.type == RPGDialogueSystem.CommandType.ShowChoices && cmd.choices != null && cmd.choices.Count > 0)
+                    {
+                        OnRPGChoiceSelected(cmd.choices[0]);
+                    }
+                }
+            }
+            return;
+        }
+
         DialogNode current = currentNodes[currentNodeIndex];
         if (current.choices != null && current.choices.Length > 0)
         {
             DialogChoice choiceA = current.choices[0];
             OnChoiceSelected(choiceA.nextNodeIndex, choiceA.onSelect);
         }
+    }
+
+    public void StartDialog(List<RPGDialogueSystem.RPGDialogueCommand> commands)
+    {
+        if (waitingForChoice)
+        {
+            SelectChoiceA();
+            return;
+        }
+
+        if (!dialogActive)
+        {
+            if (commands == null || commands.Count == 0) return;
+            rpgStateStack.Clear();
+            rpgStateStack.Push(new RPGDialogueState { commands = commands, index = 0 });
+            rpgMode = true;
+            dialogActive = true;
+            dialogObject.SetActive(true);
+            AdvanceRPGDialogue();
+        }
+        else if (rpgMode)
+        {
+            AdvanceRPGDialogue();
+        }
+    }
+
+    private void AdvanceRPGDialogue()
+    {
+        if (rpgStateStack.Count == 0)
+        {
+            ForceClose();
+            return;
+        }
+
+        var currentState = rpgStateStack.Peek();
+        if (currentState.index >= currentState.commands.Count)
+        {
+            rpgStateStack.Pop();
+            AdvanceRPGDialogue();
+            return;
+        }
+
+        var cmd = currentState.commands[currentState.index];
+        currentState.index++;
+
+        if (cmd.type == RPGDialogueSystem.CommandType.ShowText)
+        {
+            dialogText.text = cmd.text;
+            if (!string.IsNullOrEmpty(cmd.speakerName))
+            {
+                if (nameBoxObject != null) nameBoxObject.SetActive(true);
+                if (nameText != null) nameText.text = cmd.speakerName;
+            }
+            else
+            {
+                if (nameBoxObject != null) nameBoxObject.SetActive(false);
+            }
+            ApplySpeakerAnim(cmd.speakerAnimParam);
+            HideChoices();
+        }
+        else if (cmd.type == RPGDialogueSystem.CommandType.ShowChoices)
+        {
+            if (!string.IsNullOrEmpty(cmd.text))
+            {
+                dialogText.text = cmd.text;
+                if (!string.IsNullOrEmpty(cmd.speakerName))
+                {
+                    if (nameBoxObject != null) nameBoxObject.SetActive(true);
+                    if (nameText != null) nameText.text = cmd.speakerName;
+                }
+                else
+                {
+                    if (nameBoxObject != null) nameBoxObject.SetActive(false);
+                }
+                ApplySpeakerAnim(cmd.speakerAnimParam);
+            }
+            ShowRPGChoices(cmd.choices);
+        }
+    }
+
+    private void ShowRPGChoices(List<RPGDialogueSystem.RPGDialogueChoice> choices)
+    {
+        waitingForChoice = true;
+        choiceContainer.SetActive(true);
+
+        if (choices != null && choices.Count > 0)
+        {
+            choiceButtonA.gameObject.SetActive(true);
+            choiceLabelA.text = choices[0].choiceText;
+            choiceButtonA.onClick.RemoveAllListeners();
+            var choice = choices[0];
+            choiceButtonA.onClick.AddListener(() => OnRPGChoiceSelected(choice));
+        }
+        else
+        {
+            choiceButtonA.gameObject.SetActive(false);
+        }
+
+        if (choices != null && choices.Count > 1)
+        {
+            choiceButtonB.gameObject.SetActive(true);
+            choiceLabelB.text = choices[1].choiceText;
+            choiceButtonB.onClick.RemoveAllListeners();
+            var choice = choices[1];
+            choiceButtonB.onClick.AddListener(() => OnRPGChoiceSelected(choice));
+        }
+        else
+        {
+            choiceButtonB.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnRPGChoiceSelected(RPGDialogueSystem.RPGDialogueChoice choice)
+    {
+        HideChoices();
+        if (choice.nestedCommands != null && choice.nestedCommands.Count > 0)
+        {
+            rpgStateStack.Push(new RPGDialogueState { commands = choice.nestedCommands, index = 0 });
+        }
+        AdvanceRPGDialogue();
     }
 
     void GoToNode(int index)
@@ -312,6 +460,8 @@ public class DialogController : MonoBehaviour
         dialogActive = false;
         waitingForChoice = false;
         branchingMode = false;
+        rpgMode = false;
+        rpgStateStack.Clear();
         currentLineIndex = 0;
         currentNodeIndex = 0;
         currentLines = null;
