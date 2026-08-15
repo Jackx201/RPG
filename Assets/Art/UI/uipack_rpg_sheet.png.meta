@@ -168,7 +168,7 @@ TextureImporter:
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 6, z: 8, w: 7}
       customData: 
       outline: []
       physicsShape: []
@@ -190,7 +190,7 @@ TextureImporter:
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 1}
+      border: {x: 7, y: 6, z: 6, w: 7}
       customData: 
       outline: []
       physicsShape: []
@@ -212,7 +212,7 @@ TextureImporter:
         height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 11, z: 7, w: 7}
       customData: 
       outline: []
       physicsShape: []
@@ -344,7 +344,7 @@ TextureImporter:
         height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 11, z: 7, w: 7}
       customData: 
       outline: []
       physicsShape: []
@@ -366,7 +366,7 @@ TextureImporter:
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 7, w: 8}
       customData: 
       outline: []
       physicsShape: []
@@ -387,7 +387,7 @@ TextureImporter:
         width: 190
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -409,7 +409,7 @@ TextureImporter:
         width: 190
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -431,7 +431,7 @@ TextureImporter:
         width: 189
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -440,6 +440,72 @@ TextureImporter:
       bones: []
       spriteID: 96fdbacce7adc7d4590ab258be65f68a
       internalID: -13620583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uipack_rpg_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 120
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 7, y: 9, z: 7, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae7ed4273f06874cacad0f686f5aec9
+      internalID: -953431813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uipack_rpg_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 312
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 7, y: 6, z: 8, w: 7}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 414507595a2c92046957ba6b09eef6f6
+      internalID: 243170543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uipack_rpg_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 401
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 4, z: 5, w: 5}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b146d1e45ce964991b9593e75b14f8
+      internalID: 498491170
       vertices: []
       indices: 
       edges: []
@@ -464,6 +530,9 @@ TextureImporter:
       uipack_rpg_sheet_11: 624688931
       uipack_rpg_sheet_12: 596608920
       uipack_rpg_sheet_13: -13620583
+      uipack_rpg_sheet_14: -953431813
+      uipack_rpg_sheet_15: 243170543
+      uipack_rpg_sheet_16: 498491170
       uipack_rpg_sheet_2: 6866464857702916786
       uipack_rpg_sheet_3: -6768044818946543642
       uipack_rpg_sheet_4: 5647483563723225417

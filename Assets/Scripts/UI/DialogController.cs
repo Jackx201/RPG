@@ -11,6 +11,7 @@ public class DialogController : MonoBehaviour
     // -------------------------------------------------------
     [SerializeField] private TextMeshProUGUI dialogText;
     [SerializeField] private GameObject dialogObject;
+    [SerializeField] private Image dialogBoxImage;
 
     // -------------------------------------------------------
     // Name Box UI (shows the speaker's name)
@@ -18,6 +19,7 @@ public class DialogController : MonoBehaviour
     [Header("Name Box")]
     [SerializeField] private GameObject nameBoxObject;
     [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private Image nameBoxImage;
 
     // -------------------------------------------------------
     // Portrait animator (NPC picture with talking animation)
@@ -25,6 +27,7 @@ public class DialogController : MonoBehaviour
     [Header("Portrait")]
     [SerializeField] private GameObject portraitContainer;
     [SerializeField] private AnimatorController portraitAnimator;
+    [SerializeField] private Image portraitBoxImage;
 
     /// Tracks the last active speaker param so we can reset it when the speaker changes.
     private string lastSpeakerParam = "";
@@ -338,6 +341,9 @@ public class DialogController : MonoBehaviour
                 if (nameBoxObject != null) nameBoxObject.SetActive(false);
             }
             ApplySpeakerAnim(cmd.speakerAnimParam);
+            ApplyColorToImage(dialogBoxImage, cmd.boxColorHex);
+            ApplyColorToImage(nameBoxImage, cmd.boxColorHex);
+            ApplyColorToImage(portraitBoxImage, cmd.boxColorHex);
             HideChoices();
         }
         else if (cmd.type == RPGDialogueSystem.CommandType.ShowChoices)
@@ -355,8 +361,21 @@ public class DialogController : MonoBehaviour
                     if (nameBoxObject != null) nameBoxObject.SetActive(false);
                 }
                 ApplySpeakerAnim(cmd.speakerAnimParam);
+                ApplyColorToImage(dialogBoxImage, cmd.boxColorHex);
+                ApplyColorToImage(nameBoxImage, cmd.boxColorHex);
+                ApplyColorToImage(portraitBoxImage, cmd.boxColorHex);
             }
             ShowRPGChoices(cmd.choices);
+        }
+    }
+
+    private void ApplyColorToImage(Image img, string hexColor)
+    {
+        if (img == null || string.IsNullOrEmpty(hexColor)) return;
+        
+        if (ColorUtility.TryParseHtmlString(hexColor, out Color color))
+        {
+            img.color = color;
         }
     }
 

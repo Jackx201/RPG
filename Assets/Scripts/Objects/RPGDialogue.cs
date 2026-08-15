@@ -25,6 +25,7 @@ namespace RPGDialogueSystem
         [Header("Show Text Settings")]
         public string speakerName;
         public string speakerAnimParam;
+        public string boxColorHex = "#FFFFFF";
         [TextArea(2, 5)]
         public string text;
 
@@ -183,6 +184,7 @@ namespace RPGDialogueSystem
                 newCmd.FindPropertyRelative("type").enumValueIndex = 0;
                 newCmd.FindPropertyRelative("speakerName").stringValue = "";
                 newCmd.FindPropertyRelative("speakerAnimParam").stringValue = "";
+                newCmd.FindPropertyRelative("boxColorHex").stringValue = "#FFFFFF";
                 newCmd.FindPropertyRelative("text").stringValue = "";
                 newCmd.FindPropertyRelative("choices").ClearArray();
             }
@@ -218,6 +220,7 @@ namespace RPGDialogueSystem
                 {
                     EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerName"), new GUIContent("Speaker Name"));
                     EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerAnimParam"), new GUIContent("Portrait Param"));
+                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("boxColorHex"), new GUIContent("Box Color Hex"));
                     EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("text"), new GUIContent("Text"));
                 }
                 else if (type == CommandType.ShowChoices)
@@ -225,6 +228,7 @@ namespace RPGDialogueSystem
                     // Optionally show a prompt text for the choice
                     EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerName"), new GUIContent("Speaker Name"));
                     EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerAnimParam"), new GUIContent("Portrait Param"));
+                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("boxColorHex"), new GUIContent("Box Color Hex"));
                     EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("text"), new GUIContent("Prompt Text"));
 
                     SerializedProperty choicesProp = cmdProp.FindPropertyRelative("choices");
