@@ -127,8 +127,6 @@ namespace RPGDialogueSystem
             {
                 AutoGenerateFilePath();
             }
-            // Save automatically when changes are made in the inspector
-            SaveToFile();
         }
     }
 
