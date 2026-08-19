@@ -6,6 +6,13 @@ using TMPro;
 
 public class DialogController : MonoBehaviour
 {
+    // Existing fields...
+    // Added fields for movement blocking
+    [Header("Dialogue Options")]
+    [SerializeField] private bool blockPlayerMovement = false;
+    // Reference to the StateMachine handling player state
+    [SerializeField] private StateMachine stateMachine;
+
     // -------------------------------------------------------
     // Shared UI references
     // -------------------------------------------------------
@@ -114,6 +121,10 @@ public class DialogController : MonoBehaviour
             dialogObject.SetActive(true);
             dialogText.text = currentLines[currentLineIndex];
 
+            // Set movement block based on inspector setting
+            if (stateMachine != null)
+                stateMachine.SetMovementBlock(blockPlayerMovement);
+
             // Display speaker name
             if (!string.IsNullOrEmpty(speakerName))
             {
@@ -165,6 +176,10 @@ public class DialogController : MonoBehaviour
             dialogActive = true;
             dialogObject.SetActive(true);
             ShowNode(0);
+
+            // Set movement block based on inspector setting
+            if (stateMachine != null)
+                stateMachine.SetMovementBlock(blockPlayerMovement);
         }
         else if (branchingMode)
         {
@@ -302,6 +317,10 @@ public class DialogController : MonoBehaviour
             dialogActive = true;
             dialogObject.SetActive(true);
             AdvanceRPGDialogue();
+
+            // Set movement block based on inspector setting
+            if (stateMachine != null)
+                stateMachine.SetMovementBlock(blockPlayerMovement);
         }
         else if (rpgMode)
         {
@@ -485,6 +504,10 @@ public class DialogController : MonoBehaviour
         currentNodeIndex = 0;
         currentLines = null;
         currentNodes = null;
+
+        // Reset movement block when dialog ends
+        if (stateMachine != null)
+            stateMachine.SetMovementBlock(false);
         
         if (nameBoxObject != null) nameBoxObject.SetActive(false);
         ApplySpeakerAnim("");   // reset portrait animator
