@@ -1,0 +1,143 @@
+{
+    "commands": [
+        {
+            "type": 1,
+            "speakerName": "bell",
+            "speakerAnimParam": "player",
+            "boxColorHex": "#FFFFFF",
+            "text": "Tal vez encuentre algo dentro de esta tumba",
+            "choices": [
+                {
+                    "choiceText": "Entrar",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "bell",
+                            "speakerAnimParam": "player",
+                            "boxColorHex": "#FFFFFF",
+                            "text": "Bien, aquí vamos",
+                            "choices": [],
+                            "variableToSet": {
+                                "instanceID": 0
+                            },
+                            "variableType": "",
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": "",
+                            "signalToRaise": {
+                                "instanceID": 0
+                            },
+                            "notificationToRaise": {
+                                "instanceID": 0
+                            },
+                            "onCommandEvent": {
+                                "m_PersistentCalls": {
+                                    "m_Calls": []
+                                }
+                            }
+                        },
+                        {
+                            "type": 5,
+                            "speakerName": "",
+                            "speakerAnimParam": "",
+                            "boxColorHex": "#FFFFFF",
+                            "text": "",
+                            "choices": [],
+                            "variableToSet": {
+                                "instanceID": 0
+                            },
+                            "variableType": "",
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": "",
+                            "signalToRaise": {
+                                "instanceID": 0
+                            },
+                            "notificationToRaise": {
+                                "instanceID": 0
+                            },
+                            "onCommandEvent": {
+                                "m_PersistentCalls": {
+                                    "m_Calls": [
+                                        {
+                                            "m_Target": {
+                                                "instanceID": -2462
+                                            },
+                                            "m_TargetAssemblyTypeName": "SceneTransitions, Assembly-CSharp",
+                                            "m_MethodName": "StartTransition",
+                                            "m_Mode": 1,
+                                            "m_Arguments": {
+                                                "m_ObjectArgument": {
+                                                    "instanceID": 0
+                                                },
+                                                "m_ObjectArgumentAssemblyTypeName": "UnityEngine.Object, UnityEngine",
+                                                "m_IntArgument": 0,
+                                                "m_FloatArgument": 0.0,
+                                                "m_StringArgument": "",
+                                                "m_BoolArgument": false
+                                            },
+                                            "m_CallState": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "choiceText": "No entrar",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "bell",
+                            "speakerAnimParam": "player",
+                            "boxColorHex": "#FFFFFF",
+                            "text": "Por ahora, mejor no entrar.",
+                            "choices": [],
+                            "variableToSet": {
+                                "instanceID": 0
+                            },
+                            "variableType": "",
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": "",
+                            "signalToRaise": {
+                                "instanceID": 0
+                            },
+                            "notificationToRaise": {
+                                "instanceID": 0
+                            },
+                            "onCommandEvent": {
+                                "m_PersistentCalls": {
+                                    "m_Calls": []
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        }
+    ]
+}

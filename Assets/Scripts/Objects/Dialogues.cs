@@ -9,15 +9,10 @@ using UnityEngine;
 ///   Leave dialogNodes empty and fill dialogLines with plain strings.
 ///   Player presses Check to advance line by line.
 ///
-/// BRANCHING MODE:
-///   Fill dialogNodes with DialogNode entries. Each node can be either:
-///     - Linear:   leave choices[] empty, set nextNodeIndex.
-///     - Branching: add up to 2 choices, each pointing to another node index.
-///   Use -1 as nextNodeIndex (or choice.nextNodeIndex) to end the conversation.
-///   Player presses Check on linear nodes to advance.
-///   On choice nodes, player clicks a button (Check shortcuts to choice A).
 ///
-/// If dialogNodes has any entries, it takes priority over dialogLines.
+/// RPG MAKER STYLE:
+///   Use the RPGDialogue component to handle advanced sequences and events.
+///   This takes priority over Sequential Mode.
 /// </summary>
 public class Dialogues : Interactable
 {
@@ -30,10 +25,7 @@ public class Dialogues : Interactable
     [TextArea(2, 6)]
     [SerializeField] private string[] dialogLines;
 
-    [Header("Branching Mode (overrides Sequential)")]
-    [SerializeField] private DialogNode[] dialogNodes;
-
-    [Header("RPG Maker-Style Dialogue (overrides all above)")]
+    [Header("RPG Maker-Style Dialogue (overrides Sequential)")]
     [SerializeField] private RPGDialogueSystem.RPGDialogue rpgDialogue;
 
     public virtual void Update()
@@ -44,8 +36,6 @@ public class Dialogues : Interactable
             {
                 if (rpgDialogue != null)
                     dialogController.StartDialog(rpgDialogue.Commands);
-                else if (dialogNodes != null && dialogNodes.Length > 0)
-                    dialogController.StartDialog(dialogNodes);
                 else
                     dialogController.StartDialog(dialogLines, sequentialSpeakerName, sequentialSpeakerAnimParam);
             }
