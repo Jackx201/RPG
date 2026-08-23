@@ -383,6 +383,48 @@ public class DialogController : MonoBehaviour
             }
             ShowRPGChoices(cmd.choices);
         }
+        else if (cmd.type == RPGDialogueSystem.CommandType.SetVariable)
+        {
+            if (cmd.variableToSet != null)
+            {
+                if (cmd.variableType == "Bool" && cmd.variableToSet is BoolValue boolVal)
+                {
+                    boolVal.value = cmd.setBoolValue;
+                }
+                else if (cmd.variableType == "Float" && cmd.variableToSet is FloatValue floatVal)
+                {
+                    floatVal.RuntimeValue = cmd.setFloatValue;
+                }
+                else if (cmd.variableType == "Int" && cmd.variableToSet is IntValue intVal)
+                {
+                    intVal.RuntimeValue = cmd.setIntValue;
+                }
+                else if (cmd.variableType == "String" && cmd.variableToSet is StringValue stringVal)
+                {
+                    stringVal.value = cmd.setStringValue;
+                }
+            }
+            // Move immediately to the next command since variable setting takes no time
+            AdvanceRPGDialogue();
+        }
+        else if (cmd.type == RPGDialogueSystem.CommandType.RaiseSignal)
+        {
+            if (cmd.signalToRaise != null)
+            {
+                cmd.signalToRaise.Raise();
+            }
+            // Move immediately to the next command
+            AdvanceRPGDialogue();
+        }
+        else if (cmd.type == RPGDialogueSystem.CommandType.RaiseNotification)
+        {
+            if (cmd.notificationToRaise != null)
+            {
+                cmd.notificationToRaise.Raise();
+            }
+            // Move immediately to the next command
+            AdvanceRPGDialogue();
+        }
     }
 
     private void ApplyColorToImage(Image img, string hexColor)
