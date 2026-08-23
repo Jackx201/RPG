@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class DialogController : MonoBehaviour
@@ -61,15 +62,11 @@ public class DialogController : MonoBehaviour
     // -------------------------------------------------------
     private bool dialogActive = false;
     private bool waitingForChoice = false;
+    private float lastChoiceTime = -1f;
 
     // Sequential mode (string[])
     private string[] currentLines;
     private int currentLineIndex = 0;
-
-    // Branching mode (DialogNode[])
-    private DialogNode[] currentNodes;
-    private int currentNodeIndex = 0;
-    private bool branchingMode = false;
 
     // RPG dialogue mode
     private Stack<RPGDialogueState> rpgStateStack = new Stack<RPGDialogueState>();
@@ -109,6 +106,7 @@ public class DialogController : MonoBehaviour
     /// </summary>
     public void StartDialog(string[] lines, string speakerName = "", string speakerAnimParam = "")
     {
+        if (Time.time - lastChoiceTime < 0.1f) return;
         if (waitingForChoice) return;
 
         if (!dialogActive)
@@ -116,7 +114,6 @@ public class DialogController : MonoBehaviour
             if (lines == null || lines.Length == 0) return;
             currentLines = lines;
             currentLineIndex = 0;
-            branchingMode = false;
             dialogActive = true;
             dialogObject.SetActive(true);
             dialogText.text = currentLines[currentLineIndex];
@@ -139,7 +136,7 @@ public class DialogController : MonoBehaviour
             // Switch portrait animation
             ApplySpeakerAnim(speakerAnimParam);
         }
-        else if (!branchingMode)
+        else if (currentLines != null)
         {
             currentLineIndex++;
             if (currentLineIndex < currentLines.Length)
@@ -149,159 +146,24 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    // -------------------------------------------------------
-    // BRANCHING: StartDialog(DialogNode[]) — used by Dialogues.cs
-    // when branching is needed
-    // -------------------------------------------------------
-
-    /// <summary>
-    /// Opens a dialog session driven by a DialogNode graph.
-    /// On Check press: advances linear nodes or selects choice A on choice nodes.
-    /// </summary>
-    public void StartDialog(DialogNode[] nodes)
-    {
-        if (waitingForChoice)
-        {
-            // Check press shortcuts to choice A
-            SelectChoiceA();
-            return;
-        }
-
-        if (!dialogActive)
-        {
-            if (nodes == null || nodes.Length == 0) return;
-            currentNodes = nodes;
-            currentNodeIndex = 0;
-            branchingMode = true;
-            dialogActive = true;
-            dialogObject.SetActive(true);
-            ShowNode(0);
-
-            // Set movement block based on inspector setting
-            if (stateMachine != null)
-                stateMachine.SetMovementBlock(blockPlayerMovement);
-        }
-        else if (branchingMode)
-        {
-            // Advance linear node on Check press
-            DialogNode current = currentNodes[currentNodeIndex];
-            if (current.choices == null || current.choices.Length == 0)
-            {
-                GoToNode(current.nextNodeIndex);
-            }
-            // If it's a choice node, Check shortcuts to choice A
-            else
-            {
-                SelectChoiceA();
-            }
-        }
-    }
-
-    // -------------------------------------------------------
-    // Internal branching logic
-    // -------------------------------------------------------
-
-    void ShowNode(int index)
-    {
-        if (index < 0 || index >= currentNodes.Length)
-        {
-            ForceClose();
-            return;
-        }
-
-        currentNodeIndex = index;
-        DialogNode node = currentNodes[index];
-        dialogText.text = node.text;
-
-        // Display speaker name
-        if (!string.IsNullOrEmpty(node.speakerName))
-        {
-            if (nameBoxObject != null) nameBoxObject.SetActive(true);
-            if (nameText != null) nameText.text = node.speakerName;
-        }
-        else
-        {
-            if (nameBoxObject != null) nameBoxObject.SetActive(false);
-        }
-
-        // Switch portrait animation to the new speaker
-        ApplySpeakerAnim(node.speakerAnimParam);
-
-        bool hasChoices = node.choices != null && node.choices.Length > 0;
-        if (hasChoices)
-            ShowChoices(node.choices);
-        else
-            HideChoices();
-    }
-
-    void ShowChoices(DialogChoice[] choices)
-    {
-        waitingForChoice = true;
-        choiceContainer.SetActive(true);
-
-        // Button A — always shown if at least 1 choice
-        SetupButton(choiceButtonA, choiceLabelA,
-            choices.Length > 0 ? choices[0] : null);
-
-        // Button B — shown only if there's a second choice
-        SetupButton(choiceButtonB, choiceLabelB,
-            choices.Length > 1 ? choices[1] : null);
-    }
-
-    void SetupButton(Button btn, TextMeshProUGUI label, DialogChoice choice)
-    {
-        if (choice == null)
-        {
-            btn.gameObject.SetActive(false);
-            return;
-        }
-
-        btn.gameObject.SetActive(true);
-        label.text = choice.text;
-        btn.onClick.RemoveAllListeners();
-        int next = choice.nextNodeIndex;                          // capture for lambda
-        UnityEngine.Events.UnityEvent evt = choice.onSelect;     // capture for lambda
-        btn.onClick.AddListener(() => OnChoiceSelected(next, evt));
-    }
-
-    void OnChoiceSelected(int nextNodeIndex, UnityEngine.Events.UnityEvent onSelect)
-    {
-        HideChoices();
-        onSelect?.Invoke();
-        GoToNode(nextNodeIndex);
-    }
-
     void SelectChoiceA()
     {
         if (!waitingForChoice) return;
-        if (rpgMode)
+        
+        var selected = EventSystem.current.currentSelectedGameObject;
+        if (selected == choiceButtonB.gameObject)
         {
-            if (rpgStateStack.Count > 0)
-            {
-                var currentState = rpgStateStack.Peek();
-                int cmdIndex = currentState.index - 1;
-                if (cmdIndex >= 0 && cmdIndex < currentState.commands.Count)
-                {
-                    var cmd = currentState.commands[cmdIndex];
-                    if (cmd.type == RPGDialogueSystem.CommandType.ShowChoices && cmd.choices != null && cmd.choices.Count > 0)
-                    {
-                        OnRPGChoiceSelected(cmd.choices[0]);
-                    }
-                }
-            }
-            return;
+            choiceButtonB.onClick.Invoke();
         }
-
-        DialogNode current = currentNodes[currentNodeIndex];
-        if (current.choices != null && current.choices.Length > 0)
+        else
         {
-            DialogChoice choiceA = current.choices[0];
-            OnChoiceSelected(choiceA.nextNodeIndex, choiceA.onSelect);
+            choiceButtonA.onClick.Invoke();
         }
     }
 
     public void StartDialog(List<RPGDialogueSystem.RPGDialogueCommand> commands)
     {
+        if (Time.time - lastChoiceTime < 0.1f) return;
         if (waitingForChoice)
         {
             SelectChoiceA();
@@ -386,6 +248,54 @@ public class DialogController : MonoBehaviour
             }
             ShowRPGChoices(cmd.choices);
         }
+        else if (cmd.type == RPGDialogueSystem.CommandType.SetVariable)
+        {
+            if (cmd.variableToSet != null)
+            {
+                if (cmd.variableType == "Bool" && cmd.variableToSet is BoolValue boolVal)
+                {
+                    boolVal.value = cmd.setBoolValue;
+                }
+                else if (cmd.variableType == "Float" && cmd.variableToSet is FloatValue floatVal)
+                {
+                    floatVal.RuntimeValue = cmd.setFloatValue;
+                }
+                else if (cmd.variableType == "Int" && cmd.variableToSet is IntValue intVal)
+                {
+                    intVal.RuntimeValue = cmd.setIntValue;
+                }
+                else if (cmd.variableType == "String" && cmd.variableToSet is StringValue stringVal)
+                {
+                    stringVal.value = cmd.setStringValue;
+                }
+            }
+            // Move immediately to the next command since variable setting takes no time
+            AdvanceRPGDialogue();
+        }
+        else if (cmd.type == RPGDialogueSystem.CommandType.RaiseSignal)
+        {
+            if (cmd.signalToRaise != null)
+            {
+                cmd.signalToRaise.Raise();
+            }
+            // Move immediately to the next command
+            AdvanceRPGDialogue();
+        }
+        else if (cmd.type == RPGDialogueSystem.CommandType.RaiseNotification)
+        {
+            if (cmd.notificationToRaise != null)
+            {
+                cmd.notificationToRaise.Raise();
+            }
+            // Move immediately to the next command
+            AdvanceRPGDialogue();
+        }
+        else if (cmd.type == RPGDialogueSystem.CommandType.InvokeEvent)
+        {
+            cmd.onCommandEvent?.Invoke();
+            // Move immediately to the next command
+            AdvanceRPGDialogue();
+        }
     }
 
     private void ApplyColorToImage(Image img, string hexColor)
@@ -428,6 +338,12 @@ public class DialogController : MonoBehaviour
         {
             choiceButtonB.gameObject.SetActive(false);
         }
+
+        if (choices != null && choices.Count > 0)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(choiceButtonA.gameObject);
+        }
     }
 
     private void OnRPGChoiceSelected(RPGDialogueSystem.RPGDialogueChoice choice)
@@ -440,18 +356,12 @@ public class DialogController : MonoBehaviour
         AdvanceRPGDialogue();
     }
 
-    void GoToNode(int index)
-    {
-        if (index < 0)
-            ForceClose();
-        else
-            ShowNode(index);
-    }
 
     void HideChoices()
     {
         waitingForChoice = false;
         choiceContainer.SetActive(false);
+        lastChoiceTime = Time.time;
     }
 
     /// <summary>
@@ -497,13 +407,10 @@ public class DialogController : MonoBehaviour
 
         dialogActive = false;
         waitingForChoice = false;
-        branchingMode = false;
         rpgMode = false;
         rpgStateStack.Clear();
         currentLineIndex = 0;
-        currentNodeIndex = 0;
         currentLines = null;
-        currentNodes = null;
 
         // Reset movement block when dialog ends
         if (stateMachine != null)

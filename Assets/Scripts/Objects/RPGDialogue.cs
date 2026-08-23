@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -14,7 +15,11 @@ namespace RPGDialogueSystem
     public enum CommandType
     {
         ShowText,
-        ShowChoices
+        ShowChoices,
+        SetVariable,
+        RaiseSignal,
+        RaiseNotification,
+        InvokeEvent
     }
 
     [Serializable]
@@ -31,6 +36,23 @@ namespace RPGDialogueSystem
 
         [Header("Show Choices Settings")]
         public List<RPGDialogueChoice> choices = new List<RPGDialogueChoice>();
+
+        [Header("Set Variable Settings")]
+        public ScriptableObject variableToSet;
+        public string variableType; // "Bool", "Float", "Int", "String"
+        public bool setBoolValue;
+        public float setFloatValue;
+        public int setIntValue;
+        public string setStringValue;
+
+        [Header("Raise Signal Settings")]
+        public SignalSender signalToRaise;
+
+        [Header("Raise Notification Settings")]
+        public Notification notificationToRaise;
+
+        [Header("Invoke Event Settings")]
+        public UnityEvent onCommandEvent;
     }
 
     [Serializable]
@@ -187,6 +209,10 @@ namespace RPGDialogueSystem
                 newCmd.FindPropertyRelative("boxColorHex").stringValue = "#FFFFFF";
                 newCmd.FindPropertyRelative("text").stringValue = "";
                 newCmd.FindPropertyRelative("choices").ClearArray();
+                newCmd.FindPropertyRelative("variableToSet").objectReferenceValue = null;
+                newCmd.FindPropertyRelative("variableType").stringValue = "";
+                newCmd.FindPropertyRelative("signalToRaise").objectReferenceValue = null;
+                newCmd.FindPropertyRelative("notificationToRaise").objectReferenceValue = null;
             }
             EditorGUILayout.EndHorizontal();
 
@@ -272,6 +298,54 @@ namespace RPGDialogueSystem
                         EditorGUILayout.EndVertical();
                     }
                     EditorGUILayout.EndVertical();
+                }
+                else if (type == CommandType.SetVariable)
+                {
+                    SerializedProperty varProp = cmdProp.FindPropertyRelative("variableToSet");
+                    EditorGUILayout.PropertyField(varProp, new GUIContent("Variable Object"));
+                    
+                    ScriptableObject varObj = (ScriptableObject)varProp.objectReferenceValue;
+                    if (varObj != null)
+                    {
+                        string varType = "";
+                        if (varObj.GetType().Name == "BoolValue")
+                        {
+                            varType = "Bool";
+                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setBoolValue"), new GUIContent("Set Bool Value"));
+                        }
+                        else if (varObj.GetType().Name == "FloatValue")
+                        {
+                            varType = "Float";
+                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setFloatValue"), new GUIContent("Set Float Value"));
+                        }
+                        else if (varObj.GetType().Name == "IntValue")
+                        {
+                            varType = "Int";
+                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setIntValue"), new GUIContent("Set Int Value"));
+                        }
+                        else if (varObj.GetType().Name == "StringValue")
+                        {
+                            varType = "String";
+                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setStringValue"), new GUIContent("Set String Value"));
+                        }
+                        else
+                        {
+                            EditorGUILayout.HelpBox("Unsupported Variable Type. Only BoolValue, FloatValue, IntValue, and StringValue are supported.", MessageType.Warning);
+                        }
+                        cmdProp.FindPropertyRelative("variableType").stringValue = varType;
+                    }
+                }
+                else if (type == CommandType.RaiseSignal)
+                {
+                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("signalToRaise"), new GUIContent("Signal To Raise"));
+                }
+                else if (type == CommandType.RaiseNotification)
+                {
+                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("notificationToRaise"), new GUIContent("Notification To Raise"));
+                }
+                else if (type == CommandType.InvokeEvent)
+                {
+                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("onCommandEvent"), new GUIContent("Event To Invoke"));
                 }
                 
                 EditorGUILayout.EndVertical();
