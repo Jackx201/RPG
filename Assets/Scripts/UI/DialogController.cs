@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class DialogController : MonoBehaviour
@@ -61,6 +62,7 @@ public class DialogController : MonoBehaviour
     // -------------------------------------------------------
     private bool dialogActive = false;
     private bool waitingForChoice = false;
+    private float lastChoiceTime = -1f;
 
     // Sequential mode (string[])
     private string[] currentLines;
@@ -109,6 +111,7 @@ public class DialogController : MonoBehaviour
     /// </summary>
     public void StartDialog(string[] lines, string speakerName = "", string speakerAnimParam = "")
     {
+        if (Time.time - lastChoiceTime < 0.1f) return;
         if (waitingForChoice) return;
 
         if (!dialogActive)
@@ -160,9 +163,10 @@ public class DialogController : MonoBehaviour
     /// </summary>
     public void StartDialog(DialogNode[] nodes)
     {
+        if (Time.time - lastChoiceTime < 0.1f) return;
         if (waitingForChoice)
         {
-            // Check press shortcuts to choice A
+            // Check press shortcuts to selected choice
             SelectChoiceA();
             return;
         }
@@ -246,6 +250,12 @@ public class DialogController : MonoBehaviour
         // Button B — shown only if there's a second choice
         SetupButton(choiceButtonB, choiceLabelB,
             choices.Length > 1 ? choices[1] : null);
+
+        if (choices != null && choices.Length > 0)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(choiceButtonA.gameObject);
+        }
     }
 
     void SetupButton(Button btn, TextMeshProUGUI label, DialogChoice choice)
@@ -274,34 +284,21 @@ public class DialogController : MonoBehaviour
     void SelectChoiceA()
     {
         if (!waitingForChoice) return;
-        if (rpgMode)
+        
+        var selected = EventSystem.current.currentSelectedGameObject;
+        if (selected == choiceButtonB.gameObject)
         {
-            if (rpgStateStack.Count > 0)
-            {
-                var currentState = rpgStateStack.Peek();
-                int cmdIndex = currentState.index - 1;
-                if (cmdIndex >= 0 && cmdIndex < currentState.commands.Count)
-                {
-                    var cmd = currentState.commands[cmdIndex];
-                    if (cmd.type == RPGDialogueSystem.CommandType.ShowChoices && cmd.choices != null && cmd.choices.Count > 0)
-                    {
-                        OnRPGChoiceSelected(cmd.choices[0]);
-                    }
-                }
-            }
-            return;
+            choiceButtonB.onClick.Invoke();
         }
-
-        DialogNode current = currentNodes[currentNodeIndex];
-        if (current.choices != null && current.choices.Length > 0)
+        else
         {
-            DialogChoice choiceA = current.choices[0];
-            OnChoiceSelected(choiceA.nextNodeIndex, choiceA.onSelect);
+            choiceButtonA.onClick.Invoke();
         }
     }
 
     public void StartDialog(List<RPGDialogueSystem.RPGDialogueCommand> commands)
     {
+        if (Time.time - lastChoiceTime < 0.1f) return;
         if (waitingForChoice)
         {
             SelectChoiceA();
@@ -428,6 +425,12 @@ public class DialogController : MonoBehaviour
         {
             choiceButtonB.gameObject.SetActive(false);
         }
+
+        if (choices != null && choices.Count > 0)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(choiceButtonA.gameObject);
+        }
     }
 
     private void OnRPGChoiceSelected(RPGDialogueSystem.RPGDialogueChoice choice)
@@ -452,6 +455,7 @@ public class DialogController : MonoBehaviour
     {
         waitingForChoice = false;
         choiceContainer.SetActive(false);
+        lastChoiceTime = Time.time;
     }
 
     /// <summary>
