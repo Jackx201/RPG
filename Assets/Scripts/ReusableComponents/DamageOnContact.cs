@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class DamageOnContact : Damage
 {
@@ -8,7 +9,7 @@ public class DamageOnContact : Damage
     [SerializeField] private int damageAmount;
     [SerializeField] private SignalSender hitSignal; // Señal opcional para vibrar pantalla o efectos
     
-  
+    [SerializeField] private CinemachineImpulseSource impulseSource; //Si está en un borde, no va funcionar, hay que subir el Damping del Cinemachine confiner en cámaras cuyas habitaciones tengan enemigos.   
 
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -33,6 +34,8 @@ public class DamageOnContact : Damage
             // Si golpeamos algo exitosamente y tenemos una señal asignada, la disparamos
             if (hitSomething && hitSignal != null)
             {
+                
+                impulseSource.GenerateImpulse();
                 hitSignal.Raise();
             }
         }
