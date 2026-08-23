@@ -425,6 +425,12 @@ public class DialogController : MonoBehaviour
             // Move immediately to the next command
             AdvanceRPGDialogue();
         }
+        else if (cmd.type == RPGDialogueSystem.CommandType.InvokeEvent)
+        {
+            cmd.onCommandEvent?.Invoke();
+            // Move immediately to the next command
+            AdvanceRPGDialogue();
+        }
     }
 
     private void ApplyColorToImage(Image img, string hexColor)

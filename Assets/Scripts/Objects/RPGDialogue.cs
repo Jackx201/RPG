@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -17,7 +18,8 @@ namespace RPGDialogueSystem
         ShowChoices,
         SetVariable,
         RaiseSignal,
-        RaiseNotification
+        RaiseNotification,
+        InvokeEvent
     }
 
     [Serializable]
@@ -48,6 +50,9 @@ namespace RPGDialogueSystem
 
         [Header("Raise Notification Settings")]
         public Notification notificationToRaise;
+
+        [Header("Invoke Event Settings")]
+        public UnityEvent onCommandEvent;
     }
 
     [Serializable]
@@ -337,6 +342,10 @@ namespace RPGDialogueSystem
                 else if (type == CommandType.RaiseNotification)
                 {
                     EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("notificationToRaise"), new GUIContent("Notification To Raise"));
+                }
+                else if (type == CommandType.InvokeEvent)
+                {
+                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("onCommandEvent"), new GUIContent("Event To Invoke"));
                 }
                 
                 EditorGUILayout.EndVertical();
