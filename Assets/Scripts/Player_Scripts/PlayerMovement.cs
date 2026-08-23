@@ -38,7 +38,7 @@ public class PlayerMovement : Movement
             }
             return;
         }
-        if(!IsRestrictedState(myState.myState))
+        if(!IsRestrictedState(myState.myState) && !myState.blockPlayerMovement)
         {
             GetInput();
             SetAnimation();

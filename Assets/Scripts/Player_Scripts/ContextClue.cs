@@ -13,9 +13,20 @@ public class ContextClue : MonoBehaviour
         myAnimator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        clueActive = false;
+        mySprite.enabled = false;
+        if (myAnimator != null)
+        {
+            myAnimator.enabled = false;
+        }
+    }
+
     public void ChangeClue()
     {
         clueActive = !clueActive;
+        Debug.Log($"[ContextClue] ChangeClue called on {gameObject.name}. clueActive is now: {clueActive}", this);
         mySprite.enabled = clueActive;
         
         if (myAnimator != null)
