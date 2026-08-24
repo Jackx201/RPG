@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: cbf938a29b95b7f4382be90c49f32b41, type: 3}
-  myName: A bow.
-  myDescription: You might be able to shot some arrows.
+  myName: Arco
+  myDescription: Con este podras disparar flechas
   isUsable: 0
   isUnique: 1
   numberHeld: 1

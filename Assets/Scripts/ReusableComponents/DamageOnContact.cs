@@ -34,8 +34,9 @@ public class DamageOnContact : Damage
             // Si golpeamos algo exitosamente y tenemos una señal asignada, la disparamos
             if (hitSomething && hitSignal != null)
             {
-                
-                impulseSource.GenerateImpulse();
+                if(impulseSource != null){
+                    impulseSource.GenerateImpulse();
+                }
                 hitSignal.Raise();
             }
         }

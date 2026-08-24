@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 
 [CreateAssetMenu(menuName = "Scriptable Objects/Abilities/Dash Ability", fileName = "Dash Ability")]
 
@@ -49,6 +50,12 @@ public class Dash : GenericAbility
             MonoBehaviour playerMono = playerRigidbody.GetComponent<MonoBehaviour>();
             PlayerHealth playerHealth = playerRigidbody.GetComponent<PlayerHealth>();
             TrailRenderer trailRenderer = playerRigidbody.GetComponentInChildren<TrailRenderer>();
+            CinemachineImpulseSource impulseSource = playerRigidbody.GetComponent<CinemachineImpulseSource>();
+
+            if (impulseSource != null)
+            {
+                impulseSource.GenerateImpulse(5f);
+            }
 
             if (playerHealth != null)
             {

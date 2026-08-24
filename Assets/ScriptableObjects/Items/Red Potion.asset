@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: Red Potion
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: e5a882bcf0819704e8e6377eae65f440, type: 3}
-  myName: Red Potion
-  myDescription: If you drink this, you will recover all your hearths.
+  myName: Medicina
+  myDescription: un sorbo basta para recuperar hasta 3 corazones
   isUsable: 1
   isUnique: 0
-  numberHeld: 9
+  numberHeld: 13
   thisEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -3859175878331219439, guid: e0fab9c171e7df04aa8067c9b61eeb6d,
           type: 3}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Use
         m_Mode: 3
         m_Arguments:
