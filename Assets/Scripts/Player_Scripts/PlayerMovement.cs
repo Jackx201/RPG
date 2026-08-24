@@ -130,19 +130,37 @@ public class PlayerMovement : Movement
         anim.SetAnimParameter("Attacking", false);
     }
 
-         public IEnumerator AbilityCo(float abilityDuration)
+     public IEnumerator AbilityCo(float abilityDuration)
      {
          myState.ChangeState(GenericState.ability);
+         ArrowAbility currentArrow = currentAbility as ArrowAbility;
+         if (currentArrow != null && !string.IsNullOrEmpty(currentArrow.animParameter))
+         {
+             anim.SetAnimParameter(currentArrow.animParameter, true);
+         }
          currentAbility.Ability(transform.position, facingDirection, anim.anim, myRigidbody);
          yield return new WaitForSeconds(0.3f);
+         if (currentArrow != null && !string.IsNullOrEmpty(currentArrow.animParameter))
+         {
+             anim.SetAnimParameter(currentArrow.animParameter, false);
+         }
          myState.ChangeState(GenericState.idle);
      }
 
      public IEnumerator SecondaryAbiltyCo(float abilityDuration)
      {
          myState.ChangeState(GenericState.ability);
+         ArrowAbility secondaryArrow = secondaryAbility as ArrowAbility;
+         if (secondaryArrow != null && !string.IsNullOrEmpty(secondaryArrow.animParameter))
+         {
+             anim.SetAnimParameter(secondaryArrow.animParameter, true);
+         }
          secondaryAbility.Ability(transform.position, facingDirection, anim.anim, myRigidbody);
          yield return new WaitForSeconds(abilityDuration);
+         if (secondaryArrow != null && !string.IsNullOrEmpty(secondaryArrow.animParameter))
+         {
+             anim.SetAnimParameter(secondaryArrow.animParameter, false);
+         }
          myState.ChangeState(GenericState.idle);
      }
 
