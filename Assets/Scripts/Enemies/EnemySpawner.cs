@@ -16,6 +16,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform chestEffectAnchor; // Child of the chest for position & layer
     [SerializeField] private float chestEffectDuration = 1f; // Fallback if no ParticleSystem found
 
+    [Header("Barriers")]
+    [SerializeField] private GameObject[] roomBarriers;
+    [SerializeField] private BoolValue spawnerCompleted;
+
+
     private int enemiesDefeated;
     private float spawnTimer;
     private bool isPlayerInZone;
@@ -46,6 +51,11 @@ public class EnemySpawner : MonoBehaviour
             {
                 chestToActivate.SetActive(true);
                 PlayChestEffect();
+            }
+
+            foreach (var barrier in roomBarriers)
+            {
+                if (barrier != null) barrier.SetActive(false);
             }
         }
     }
@@ -115,9 +125,16 @@ public class EnemySpawner : MonoBehaviour
 
     public void PlayerEnteredZone(Transform player)
     {
+        if (spawnerCompleted != null && spawnerCompleted.value) return;
+
         isPlayerInZone = true;
         playerTransform = player;
         spawnTimer = spawnInterval; // Trigger first spawn immediately
+
+        foreach (var barrier in roomBarriers)
+        {
+            if (barrier != null) barrier.SetActive(true);
+        }
     }
 
     public void PlayerLeftZone()
