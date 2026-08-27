@@ -149,7 +149,7 @@ TextureImporter:
       name: town_npcs01_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 99
         width: 17
         height: 25
@@ -171,7 +171,7 @@ TextureImporter:
       name: town_npcs01_1
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 74
         width: 16
         height: 25
@@ -193,7 +193,7 @@ TextureImporter:
       name: town_npcs01_2
       rect:
         serializedVersion: 2
-        x: 18
+        x: 17
         y: 99
         width: 17
         height: 25
@@ -215,7 +215,7 @@ TextureImporter:
       name: town_npcs01_3
       rect:
         serializedVersion: 2
-        x: 18
+        x: 17
         y: 74
         width: 16
         height: 25
@@ -238,7 +238,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 35
+        y: 49
         width: 16
         height: 24
       alignment: 0
@@ -260,9 +260,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 35
+        y: 49
         width: 16
-        height: 23
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,7 +282,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 35
+        y: 49
         width: 16
         height: 24
       alignment: 0
@@ -304,9 +304,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 35
+        y: 49
         width: 16
-        height: 23
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,6 +409,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: town_npcs01_12
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 99
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900a4553b0301274e82c616d3cc9acb2
+      internalID: 449971851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_npcs01_13
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 99
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040b15c6910013d4c873a7ecc85e0d95
+      internalID: 513619961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_npcs01_14
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 74
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad4058ef310ebc1479b532c096516585
+      internalID: 221518139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_npcs01_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 74
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c1182bd42cec546b29ad6426c57182
+      internalID: 1151548116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -427,6 +515,10 @@ TextureImporter:
       town_npcs01_1: -3586767033127247543
       town_npcs01_10: -1904782121972815189
       town_npcs01_11: 8173887368746609028
+      town_npcs01_12: 449971851
+      town_npcs01_13: 513619961
+      town_npcs01_14: 221518139
+      town_npcs01_15: 1151548116
       town_npcs01_2: -6999256517310669014
       town_npcs01_3: 2826978956233193639
       town_npcs01_4: 8576967168099130267
