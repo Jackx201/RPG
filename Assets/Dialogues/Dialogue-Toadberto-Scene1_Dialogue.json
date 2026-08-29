@@ -4,8 +4,13 @@
             "type": 0,
             "speakerName": "Toadberto",
             "speakerAnimParam": "store_owner",
+            "boxColorHex": "#A4FF96",
             "text": "Bienvenido a la tienda de Toadberto donde siempre esta abierto",
-            "choices": []
+            "choices": [],
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": ""
         }
     ]
 }

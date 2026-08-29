@@ -388,10 +388,12 @@ MonoBehaviour:
   playerInRange: 0
   otherTag: Player
   myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  signNotification: {fileID: 11400000, guid: 06855bde097fceb41b11506cbdc606a7, type: 2}
-  signText: {fileID: 11400000, guid: 67d0270ddd571d344961850a10b7ecb5, type: 2}
-  newSignText: ESOS INFANTES SON UN PELIGRO PARA LA SOCIEDAD
+  animm: {fileID: 486337930}
+  individualDialogueNotification: {fileID: 11400000, guid: 84197405b2b03ad4cb53c0351afe19c1,
+    type: 2}
+  individualDialogueStringText: {fileID: 11400000, guid: 88963b844382bda45be38466c3e87081,
+    type: 2}
+  newIndividualDialogueStringText: ESOS INFANTES SON UN PELIGRO PARA LA SOCIEDAD
   dialogActive: 0
   speed: 1
   bounds: {fileID: 1514507241}
@@ -81935,107 +81937,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &105694219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 105694220}
-  - component: {fileID: 105694221}
-  - component: {fileID: 105694222}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &105694220
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105694219}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1518733274}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &105694221
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105694219}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.9084072, y: 2.3554025}
-  m_EdgeRadius: 0
---- !u!114 &105694222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105694219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8ccb9912ffa9947854d42f9e5ba669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  dialogValue: {fileID: 11400000, guid: d12d97d148998c745ae1443ce7aaef9e, type: 2}
-  myDialog: {fileID: 4900000, guid: 8530e5a3f4caf9d40b8193ef3a3b6932, type: 3}
-  BracnhingNotification: {fileID: 11400000, guid: 38997639211bf754ca5132c52234a933,
-    type: 2}
-  LeavingNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4,
-    type: 2}
 --- !u!1 &109779456
 GameObject:
   m_ObjectHideFlags: 0
@@ -82724,107 +82625,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227192678}
   m_CullTransparentMesh: 0
---- !u!1 &234273151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 234273152}
-  - component: {fileID: 234273154}
-  - component: {fileID: 234273153}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &234273152
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234273151}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1364384518}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &234273153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234273151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8ccb9912ffa9947854d42f9e5ba669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  dialogValue: {fileID: 11400000, guid: d12d97d148998c745ae1443ce7aaef9e, type: 2}
-  myDialog: {fileID: 4900000, guid: 8530e5a3f4caf9d40b8193ef3a3b6932, type: 3}
-  BracnhingNotification: {fileID: 11400000, guid: 38997639211bf754ca5132c52234a933,
-    type: 2}
-  LeavingNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4,
-    type: 2}
---- !u!61 &234273154
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234273151}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.9084072, y: 2.3554025}
-  m_EdgeRadius: 0
 --- !u!1 &271162424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1476179017591822335, guid: 01baec15cd9c964499e2c7aa05ec7d8d,
@@ -84017,8 +83817,7 @@ Transform:
   m_LocalPosition: {x: -3.289999, y: 0.30999947, z: -6.6923504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1185222268}
+  m_Children: []
   m_Father: {fileID: 931432767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &486337928
@@ -84202,7 +84001,7 @@ GameObject:
   - component: {fileID: 510778775}
   - component: {fileID: 510778774}
   m_Layer: 0
-  m_Name: IdleNPC-Ashley (1)
+  m_Name: IdleNPC-L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84220,8 +84019,7 @@ Transform:
   m_LocalPosition: {x: -0.37, y: -5.01, z: -6.7491913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1505533796}
+  m_Children: []
   m_Father: {fileID: 931432767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &510778774
@@ -84956,107 +84754,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761364530}
   m_CullTransparentMesh: 0
---- !u!1 &763244758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 763244759}
-  - component: {fileID: 763244761}
-  - component: {fileID: 763244760}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &763244759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763244758}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1993090436}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &763244760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763244758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8ccb9912ffa9947854d42f9e5ba669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  dialogValue: {fileID: 11400000, guid: d12d97d148998c745ae1443ce7aaef9e, type: 2}
-  myDialog: {fileID: 4900000, guid: 8530e5a3f4caf9d40b8193ef3a3b6932, type: 3}
-  BracnhingNotification: {fileID: 11400000, guid: 38997639211bf754ca5132c52234a933,
-    type: 2}
-  LeavingNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4,
-    type: 2}
---- !u!61 &763244761
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763244758}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.9084072, y: 2.3554025}
-  m_EdgeRadius: 0
 --- !u!212 &771016160 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2597144330703966534, guid: 4349fb82aebcd6648bcd34c07aa3988c,
@@ -85603,6 +85300,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   myNotification: {fileID: 11400000, guid: 5957a90119624f74d805bf65f34cd022, type: 2}
+--- !u!114 &824300906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6766705975438154292, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 824300889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824300895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0d6f05b69f7114eac744c642933e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &828021688
 GameObject:
   m_ObjectHideFlags: 0
@@ -86306,7 +86015,7 @@ PrefabInstance:
     - target: {fileID: 7849780065799476662, guid: 3c541e282ed7be34ca5e4bb1db48157b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -86356,6 +86065,7 @@ Transform:
   - {fileID: 1993090436}
   - {fileID: 988903259}
   - {fileID: 1930251710}
+  - {fileID: 1364384518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &971028332
@@ -86515,6 +86225,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982458185}
   m_CullTransparentMesh: 0
+--- !u!114 &988400411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2402152676939855885, guid: 3c541e282ed7be34ca5e4bb1db48157b,
+    type: 3}
+  m_PrefabInstance: {fileID: 915112884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0d6f05b69f7114eac744c642933e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &988903256
 GameObject:
   m_ObjectHideFlags: 0
@@ -86646,8 +86368,7 @@ Transform:
   m_LocalPosition: {x: 3.3199997, y: 0.30999947, z: -6.6923504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1459732307}
+  m_Children: []
   m_Father: {fileID: 931432767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1006743293
@@ -87151,93 +86872,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filePath: Assets/Dialogues/IdleNPC-Ashley_Dialogue01.json
   commands:
-  - type: 0
-    speakerName: Bell
-    speakerAnimParam: player
-    boxColorHex: '#FFD8C4'
-    text: No termino de entender que estan haciendo esos dos chicos
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    speakerName: Ashley
-    speakerAnimParam: ashley
-    boxColorHex: '#FF88CB'
-    text: Estan en una batalla de granjear presencia.
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    speakerName: Ashley
-    speakerAnimParam: ashley
-    boxColorHex: '#FF88CB'
-    text: Los chicos y chicas se agrupan para expresarse en espacios publicos
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    speakerName: Ashley
-    speakerAnimParam: ashley
-    boxColorHex: '#FF88CB'
-    text: La verdad no perjudican a nadie. Pero, a ciertos adultos, por algun motivo
-      les hace enojar bastante
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    speakerName: Bell
-    speakerAnimParam: player
-    boxColorHex: '#FFD8C4'
-    text: No entiendo por que a un adulto funcional le molestaria algo asi. Suena
-      bastante genial.
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
+  - rid: 5301360840518139970
+  - rid: 5301360840518139971
+  - rid: 5301360840518139972
+  - rid: 5301360840518139973
+  - rid: 5301360840518139974
+  references:
+    version: 2
+    RefIds:
+    - rid: 5301360840518139970
+      type: {class: ShowTextCommand, ns: RPGDialogueSystem, asm: Assembly-CSharp}
+      data:
+        speakerName: Bell
+        speakerAnimParam: player
+        boxColorHex: '#FFD8C4'
+        text: No termino de entender que estan haciendo esos dos chicos
+    - rid: 5301360840518139971
+      type: {class: ShowTextCommand, ns: RPGDialogueSystem, asm: Assembly-CSharp}
+      data:
+        speakerName: Ashley
+        speakerAnimParam: ashley
+        boxColorHex: '#FF88CB'
+        text: Estan en una batalla de granjear presencia.
+    - rid: 5301360840518139972
+      type: {class: ShowTextCommand, ns: RPGDialogueSystem, asm: Assembly-CSharp}
+      data:
+        speakerName: Ashley
+        speakerAnimParam: ashley
+        boxColorHex: '#FF88CB'
+        text: Los chicos y chicas se agrupan para expresarse en espacios publicos
+    - rid: 5301360840518139973
+      type: {class: ShowTextCommand, ns: RPGDialogueSystem, asm: Assembly-CSharp}
+      data:
+        speakerName: Ashley
+        speakerAnimParam: ashley
+        boxColorHex: '#FF88CB'
+        text: La verdad no perjudican a nadie. Pero, a ciertos adultos, por algun
+          motivo les hace enojar bastante
+    - rid: 5301360840518139974
+      type: {class: ShowTextCommand, ns: RPGDialogueSystem, asm: Assembly-CSharp}
+      data:
+        speakerName: Bell
+        speakerAnimParam: player
+        boxColorHex: '#FFD8C4'
+        text: No entiendo por que a un adulto funcional le molestaria algo asi. Suena
+          bastante genial.
 --- !u!114 &1076967292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91859,6 +91538,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1171240259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1920806654767691655, guid: 3c541e282ed7be34ca5e4bb1db48157b,
+    type: 3}
+  m_PrefabInstance: {fileID: 915112884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1178505965
 GameObject:
   m_ObjectHideFlags: 0
@@ -91906,107 +91591,6 @@ Transform:
   - {fileID: 1108252773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1185222267
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1185222268}
-  - component: {fileID: 1185222270}
-  - component: {fileID: 1185222269}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1185222268
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185222267}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 478468505}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1185222269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185222267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8ccb9912ffa9947854d42f9e5ba669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  dialogValue: {fileID: 11400000, guid: d12d97d148998c745ae1443ce7aaef9e, type: 2}
-  myDialog: {fileID: 4900000, guid: 8530e5a3f4caf9d40b8193ef3a3b6932, type: 3}
-  BracnhingNotification: {fileID: 11400000, guid: 38997639211bf754ca5132c52234a933,
-    type: 2}
-  LeavingNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4,
-    type: 2}
---- !u!61 &1185222270
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185222267}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.9084072, y: 2.3554025}
-  m_EdgeRadius: 0
 --- !u!1 &1202226873
 GameObject:
   m_ObjectHideFlags: 0
@@ -92086,6 +91670,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202226873}
   m_CullTransparentMesh: 0
+--- !u!114 &1251437133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6766705976161130327, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 824300889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2855ee28ef97ece49ad2194307a0b281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1253798011
 GameObject:
   m_ObjectHideFlags: 3
@@ -92727,12 +92323,11 @@ Transform:
   m_GameObject: {fileID: 1364384515}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.55, y: 11.68, z: 0}
+  m_LocalPosition: {x: -2.3400002, y: 0.34000015, z: -6.6923504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 234273152}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 931432767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384293274
 GameObject:
@@ -92792,7 +92387,7 @@ MonoBehaviour:
   m_BoundingVolume: {fileID: 0}
   m_BoundingShape2D: {fileID: 1022461875}
   m_ConfineScreenEdges: 1
-  m_Damping: 0
+  m_Damping: 0.54
 --- !u!114 &1384293277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93060,107 +92655,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6916445866974358611}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1459732306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1459732307}
-  - component: {fileID: 1459732309}
-  - component: {fileID: 1459732308}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1459732307
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459732306}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 988903259}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1459732308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459732306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8ccb9912ffa9947854d42f9e5ba669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  dialogValue: {fileID: 11400000, guid: d12d97d148998c745ae1443ce7aaef9e, type: 2}
-  myDialog: {fileID: 4900000, guid: 8530e5a3f4caf9d40b8193ef3a3b6932, type: 3}
-  BracnhingNotification: {fileID: 11400000, guid: 38997639211bf754ca5132c52234a933,
-    type: 2}
-  LeavingNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4,
-    type: 2}
---- !u!61 &1459732309
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459732306}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.9084072, y: 2.3554025}
-  m_EdgeRadius: 0
 --- !u!1 &1477021625
 GameObject:
   m_ObjectHideFlags: 0
@@ -93248,7 +92742,7 @@ Transform:
   m_GameObject: {fileID: 1477021625}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27, y: 26, z: 0}
+  m_LocalPosition: {x: -26.88, y: 25.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -93415,7 +92909,7 @@ MonoBehaviour:
   currentState: 0
   health: 0
   enemySpeed: 2
-  enemyName: 
+  enemyName: Ogre
   baseAttack: 4
   maxHealth: {fileID: 11400000, guid: cfe71bf58d013d64aa997790aef1703f, type: 2}
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
@@ -93423,198 +92917,12 @@ MonoBehaviour:
   thisLoot: {fileID: 11400000, guid: 3a579f0a45dd98642b42bd2cc185166b, type: 2}
   roomSignal: {fileID: 11400000, guid: 92fc872822d6ee54fb58f0a053685d50, type: 2}
   myRigidBody2D: {fileID: 1477021631}
-  target: {fileID: 0}
+  target: {fileID: 824300890}
   chaseRadious: 5
   attackRadious: 0.9
-  playerState: {fileID: 0}
+  playerState: {fileID: 1251437133}
   anim: {fileID: 1477021628}
   spawnDelay: 1
---- !u!1 &1505533795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1505533796}
-  - component: {fileID: 1505533799}
-  - component: {fileID: 1505533798}
-  - component: {fileID: 1505533797}
-  m_Layer: 0
-  m_Name: AshleyDialogue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1505533796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505533795}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.064, y: 0.08, z: 0.057836644}
-  m_LocalScale: {x: 2.4954185, y: 3.3524313, z: 2.0165}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 510778773}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1505533797
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505533795}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1505533798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505533795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6dcabeef34d1e4b924267cdb708e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filePath: Assets/Dialogues/IdleNPC-Ashley_Dialogue01.json
-  commands:
-  - type: 0
-    speakerName: Bell
-    speakerAnimParam: player
-    boxColorHex: '#FFD8C4'
-    text: No termino de entender que estan haciendo esos dos chicos
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    speakerName: Ashley
-    speakerAnimParam: ashley
-    boxColorHex: '#FF88CB'
-    text: Estan en una batalla de granjear presencia.
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    speakerName: Ashley
-    speakerAnimParam: ashley
-    boxColorHex: '#FF88CB'
-    text: Los chicos y chicas se agrupan para expresarse en espacios publicos sin
-      perjudicar a nadie, aunque a ciertos adultos por algun motivo les resulta muy
-      molesto
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - type: 0
-    speakerName: Bell
-    speakerAnimParam: player
-    boxColorHex: '#FFD8C4'
-    text: No entiendo por que a un adulto funcional le molestaria algo asi. Suena
-      bastante genial.
-    choices: []
-    variableToSet: {fileID: 0}
-    variableType: 
-    setBoolValue: 0
-    setFloatValue: 0
-    setIntValue: 0
-    setStringValue: 
-    signalToRaise: {fileID: 0}
-    notificationToRaise: {fileID: 0}
-    onCommandEvent:
-      m_PersistentCalls:
-        m_Calls: []
---- !u!114 &1505533799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505533795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f9bb1b59ecf9f418d768bab4c7954c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: 5957a90119624f74d805bf65f34cd022, type: 2}
-  animm: {fileID: 1286828927}
-  dialogController: {fileID: 831331610}
-  sequentialSpeakerName: 
-  sequentialSpeakerAnimParam: 
-  dialogLines: []
-  rpgDialogue: {fileID: 1505533798}
 --- !u!1 &1514507239
 GameObject:
   m_ObjectHideFlags: 0
@@ -93779,8 +93087,7 @@ Transform:
   m_LocalPosition: {x: 20.99, y: 15.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 105694220}
+  m_Children: []
   m_Father: {fileID: 1082135660829953500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1518733275
@@ -130356,107 +129663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1660195111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1660195112}
-  - component: {fileID: 1660195114}
-  - component: {fileID: 1660195113}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1660195112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660195111}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1838791563}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1660195113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660195111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8ccb9912ffa9947854d42f9e5ba669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  dialogValue: {fileID: 11400000, guid: d12d97d148998c745ae1443ce7aaef9e, type: 2}
-  myDialog: {fileID: 4900000, guid: 8530e5a3f4caf9d40b8193ef3a3b6932, type: 3}
-  BracnhingNotification: {fileID: 11400000, guid: 38997639211bf754ca5132c52234a933,
-    type: 2}
-  LeavingNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4,
-    type: 2}
---- !u!61 &1660195114
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660195111}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.9084072, y: 2.3554025}
-  m_EdgeRadius: 0
 --- !u!114 &1667274304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130609,6 +129815,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1691375835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8670264140351658253, guid: 3c541e282ed7be34ca5e4bb1db48157b,
+    type: 3}
+  m_PrefabInstance: {fileID: 915112884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1709128753
 GameObject:
   m_ObjectHideFlags: 0
@@ -130785,107 +129997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1754723050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1754723051}
-  - component: {fileID: 1754723053}
-  - component: {fileID: 1754723052}
-  m_Layer: 0
-  m_Name: Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1754723051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754723050}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1930251710}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1754723052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754723050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8ccb9912ffa9947854d42f9e5ba669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  otherTag: Player
-  myNotification: {fileID: 11400000, guid: c072d3f15a77dcb48b91c52e757e9c31, type: 2}
-  animm: {fileID: 0}
-  dialogValue: {fileID: 11400000, guid: d12d97d148998c745ae1443ce7aaef9e, type: 2}
-  myDialog: {fileID: 4900000, guid: 8530e5a3f4caf9d40b8193ef3a3b6932, type: 3}
-  BracnhingNotification: {fileID: 11400000, guid: 38997639211bf754ca5132c52234a933,
-    type: 2}
-  LeavingNotification: {fileID: 11400000, guid: d75e7be07568f124f8b2e28eb44da7f4,
-    type: 2}
---- !u!61 &1754723053
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754723050}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.9084072, y: 2.3554025}
-  m_EdgeRadius: 0
 --- !u!1 &1756227624
 GameObject:
   m_ObjectHideFlags: 0
@@ -131179,7 +130290,7 @@ GameObject:
   - component: {fileID: 1838791565}
   - component: {fileID: 1838791564}
   m_Layer: 11
-  m_Name: McMuffin (1)
+  m_Name: Striving
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131197,8 +130308,7 @@ Transform:
   m_LocalPosition: {x: 25.98, y: 15.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1660195112}
+  m_Children: []
   m_Father: {fileID: 1082135660829953500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1838791564
@@ -131698,8 +130808,7 @@ Transform:
   m_LocalPosition: {x: -13.37, y: 1.61, z: -6.6923504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1754723051}
+  m_Children: []
   m_Father: {fileID: 931432767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1930251711
@@ -132081,7 +131190,7 @@ MonoBehaviour:
   m_BoundingVolume: {fileID: 0}
   m_BoundingShape2D: {fileID: 588857496}
   m_ConfineScreenEdges: 1
-  m_Damping: 0
+  m_Damping: 0.34
 --- !u!114 &1979556135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132462,8 +131571,7 @@ Transform:
   m_LocalPosition: {x: 2.1800003, y: 0.34000015, z: -6.6923504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 763244759}
+  m_Children: []
   m_Father: {fileID: 931432767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2011061620
@@ -134271,7 +133379,7 @@ PrefabInstance:
         type: 3}
       propertyPath: animm
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 824300906}
     - target: {fileID: 6916445868364136180, guid: 91dc77b3997eed64fa96d965b94b00c0,
         type: 3}
       propertyPath: otherTag
@@ -134281,7 +133389,7 @@ PrefabInstance:
         type: 3}
       propertyPath: signText
       value: 
-      objectReference: {fileID: 11400000, guid: 67d0270ddd571d344961850a10b7ecb5,
+      objectReference: {fileID: 11400000, guid: 88963b844382bda45be38466c3e87081,
         type: 2}
     - target: {fileID: 6916445868364136180, guid: 91dc77b3997eed64fa96d965b94b00c0,
         type: 3}
@@ -134296,7 +133404,7 @@ PrefabInstance:
     - target: {fileID: 6916445868364136180, guid: 91dc77b3997eed64fa96d965b94b00c0,
         type: 3}
       propertyPath: newSignText
-      value: Forest Ahead
+      value: Camino del bosque
       objectReference: {fileID: 0}
     - target: {fileID: 6916445868364136180, guid: 91dc77b3997eed64fa96d965b94b00c0,
         type: 3}
@@ -134308,8 +133416,25 @@ PrefabInstance:
         type: 3}
       propertyPath: signNotification
       value: 
-      objectReference: {fileID: 11400000, guid: 06855bde097fceb41b11506cbdc606a7,
+      objectReference: {fileID: 11400000, guid: 84197405b2b03ad4cb53c0351afe19c1,
         type: 2}
+    - target: {fileID: 6916445868364136180, guid: 91dc77b3997eed64fa96d965b94b00c0,
+        type: 3}
+      propertyPath: individualDialogueStringText
+      value: 
+      objectReference: {fileID: 11400000, guid: 88963b844382bda45be38466c3e87081,
+        type: 2}
+    - target: {fileID: 6916445868364136180, guid: 91dc77b3997eed64fa96d965b94b00c0,
+        type: 3}
+      propertyPath: individualDialogueNotification
+      value: 
+      objectReference: {fileID: 11400000, guid: 84197405b2b03ad4cb53c0351afe19c1,
+        type: 2}
+    - target: {fileID: 6916445868364136180, guid: 91dc77b3997eed64fa96d965b94b00c0,
+        type: 3}
+      propertyPath: newIndividualDialogueStringText
+      value: BOSQUE ADELANTE
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -134382,27 +133507,27 @@ PrefabInstance:
         type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 988400411}
     - target: {fileID: 6900120644571626875, guid: 74a2b15e07afd6549b5ec1f88bc8a80b,
         type: 3}
       propertyPath: exitButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1691375835}
     - target: {fileID: 6900120644571626875, guid: 74a2b15e07afd6549b5ec1f88bc8a80b,
         type: 3}
       propertyPath: gameOverUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1171240259}
     - target: {fileID: 6900120644571626875, guid: 74a2b15e07afd6549b5ec1f88bc8a80b,
         type: 3}
       propertyPath: playerState
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1251437133}
     - target: {fileID: 6900120644571626875, guid: 74a2b15e07afd6549b5ec1f88bc8a80b,
         type: 3}
       propertyPath: playerMovement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 439323610}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -134643,5 +133768,4 @@ SceneRoots:
   - {fileID: 7049915568091326523}
   - {fileID: 824300889}
   - {fileID: 915112884}
-  - {fileID: 1364384518}
   - {fileID: 931432767}
