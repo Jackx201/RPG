@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using RPGDialogueSystem;
 
 public class DialogController : MonoBehaviour
 {
@@ -50,12 +51,6 @@ public class DialogController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI choiceLabelA;
     [SerializeField] private TextMeshProUGUI choiceLabelB;
 
-    // -------------------------------------------------------
-    // Legacy fields — kept for Sign and other existing objects
-    // -------------------------------------------------------
-    [Header("Legacy (Sign / StringValue system)")]
-    [SerializeField] private StringValue stringText;
-    [SerializeField] private Notification dialogNotification;
 
     // -------------------------------------------------------
     // Internal state
@@ -74,26 +69,10 @@ public class DialogController : MonoBehaviour
 
     private class RPGDialogueState
     {
-        public List<RPGDialogueSystem.RPGDialogueCommand> commands;
+        public IReadOnlyList<RPGDialogueCommand> commands;
         public int index;
     }
 
-    // -------------------------------------------------------
-    // LEGACY: ActivateDialog — used by Sign and existing objects
-    // -------------------------------------------------------
-    public void ActivateDialog()
-    {
-        dialogActive = !dialogActive;
-        if (dialogActive)
-        {
-            dialogObject.SetActive(true);
-            dialogText.text = stringText.value;
-        }
-        else
-        {
-            ClosePanel();
-        }
-    }
 
     // -------------------------------------------------------
     // SEQUENTIAL: StartDialog(string[]) — used by Dialogues.cs
@@ -161,7 +140,7 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    public void StartDialog(List<RPGDialogueSystem.RPGDialogueCommand> commands)
+    public void StartDialog(IReadOnlyList<RPGDialogueCommand> commands)
     {
         if (Time.time - lastChoiceTime < 0.1f) return;
         if (waitingForChoice)
@@ -209,91 +188,73 @@ public class DialogController : MonoBehaviour
         var cmd = currentState.commands[currentState.index];
         currentState.index++;
 
-        if (cmd.type == RPGDialogueSystem.CommandType.ShowText)
+        if (cmd is ShowTextCommand showText)
         {
-            dialogText.text = cmd.text;
-            if (!string.IsNullOrEmpty(cmd.speakerName))
+            dialogText.text = showText.text;
+            if (!string.IsNullOrEmpty(showText.speakerName))
             {
                 if (nameBoxObject != null) nameBoxObject.SetActive(true);
-                if (nameText != null) nameText.text = cmd.speakerName;
+                if (nameText != null) nameText.text = showText.speakerName;
             }
             else
             {
                 if (nameBoxObject != null) nameBoxObject.SetActive(false);
             }
-            ApplySpeakerAnim(cmd.speakerAnimParam);
-            ApplyColorToImage(dialogBoxImage, cmd.boxColorHex);
-            ApplyColorToImage(nameBoxImage, cmd.boxColorHex);
-            ApplyColorToImage(portraitBoxImage, cmd.boxColorHex);
+            ApplySpeakerAnim(showText.speakerAnimParam);
+            ApplyColorToImage(dialogBoxImage, showText.boxColorHex);
+            ApplyColorToImage(nameBoxImage, showText.boxColorHex);
+            ApplyColorToImage(portraitBoxImage, showText.boxColorHex);
             HideChoices();
         }
-        else if (cmd.type == RPGDialogueSystem.CommandType.ShowChoices)
+        else if (cmd is ShowChoicesCommand showChoices)
         {
-            if (!string.IsNullOrEmpty(cmd.text))
+            if (!string.IsNullOrEmpty(showChoices.promptText))
             {
-                dialogText.text = cmd.text;
-                if (!string.IsNullOrEmpty(cmd.speakerName))
+                dialogText.text = showChoices.promptText;
+                if (!string.IsNullOrEmpty(showChoices.speakerName))
                 {
                     if (nameBoxObject != null) nameBoxObject.SetActive(true);
-                    if (nameText != null) nameText.text = cmd.speakerName;
+                    if (nameText != null) nameText.text = showChoices.speakerName;
                 }
                 else
                 {
                     if (nameBoxObject != null) nameBoxObject.SetActive(false);
                 }
-                ApplySpeakerAnim(cmd.speakerAnimParam);
-                ApplyColorToImage(dialogBoxImage, cmd.boxColorHex);
-                ApplyColorToImage(nameBoxImage, cmd.boxColorHex);
-                ApplyColorToImage(portraitBoxImage, cmd.boxColorHex);
+                ApplySpeakerAnim(showChoices.speakerAnimParam);
+                ApplyColorToImage(dialogBoxImage, showChoices.boxColorHex);
+                ApplyColorToImage(nameBoxImage, showChoices.boxColorHex);
+                ApplyColorToImage(portraitBoxImage, showChoices.boxColorHex);
             }
-            ShowRPGChoices(cmd.choices);
+            ShowRPGChoices(showChoices.choices);
         }
-        else if (cmd.type == RPGDialogueSystem.CommandType.SetVariable)
+        else if (cmd is SetVariableCommand setVar)
         {
-            if (cmd.variableToSet != null)
+            if (setVar.variableToSet != null)
             {
-                if (cmd.variableType == "Bool" && cmd.variableToSet is BoolValue boolVal)
-                {
-                    boolVal.value = cmd.setBoolValue;
-                }
-                else if (cmd.variableType == "Float" && cmd.variableToSet is FloatValue floatVal)
-                {
-                    floatVal.RuntimeValue = cmd.setFloatValue;
-                }
-                else if (cmd.variableType == "Int" && cmd.variableToSet is IntValue intVal)
-                {
-                    intVal.RuntimeValue = cmd.setIntValue;
-                }
-                else if (cmd.variableType == "String" && cmd.variableToSet is StringValue stringVal)
-                {
-                    stringVal.value = cmd.setStringValue;
-                }
+                if (setVar.variableToSet is BoolValue boolVal)
+                    boolVal.value = setVar.setBoolValue;
+                else if (setVar.variableToSet is FloatValue floatVal)
+                    floatVal.RuntimeValue = setVar.setFloatValue;
+                else if (setVar.variableToSet is IntValue intVal)
+                    intVal.RuntimeValue = setVar.setIntValue;
+                else if (setVar.variableToSet is StringValue stringVal)
+                    stringVal.value = setVar.setStringValue;
             }
-            // Move immediately to the next command since variable setting takes no time
             AdvanceRPGDialogue();
         }
-        else if (cmd.type == RPGDialogueSystem.CommandType.RaiseSignal)
+        else if (cmd is RaiseSignalCommand raiseSignal)
         {
-            if (cmd.signalToRaise != null)
-            {
-                cmd.signalToRaise.Raise();
-            }
-            // Move immediately to the next command
+            raiseSignal.signalToRaise?.Raise();
             AdvanceRPGDialogue();
         }
-        else if (cmd.type == RPGDialogueSystem.CommandType.RaiseNotification)
+        else if (cmd is RaiseNotificationCommand raiseNotif)
         {
-            if (cmd.notificationToRaise != null)
-            {
-                cmd.notificationToRaise.Raise();
-            }
-            // Move immediately to the next command
+            raiseNotif.notificationToRaise?.Raise();
             AdvanceRPGDialogue();
         }
-        else if (cmd.type == RPGDialogueSystem.CommandType.InvokeEvent)
+        else if (cmd is InvokeEventCommand invokeEvent)
         {
-            cmd.onCommandEvent?.Invoke();
-            // Move immediately to the next command
+            invokeEvent.onCommandEvent?.Invoke();
             AdvanceRPGDialogue();
         }
     }
@@ -308,7 +269,7 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    private void ShowRPGChoices(List<RPGDialogueSystem.RPGDialogueChoice> choices)
+    private void ShowRPGChoices(List<RPGDialogueChoice> choices)
     {
         waitingForChoice = true;
         choiceContainer.SetActive(true);
@@ -346,7 +307,7 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    private void OnRPGChoiceSelected(RPGDialogueSystem.RPGDialogueChoice choice)
+    private void OnRPGChoiceSelected(RPGDialogueChoice choice)
     {
         HideChoices();
         if (choice.nestedCommands != null && choice.nestedCommands.Count > 0)

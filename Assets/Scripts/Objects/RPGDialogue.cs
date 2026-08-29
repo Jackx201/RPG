@@ -1,123 +1,64 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
-using UnityEngine.Events;
 
 #if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 #endif
 
 namespace RPGDialogueSystem
 {
-    [Serializable]
-    public enum CommandType
-    {
-        ShowText,
-        ShowChoices,
-        SetVariable,
-        RaiseSignal,
-        RaiseNotification,
-        InvokeEvent
-    }
-
-    [Serializable]
-    public class RPGDialogueCommand
-    {
-        public CommandType type = CommandType.ShowText;
-
-        [Header("Show Text Settings")]
-        public string speakerName;
-        public string speakerAnimParam;
-        public string boxColorHex = "#FFFFFF";
-        [TextArea(2, 5)]
-        public string text;
-
-        [Header("Show Choices Settings")]
-        public List<RPGDialogueChoice> choices = new List<RPGDialogueChoice>();
-
-        [Header("Set Variable Settings")]
-        public ScriptableObject variableToSet;
-        public string variableType; // "Bool", "Float", "Int", "String"
-        public bool setBoolValue;
-        public float setFloatValue;
-        public int setIntValue;
-        public string setStringValue;
-
-        [Header("Raise Signal Settings")]
-        public SignalSender signalToRaise;
-
-        [Header("Raise Notification Settings")]
-        public Notification notificationToRaise;
-
-        [Header("Invoke Event Settings")]
-        public UnityEvent onCommandEvent;
-    }
-
-    [Serializable]
-    public class RPGDialogueChoice
-    {
-        public string choiceText;
-        public List<RPGDialogueCommand> nestedCommands = new List<RPGDialogueCommand>();
-    }
-
-    [Serializable]
-    public class RPGDialogueData
-    {
-        public List<RPGDialogueCommand> commands = new List<RPGDialogueCommand>();
-    }
-
     [DisallowMultipleComponent]
     public class RPGDialogue : MonoBehaviour
     {
         [Header("File Storage")]
-        [Tooltip("The text file path relative to the Assets folder where the dialogue will be saved/loaded.")]
+        [Tooltip("Path relative to the Assets folder. Dev utility only — JsonUtility does not support [SerializeReference].")]
         [SerializeField] private string filePath = "";
 
         [Header("Dialogue Content")]
-        [SerializeField] private List<RPGDialogueCommand> commands = new List<RPGDialogueCommand>();
+        [SerializeReference] private List<RPGDialogueCommand> commands = new List<RPGDialogueCommand>();
 
-        public List<RPGDialogueCommand> Commands => commands;
+        public IReadOnlyList<RPGDialogueCommand> Commands => commands;
 
         private void Reset()
         {
+#if UNITY_EDITOR
             AutoGenerateFilePath();
+#endif
         }
 
+#if UNITY_EDITOR
         private void AutoGenerateFilePath()
         {
-            if (string.IsNullOrEmpty(filePath))
-            {
-                string folder = Path.Combine("Assets", "Dialogues");
-                if (!Directory.Exists(folder))
-                {
-                    Directory.CreateDirectory(folder);
-                }
-                filePath = Path.Combine(folder, $"{gameObject.name}_Dialogue.json").Replace("\\", "/");
-            }
+            if (!string.IsNullOrEmpty(filePath)) return;
+
+            const string folder = "Assets/Dialogues";
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
+
+            filePath = $"{folder}/{gameObject.name}_Dialogue.json";
         }
 
+        // NOTE: JsonUtility cannot serialize [SerializeReference] polymorphic types directly.
+        // A flat DTO layer (RPGDialogueSerializer) is used to bridge the two.
+        // Unity object references (signals, events, variable assets) are NOT preserved in JSON
+        // and must be re-linked in the Inspector after loading.
         public void SaveToFile()
         {
             if (string.IsNullOrEmpty(filePath))
-            {
                 AutoGenerateFilePath();
-            }
 
             try
             {
-                RPGDialogueData data = new RPGDialogueData { commands = this.commands };
-                string json = JsonUtility.ToJson(data, true);
+                string json = RPGDialogueSerializer.Serialize(commands);
                 File.WriteAllText(filePath, json);
-#if UNITY_EDITOR
                 AssetDatabase.ImportAsset(filePath);
-#endif
-                Debug.Log($"Dialogue saved to: {filePath}");
+                Debug.Log($"[RPGDialogue] Saved {commands.Count} command(s) to: {filePath}");
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error saving dialogue to {filePath}: {e.Message}");
+                Debug.LogError($"[RPGDialogue] Save failed: {e.Message}");
             }
         }
 
@@ -125,111 +66,87 @@ namespace RPGDialogueSystem
         {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
             {
+                Debug.LogWarning($"[RPGDialogue] File not found: '{filePath}'");
                 return;
             }
 
             try
             {
                 string json = File.ReadAllText(filePath);
-                RPGDialogueData data = JsonUtility.FromJson<RPGDialogueData>(json);
-                if (data != null)
-                {
-                    this.commands = data.commands;
-                    Debug.Log($"Dialogue loaded from: {filePath}");
-                }
+                commands = RPGDialogueSerializer.Deserialize(json);
+                EditorUtility.SetDirty(this);
+                Debug.Log($"[RPGDialogue] Loaded {commands.Count} command(s) from: {filePath}");
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error loading dialogue from {filePath}: {e.Message}");
+                Debug.LogError($"[RPGDialogue] Load failed: {e.Message}");
             }
         }
-
-        private void OnValidate()
-        {
-            if (string.IsNullOrEmpty(filePath))
-            {
-                AutoGenerateFilePath();
-            }
-        }
+#endif
     }
 
 #if UNITY_EDITOR
     [CustomEditor(typeof(RPGDialogue))]
     public class RPGDialogueEditor : Editor
     {
+        private const int MaxNestingDepth = 4;
+
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-            
+
             RPGDialogue rpgDialogue = (RPGDialogue)target;
-            
-            // File Storage field
-            SerializedProperty filePathProp = serializedObject.FindProperty("filePath");
-            EditorGUILayout.PropertyField(filePathProp);
-            
-            // Buttons to manual Save/Load
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("filePath"));
+
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Save to Text File"))
-            {
-                rpgDialogue.SaveToFile();
-            }
-            if (GUILayout.Button("Load from Text File"))
+            if (GUILayout.Button("Save to File")) rpgDialogue.SaveToFile();
+            if (GUILayout.Button("Load from File"))
             {
                 rpgDialogue.LoadFromFile();
                 serializedObject.Update();
             }
             EditorGUILayout.EndHorizontal();
-            
+
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("RPG Maker-Style Dialogues", EditorStyles.boldLabel);
-            
-            SerializedProperty commandsProp = serializedObject.FindProperty("commands");
-            DrawCommandList(commandsProp, 0);
-            
+
+            DrawCommandList(serializedObject.FindProperty("commands"), 0);
+
             serializedObject.ApplyModifiedProperties();
         }
+
+        // ── Command List ─────────────────────────────────────────────────────────
 
         private void DrawCommandList(SerializedProperty listProp, int indentLevel)
         {
             if (listProp == null) return;
 
-            EditorGUILayout.BeginVertical("box");
-            
-            // Header with add command button
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(new GUIContent(listProp.displayName), EditorStyles.boldLabel);
-            if (GUILayout.Button("+ Add Command", GUILayout.Width(120)))
+            if (indentLevel > MaxNestingDepth)
             {
-                listProp.arraySize++;
-                SerializedProperty newCmd = listProp.GetArrayElementAtIndex(listProp.arraySize - 1);
-                // Reset fields of new command
-                newCmd.FindPropertyRelative("type").enumValueIndex = 0;
-                newCmd.FindPropertyRelative("speakerName").stringValue = "";
-                newCmd.FindPropertyRelative("speakerAnimParam").stringValue = "";
-                newCmd.FindPropertyRelative("boxColorHex").stringValue = "#FFFFFF";
-                newCmd.FindPropertyRelative("text").stringValue = "";
-                newCmd.FindPropertyRelative("choices").ClearArray();
-                newCmd.FindPropertyRelative("variableToSet").objectReferenceValue = null;
-                newCmd.FindPropertyRelative("variableType").stringValue = "";
-                newCmd.FindPropertyRelative("signalToRaise").objectReferenceValue = null;
-                newCmd.FindPropertyRelative("notificationToRaise").objectReferenceValue = null;
+                EditorGUILayout.HelpBox("Maximum nesting depth reached.", MessageType.Warning);
+                return;
             }
+
+            EditorGUILayout.BeginVertical("box");
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField(listProp.displayName, EditorStyles.boldLabel);
+            if (GUILayout.Button("+ Add Command", GUILayout.Width(120)))
+                ShowAddCommandMenu(listProp);
             EditorGUILayout.EndHorizontal();
 
             for (int i = 0; i < listProp.arraySize; i++)
             {
                 SerializedProperty cmdProp = listProp.GetArrayElementAtIndex(i);
-                
-                // Indent level representation
+                RPGDialogueCommand cmd = cmdProp.managedReferenceValue as RPGDialogueCommand;
+
                 EditorGUI.indentLevel = indentLevel + 1;
-                
                 EditorGUILayout.BeginVertical("helpbox");
-                
+
+                // Header row: type label + delete button
                 EditorGUILayout.BeginHorizontal();
-                SerializedProperty typeProp = cmdProp.FindPropertyRelative("type");
-                EditorGUILayout.PropertyField(typeProp, GUIContent.none, GUILayout.Width(100));
-                
-                // Delete button
+                EditorGUILayout.LabelField(cmd != null ? cmd.Type.ToString() : "(null)", EditorStyles.boldLabel);
                 GUILayout.FlexibleSpace();
                 if (GUILayout.Button("Delete", GUILayout.Width(60)))
                 {
@@ -240,119 +157,138 @@ namespace RPGDialogueSystem
                     continue;
                 }
                 EditorGUILayout.EndHorizontal();
-                
-                CommandType type = (CommandType)typeProp.enumValueIndex;
-                if (type == CommandType.ShowText)
-                {
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerName"), new GUIContent("Speaker Name"));
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerAnimParam"), new GUIContent("Portrait Param"));
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("boxColorHex"), new GUIContent("Box Color Hex"));
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("text"), new GUIContent("Text"));
-                }
-                else if (type == CommandType.ShowChoices)
-                {
-                    // Optionally show a prompt text for the choice
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerName"), new GUIContent("Speaker Name"));
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerAnimParam"), new GUIContent("Portrait Param"));
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("boxColorHex"), new GUIContent("Box Color Hex"));
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("text"), new GUIContent("Prompt Text"));
 
-                    SerializedProperty choicesProp = cmdProp.FindPropertyRelative("choices");
-                    
-                    EditorGUILayout.BeginVertical("box");
-                    EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.LabelField("Choices Options", EditorStyles.boldLabel);
-                    if (GUILayout.Button("+ Add Choice", GUILayout.Width(100)))
-                    {
-                        choicesProp.arraySize++;
-                        SerializedProperty newChoice = choicesProp.GetArrayElementAtIndex(choicesProp.arraySize - 1);
-                        newChoice.FindPropertyRelative("choiceText").stringValue = "Option " + choicesProp.arraySize;
-                        newChoice.FindPropertyRelative("nestedCommands").ClearArray();
-                    }
-                    EditorGUILayout.EndHorizontal();
+                if (cmd != null)
+                    DrawCommandFields(cmdProp, cmd, indentLevel);
 
-                    for (int j = 0; j < choicesProp.arraySize; j++)
-                    {
-                        SerializedProperty choiceProp = choicesProp.GetArrayElementAtIndex(j);
-                        EditorGUILayout.BeginVertical("helpbox");
-                        
-                        EditorGUILayout.BeginHorizontal();
-                        SerializedProperty choiceTextProp = choiceProp.FindPropertyRelative("choiceText");
-                        EditorGUILayout.PropertyField(choiceTextProp, GUIContent.none, GUILayout.Width(150));
-                        
-                        GUILayout.FlexibleSpace();
-                        if (GUILayout.Button("Delete Choice", GUILayout.Width(100)))
-                        {
-                            choicesProp.DeleteArrayElementAtIndex(j);
-                            j--;
-                            EditorGUILayout.EndHorizontal();
-                            EditorGUILayout.EndVertical();
-                            continue;
-                        }
-                        EditorGUILayout.EndHorizontal();
-
-                        // Nested commands
-                        SerializedProperty nestedCmdsProp = choiceProp.FindPropertyRelative("nestedCommands");
-                        DrawCommandList(nestedCmdsProp, indentLevel + 1);
-
-                        EditorGUILayout.EndVertical();
-                    }
-                    EditorGUILayout.EndVertical();
-                }
-                else if (type == CommandType.SetVariable)
-                {
-                    SerializedProperty varProp = cmdProp.FindPropertyRelative("variableToSet");
-                    EditorGUILayout.PropertyField(varProp, new GUIContent("Variable Object"));
-                    
-                    ScriptableObject varObj = (ScriptableObject)varProp.objectReferenceValue;
-                    if (varObj != null)
-                    {
-                        string varType = "";
-                        if (varObj.GetType().Name == "BoolValue")
-                        {
-                            varType = "Bool";
-                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setBoolValue"), new GUIContent("Set Bool Value"));
-                        }
-                        else if (varObj.GetType().Name == "FloatValue")
-                        {
-                            varType = "Float";
-                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setFloatValue"), new GUIContent("Set Float Value"));
-                        }
-                        else if (varObj.GetType().Name == "IntValue")
-                        {
-                            varType = "Int";
-                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setIntValue"), new GUIContent("Set Int Value"));
-                        }
-                        else if (varObj.GetType().Name == "StringValue")
-                        {
-                            varType = "String";
-                            EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setStringValue"), new GUIContent("Set String Value"));
-                        }
-                        else
-                        {
-                            EditorGUILayout.HelpBox("Unsupported Variable Type. Only BoolValue, FloatValue, IntValue, and StringValue are supported.", MessageType.Warning);
-                        }
-                        cmdProp.FindPropertyRelative("variableType").stringValue = varType;
-                    }
-                }
-                else if (type == CommandType.RaiseSignal)
-                {
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("signalToRaise"), new GUIContent("Signal To Raise"));
-                }
-                else if (type == CommandType.RaiseNotification)
-                {
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("notificationToRaise"), new GUIContent("Notification To Raise"));
-                }
-                else if (type == CommandType.InvokeEvent)
-                {
-                    EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("onCommandEvent"), new GUIContent("Event To Invoke"));
-                }
-                
                 EditorGUILayout.EndVertical();
             }
-            
+
             EditorGUI.indentLevel = indentLevel;
             EditorGUILayout.EndVertical();
+        }
+
+        // ── Per-type Field Drawing ────────────────────────────────────────────────
+
+        private void DrawCommandFields(SerializedProperty cmdProp, RPGDialogueCommand cmd, int indentLevel)
+        {
+            if (cmd is ShowTextCommand)
+            {
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerName"),    new GUIContent("Speaker Name"));
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerAnimParam"), new GUIContent("Portrait Param"));
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("boxColorHex"),    new GUIContent("Box Color Hex"));
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("text"),           new GUIContent("Text"));
+            }
+            else if (cmd is ShowChoicesCommand)
+            {
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerName"),    new GUIContent("Speaker Name"));
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("speakerAnimParam"), new GUIContent("Portrait Param"));
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("boxColorHex"),    new GUIContent("Box Color Hex"));
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("promptText"),     new GUIContent("Prompt Text"));
+                DrawChoicesList(cmdProp.FindPropertyRelative("choices"), indentLevel);
+            }
+            else if (cmd is SetVariableCommand)
+            {
+                DrawSetVariableFields(cmdProp);
+            }
+            else if (cmd is RaiseSignalCommand)
+            {
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("signalToRaise"), new GUIContent("Signal To Raise"));
+            }
+            else if (cmd is RaiseNotificationCommand)
+            {
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("notificationToRaise"), new GUIContent("Notification To Raise"));
+            }
+            else if (cmd is InvokeEventCommand)
+            {
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("onCommandEvent"), new GUIContent("Event To Invoke"));
+            }
+        }
+
+        private void DrawChoicesList(SerializedProperty choicesProp, int indentLevel)
+        {
+            EditorGUILayout.BeginVertical("box");
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Choices", EditorStyles.boldLabel);
+            if (GUILayout.Button("+ Add Choice", GUILayout.Width(100)))
+            {
+                choicesProp.arraySize++;
+                SerializedProperty newChoice = choicesProp.GetArrayElementAtIndex(choicesProp.arraySize - 1);
+                newChoice.FindPropertyRelative("choiceText").stringValue = $"Option {choicesProp.arraySize}";
+                newChoice.FindPropertyRelative("nestedCommands").ClearArray();
+            }
+            EditorGUILayout.EndHorizontal();
+
+            for (int j = 0; j < choicesProp.arraySize; j++)
+            {
+                SerializedProperty choiceProp = choicesProp.GetArrayElementAtIndex(j);
+                EditorGUILayout.BeginVertical("helpbox");
+
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.PropertyField(choiceProp.FindPropertyRelative("choiceText"), GUIContent.none, GUILayout.Width(150));
+                GUILayout.FlexibleSpace();
+                if (GUILayout.Button("Delete Choice", GUILayout.Width(100)))
+                {
+                    choicesProp.DeleteArrayElementAtIndex(j);
+                    j--;
+                    EditorGUILayout.EndHorizontal();
+                    EditorGUILayout.EndVertical();
+                    continue;
+                }
+                EditorGUILayout.EndHorizontal();
+
+                DrawCommandList(choiceProp.FindPropertyRelative("nestedCommands"), indentLevel + 1);
+
+                EditorGUILayout.EndVertical();
+            }
+
+            EditorGUILayout.EndVertical();
+        }
+
+        private void DrawSetVariableFields(SerializedProperty cmdProp)
+        {
+            SerializedProperty varProp = cmdProp.FindPropertyRelative("variableToSet");
+            EditorGUILayout.PropertyField(varProp, new GUIContent("Variable Object"));
+
+            ScriptableObject varObj = varProp.objectReferenceValue as ScriptableObject;
+            if (varObj == null) return;
+
+            if (varObj is BoolValue)
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setBoolValue"),   new GUIContent("Bool Value"));
+            else if (varObj is FloatValue)
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setFloatValue"),  new GUIContent("Float Value"));
+            else if (varObj is IntValue)
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setIntValue"),    new GUIContent("Int Value"));
+            else if (varObj is StringValue)
+                EditorGUILayout.PropertyField(cmdProp.FindPropertyRelative("setStringValue"), new GUIContent("String Value"));
+            else
+                EditorGUILayout.HelpBox("Unsupported variable type. Supported: BoolValue, FloatValue, IntValue, StringValue.", MessageType.Warning);
+        }
+
+        // ── Add Command Menu ──────────────────────────────────────────────────────
+
+        private void ShowAddCommandMenu(SerializedProperty listProp)
+        {
+            GenericMenu menu = new GenericMenu();
+            AddMenuEntry<ShowTextCommand>(menu,          listProp, "Show Text");
+            AddMenuEntry<ShowChoicesCommand>(menu,       listProp, "Show Choices");
+            AddMenuEntry<SetVariableCommand>(menu,       listProp, "Set Variable");
+            AddMenuEntry<RaiseSignalCommand>(menu,       listProp, "Raise Signal");
+            AddMenuEntry<RaiseNotificationCommand>(menu, listProp, "Raise Notification");
+            AddMenuEntry<InvokeEventCommand>(menu,       listProp, "Invoke Event");
+            menu.ShowAsContext();
+        }
+
+        private void AddMenuEntry<T>(GenericMenu menu, SerializedProperty listProp, string label)
+            where T : RPGDialogueCommand, new()
+        {
+            menu.AddItem(new GUIContent(label), false, () =>
+            {
+                listProp.arraySize++;
+                listProp.GetArrayElementAtIndex(listProp.arraySize - 1).managedReferenceValue = new T();
+                serializedObject.ApplyModifiedProperties();
+            });
         }
     }
 #endif
