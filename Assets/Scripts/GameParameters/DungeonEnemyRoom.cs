@@ -38,7 +38,10 @@
                  ChangeActive(pots[i], true);
              }
                  CloseDoors();
-                 virtualCamera.SetActive(true);
+                 Debug.Log("Player entered the room, activating camera.");
+                virtualCamera.SetActive(true);
+
+                 
          }
      }
 

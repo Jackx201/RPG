@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060dc08d09156ee4b911e489d6d1889c, type: 3}
   m_Name: Key 1
   m_EditorClassIdentifier: 
-  mySprite: {fileID: 0}
-  myName: 
-  myDescription: 
-  isUsable: 0
+  mySprite: {fileID: 21300000, guid: e7c10d523bc5a6149ad2868b32554992, type: 3}
+  myName: Llave sencilla
+  myDescription: Una llave para abrir puertas
+  isUsable: 1
   isUnique: 0
   numberHeld: 0
   thisEvent:
