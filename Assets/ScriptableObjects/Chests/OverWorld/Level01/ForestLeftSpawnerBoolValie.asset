@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7f20bd7422bc148ab5368f52b95586, type: 3}
   m_Name: ForestLeftSpawnerBoolValie
   m_EditorClassIdentifier: 
-  value: 0
+  value: 1
   resetValue: 0
