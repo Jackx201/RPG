@@ -307,6 +307,7 @@ SpriteAtlas:
     - 87e3fb63a11cbdd4cb9c3e00cf94691a: 21300000
     - 1d123473225870949a3506adde305638: 21300000
     - a9ff85e349477ad43832b1531d66406f: 21300000
+    - e9d608d4ee34cf3409acd414dcaafc76: -8977685293378443036
     - c07ec825a10207e459106c2370405951: -872947984015748712
     - c07ec825a10207e459106c2370405951: 4004008643541842471
     - c07ec825a10207e459106c2370405951: 6703265110210787806
@@ -325,6 +326,7 @@ SpriteAtlas:
     - c07ec825a10207e459106c2370405951: 147799070741053269
     - f11a4645af1349143ab041a07052a8c6: 21300000
     - e39f9e75bd49cd448937977256b594d0: 21300000
+    - 3f0451f5434932b4788cf3f2870f487f: 8069619478552258361
     - f3eb3ea6d0763ac4d98b5a3651ddd18f: 21300000
     - ed918cf6743a78a4ebf0e21946349f55: 1016389376091275367
     - ed918cf6743a78a4ebf0e21946349f55: 8752231955276724212
@@ -343,6 +345,7 @@ SpriteAtlas:
     - f4a299b7820778647b14edf82d117a95: 21300000
     - 099d46c79bcfcff46a049dde710d103d: 21300000
     - d03ef7188eb167c4db686adec47e7cd6: 21300000
+    - 4351f628f6e0a814a83b05b317607fc9: -8863049377564620895
     - 558fd56836273ef4db9df0f2c85ba879: 21300000
     - cb1cd819089d4bb41949f8b106f5f2cf: 21300000
     - 60686e79e24f72643b472fb1bb3f23ec: 21300000
@@ -2238,6 +2241,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 87e3fb63a11cbdd4cb9c3e00cf94691a, type: 3}
   - {fileID: 21300000, guid: 1d123473225870949a3506adde305638, type: 3}
   - {fileID: 21300000, guid: a9ff85e349477ad43832b1531d66406f, type: 3}
+  - {fileID: -8977685293378443036, guid: e9d608d4ee34cf3409acd414dcaafc76, type: 3}
   - {fileID: -872947984015748712, guid: c07ec825a10207e459106c2370405951, type: 3}
   - {fileID: 4004008643541842471, guid: c07ec825a10207e459106c2370405951, type: 3}
   - {fileID: 6703265110210787806, guid: c07ec825a10207e459106c2370405951, type: 3}
@@ -2256,6 +2260,7 @@ SpriteAtlas:
   - {fileID: 147799070741053269, guid: c07ec825a10207e459106c2370405951, type: 3}
   - {fileID: 21300000, guid: f11a4645af1349143ab041a07052a8c6, type: 3}
   - {fileID: 21300000, guid: e39f9e75bd49cd448937977256b594d0, type: 3}
+  - {fileID: 8069619478552258361, guid: 3f0451f5434932b4788cf3f2870f487f, type: 3}
   - {fileID: 21300000, guid: f3eb3ea6d0763ac4d98b5a3651ddd18f, type: 3}
   - {fileID: 1016389376091275367, guid: ed918cf6743a78a4ebf0e21946349f55, type: 3}
   - {fileID: 8752231955276724212, guid: ed918cf6743a78a4ebf0e21946349f55, type: 3}
@@ -2274,6 +2279,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f4a299b7820778647b14edf82d117a95, type: 3}
   - {fileID: 21300000, guid: 099d46c79bcfcff46a049dde710d103d, type: 3}
   - {fileID: 21300000, guid: d03ef7188eb167c4db686adec47e7cd6, type: 3}
+  - {fileID: -8863049377564620895, guid: 4351f628f6e0a814a83b05b317607fc9, type: 3}
   - {fileID: 21300000, guid: 558fd56836273ef4db9df0f2c85ba879, type: 3}
   - {fileID: 21300000, guid: cb1cd819089d4bb41949f8b106f5f2cf, type: 3}
   - {fileID: 21300000, guid: 60686e79e24f72643b472fb1bb3f23ec, type: 3}
@@ -4168,6 +4174,7 @@ SpriteAtlas:
   - quickstep
   - player-frame-1
   - arrow
+  - slime3_0
   - modified gfx melee sprites_15
   - modified gfx melee sprites_14
   - modified gfx melee sprites_13
@@ -4186,6 +4193,7 @@ SpriteAtlas:
   - modified gfx melee sprites_3
   - player-frame-3
   - store-owner-f1
+  - slime1_0
   - grass-frame-1
   - bow_shot_9
   - bow_shot_8
@@ -4204,6 +4212,7 @@ SpriteAtlas:
   - ashley_2
   - grass-frame-6
   - grass-frame-5
+  - slime0_0
   - store_owner
   - knight_2
   - grass-frame-4

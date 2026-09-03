@@ -114,7 +114,7 @@ public class PlayerMovement : Movement
 
     bool IsRestrictedState(GenericState currentState)
     {
-        if(currentState == GenericState.attack || currentState == GenericState.ability || currentState == GenericState.dead)
+        if(currentState == GenericState.attack || currentState == GenericState.ability || currentState == GenericState.dead || currentState == GenericState.stun)
         {
             return true;
         } 
@@ -175,5 +175,22 @@ public class PlayerMovement : Movement
      {
          currentAbility = abilities.mainAbility;
          secondaryAbility = abilities.secondaryAbility;
+     }
+
+     public void Knock(float knockTime)
+     {
+         StartCoroutine(KnockCo(knockTime));
+     }
+
+     private IEnumerator KnockCo(float knockTime)
+     {
+         if(myRigidbody != null)
+         {
+            Debug.Log("Player Knocked Back");
+             SetState(GenericState.stun);
+             yield return new WaitForSeconds(knockTime);
+             myRigidbody.linearVelocity = Vector2.zero;
+             SetState(GenericState.idle);
+         }
      }
 }
