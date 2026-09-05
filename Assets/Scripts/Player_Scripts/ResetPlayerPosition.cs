@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,9 @@ public class ResetPlayerPosition : MonoBehaviour
     {
         if (playerPosition)
         {
-            transform.position = playerPosition.value;
+            Debug.Log("Position reset to: " + playerPosition.initialValue);
+            transform.position = playerPosition.initialValue;
+            Debug.Log("Player position is now: " + transform.position);
         }
     }
 }

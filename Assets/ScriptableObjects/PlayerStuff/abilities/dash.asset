@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: dash
   m_EditorClassIdentifier: 
   costMagic: 0
-  duration: 0.5
+  duration: 0.7
   playerMagic: {fileID: 11400000, guid: c2f8a7820168f4e44a0823245af2321e, type: 2}
   usePlayerMagic: {fileID: 11400000, guid: eae966be468973544882fdae78185f21, type: 2}
   canUse: 1
   coolDown: 0
   uiImage: {fileID: 21300000, guid: 87e3fb63a11cbdd4cb9c3e00cf94691a, type: 3}
-  dashForce: 3
-  cooldown: 3
+  dashForce: 5
+  postDashImmunity: 2
+  enemyLayer: 8

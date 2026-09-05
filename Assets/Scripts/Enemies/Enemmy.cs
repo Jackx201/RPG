@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ - Pasos manuales: 
+    - Asignar Target (Usualmente Player)
+    - Asignar State Machine del Player
+*/
 public enum EnemyState{
     idle,
     walk,
@@ -20,7 +25,7 @@ public class Enemmy : MonoBehaviour
     public string enemyName;
     public int baseAttack;
     public FloatValue maxHealth;
-    public Vector2 homePosition;
+    //public Vector2 homePosition;
 
     [Header("Efecto de muerte")]    
     public GameObject deathEffect;
@@ -36,12 +41,12 @@ public class Enemmy : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.position = homePosition;
+        //transform.position = homePosition;
         health = maxHealth.initialValue;
         currentState = EnemyState.idle;
     }
     
-    private void TakeDamage(float damage){
+    /* private void TakeDamage(float damage){
         health -= damage;
         if(health <= 0){
             DeathEffect();
@@ -49,12 +54,13 @@ public class Enemmy : MonoBehaviour
 
             if(roomSignal != null)
             {
+            Debug.Log("Enemy defeated, sending room signal.");
             roomSignal.Raise();
             }
 
             this.gameObject.SetActive(false);
         }
-    }
+    }*/
 
     private void MakeLoot()
     {

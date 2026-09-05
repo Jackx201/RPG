@@ -1,0 +1,251 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "Toadberto",
+            "speakerAnimParam": "store_owner",
+            "boxColorHex": "#A4FF96",
+            "text": "Hola Buenas tardes.",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 0,
+            "speakerName": "Bell",
+            "speakerAnimParam": "player",
+            "boxColorHex": "#FFD8C4",
+            "text": "Mucho gusto en conocerte",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 1,
+            "speakerName": "Toadberto",
+            "speakerAnimParam": "store_owner",
+            "boxColorHex": "#E0FFC4",
+            "text": "Que te gustaria hacer",
+            "choices": [
+                {
+                    "choiceText": "Donar dinero",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "Toadberto",
+                            "speakerAnimParam": "store_owner",
+                            "boxColorHex": "#E0FFC4",
+                            "text": "Muchas gracias por donar tu dinero",
+                            "choices": [],
+                            "variableToSet": {
+                                "instanceID": 0
+                            },
+                            "variableType": "",
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": "",
+                            "signalToRaise": {
+                                "instanceID": 0
+                            },
+                            "notificationToRaise": {
+                                "instanceID": 0
+                            },
+                            "onCommandEvent": {
+                                "m_PersistentCalls": {
+                                    "m_Calls": []
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "choiceText": "Nada",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "Toadberto",
+                            "speakerAnimParam": "store_owner",
+                            "boxColorHex": "#E0FFC4",
+                            "text": "... Ahora por mamon te lo quitare todo",
+                            "choices": [],
+                            "variableToSet": {
+                                "instanceID": 0
+                            },
+                            "variableType": "",
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": "",
+                            "signalToRaise": {
+                                "instanceID": 0
+                            },
+                            "notificationToRaise": {
+                                "instanceID": 0
+                            },
+                            "onCommandEvent": {
+                                "m_PersistentCalls": {
+                                    "m_Calls": []
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 2,
+            "speakerName": "",
+            "speakerAnimParam": "",
+            "boxColorHex": "#FFFFFF",
+            "text": "",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 36684
+            },
+            "variableType": "Int",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 4,
+            "speakerName": "",
+            "speakerAnimParam": "",
+            "boxColorHex": "#FFFFFF",
+            "text": "",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 1,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 36668
+            },
+            "notificationToRaise": {
+                "instanceID": 31928
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 5,
+            "speakerName": "",
+            "speakerAnimParam": "",
+            "boxColorHex": "#FFFFFF",
+            "text": "",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 1,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": [
+                        {
+                            "m_Target": {
+                                "instanceID": -2462
+                            },
+                            "m_TargetAssemblyTypeName": "SceneTransitions, Assembly-CSharp",
+                            "m_MethodName": "StartTransition",
+                            "m_Mode": 1,
+                            "m_Arguments": {
+                                "m_ObjectArgument": {
+                                    "instanceID": 0
+                                },
+                                "m_ObjectArgumentAssemblyTypeName": "UnityEngine.Object, UnityEngine",
+                                "m_IntArgument": 0,
+                                "m_FloatArgument": 0.0,
+                                "m_StringArgument": "",
+                                "m_BoolArgument": false
+                            },
+                            "m_CallState": 2
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

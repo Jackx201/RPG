@@ -37,6 +37,7 @@ public class SaveGame : MonoBehaviour
             FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.dat", i));
             BinaryFormatter binary = new BinaryFormatter();
             var json = JsonUtility.ToJson(objects[i]);
+            Debug.Log("Saving " + objects[i].name + " to " + Application.persistentDataPath + string.Format("/{0}.dat", i));
             binary.Serialize(file, json);
             file.Close();
         }

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee7aa926eb76f34dab8c41b693b2616, type: 3}
   m_Name: EnemyRoom1Deactive
   m_EditorClassIdentifier: 
-  listeners: []
+  listeners:
+  - {fileID: 0}
