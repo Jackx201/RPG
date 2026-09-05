@@ -57,5 +57,5 @@
         ".mule": true
     },
     "python.pythonPath": "C:\\Users\\User072020\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
-    "dotnet.defaultSolution": "RPG.sln"
+    "dotnet.defaultSolution": "RPG.slnx"
 }
