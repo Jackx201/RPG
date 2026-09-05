@@ -11,12 +11,12 @@ public class StoreItem : Interactable
     [SerializeField] private string newItemDescription;
     [SerializeField] private bool itemDescriptionActive = false;
     [SerializeField] private Notification itemDescriptionNotification;
-    private bool itemBought = false;
+    [SerializeField] private BoolValue itemBought;
     
 
     private void Update()
     {
-        if(playerInRange && !itemBought && canBuy())
+        if(playerInRange && !itemBought.value && canBuy())
         {
             if(Input.GetButtonDown("Check"))
             {
@@ -29,7 +29,7 @@ public class StoreItem : Interactable
     public override void OnTriggerEnter2D(UnityEngine.Collider2D other)
     {
         base.OnTriggerEnter2D(other);
-        if (!itemBought && other.gameObject.CompareTag(otherTag) && !other.isTrigger)
+        if (!itemBought.value && other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
             actionButton.SetActive(true);
             itemDescription.value = newItemDescription;
@@ -48,7 +48,7 @@ public class StoreItem : Interactable
             if (itemDescriptionActive)
             {
                 itemDescriptionActive = false;
-                if (itemDescriptionNotification != null && !itemBought)
+                if (itemDescriptionNotification != null && !itemBought.value)
                     itemDescriptionNotification.Raise();
             }
         }
@@ -65,7 +65,7 @@ public class StoreItem : Interactable
         updateCoinsSignal.Raise();
         transform.Find("StoreItemBlocker").gameObject.SetActive(false);
         transform.Find("PriceDialog").gameObject.SetActive(false);
-        itemBought = true;
+        itemBought.value = true;
         itemDescriptionNotification.Raise();
         actionButton.SetActive(false);
     }
