@@ -355,6 +355,9 @@ MonoBehaviour:
   otherString: Player
   damageAmount: 2
   hitSignal: {fileID: 0}
+  playerDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   impulseSource: {fileID: 0}
 --- !u!114 &14416100
 MonoBehaviour:
@@ -99882,7 +99885,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96875, y: 0.78125}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.875, y: 0.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -99930,26 +99933,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  health: 5
+  health: 20
   enemySpeed: 2
-  enemyName: 
+  enemyName: Ramon el slime
   baseAttack: 1
-  maxHealth: {fileID: 11400000, guid: cfe71bf58d013d64aa997790aef1703f, type: 2}
+  maxHealth: {fileID: 11400000, guid: 562eb2844cac9d34780d44344758b7ef, type: 2}
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
   thisLoot: {fileID: 11400000, guid: 3a579f0a45dd98642b42bd2cc185166b, type: 2}
   roomSignal: {fileID: 0}
   myRigidBody2D: {fileID: 508176570}
   target: {fileID: 1334375086}
-  chaseRadious: 20
-  attackRadious: 2
+  chaseRadious: 15
+  attackRadious: 4
   playerState: {fileID: 1519947397}
   anim: {fileID: 508176574}
-  spawnDelay: 5
-  dashForce: 6
-  dashDuration: 0.5
-  chargeTime: 1
-  cooldownTime: 4
+  spawnDelay: 3
+  dashForce: 5
+  dashDuration: 0.7
+  chargeTime: 2
+  cooldownTime: 2
 --- !u!212 &508176572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99994,7 +99997,7 @@ SpriteRenderer:
   m_SortingLayerID: 835188039
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8863049377564620895, guid: 4351f628f6e0a814a83b05b317607fc9,
+  m_Sprite: {fileID: -6034729065336087241, guid: 9f7b60d67575ceb45b462a400696f80b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100051,7 +100054,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508176568}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -100078,17 +100081,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09381771, y: -0.046908855}
+  m_Offset: {x: -0.027102679, y: 0.012392998}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96875, y: 0.78125}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.875, y: 0.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.7888737, y: 2.7575998}
+  m_Size: {x: 1.9882965, y: 1.7346408}
   m_EdgeRadius: 0
 --- !u!114 &553073167 stripped
 MonoBehaviour:
@@ -100444,7 +100447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c366ab56b445ed42b34b63cd412da1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySprite: {fileID: 875296779}
+  mySprite: {fileID: 508176572}
   flashColor: {r: 0.9528302, g: 0.4368162, b: 0, a: 0}
   numberOfFlashes: 10
   flashDelay: 0.2
@@ -100464,6 +100467,9 @@ MonoBehaviour:
   otherString: Player
   damageAmount: 1
   hitSignal: {fileID: 0}
+  playerDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   impulseSource: {fileID: 0}
 --- !u!114 &660883202
 MonoBehaviour:
@@ -100478,8 +100484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherTag: Player
-  knockTime: 0.2
-  knockStrength: 2
+  knockTime: 0.5
+  knockStrength: 3
 --- !u!114 &660883203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100492,15 +100498,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca36aedda670fc41ba7463bfc881d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 5
+  maxHealth: 20
+  currentHealth: 20
   deathEffect: {fileID: 3466338281900119577, guid: 2d92e968f71ec4246a5f228a131d5e6e,
     type: 3}
-  spawnEffect: {fileID: 0}
-  spawnEffectAnchor: {fileID: 0}
+  spawnEffect: {fileID: 3390510348182410474, guid: 0094fe4337c30b5419ec1d655ae359c5,
+    type: 3}
+  spawnEffectAnchor: {fileID: 508176573}
   thisLoot: {fileID: 11400000, guid: 3a579f0a45dd98642b42bd2cc185166b, type: 2}
   onDeathSignal: {fileID: 0}
-  spawnEffectDuration: 1
+  spawnEffectDuration: 3
 --- !u!61 &660883204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -100535,7 +100542,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.052360535, y: -0.15917408}
+  m_Offset: {x: 0.09205649, y: -0.16508478}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -100545,7 +100552,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1285172, y: 1.4441931}
+  m_Size: {x: 0.67015624, y: 0.4938066}
   m_EdgeRadius: 0
 --- !u!1001 &704740925
 PrefabInstance:
@@ -101656,12 +101663,6 @@ Transform:
   - {fileID: 715212528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &875296779 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2597144330703966534, guid: 4349fb82aebcd6648bcd34c07aa3988c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1287855086}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &918592231
 GameObject:
   m_ObjectHideFlags: 0
@@ -103926,6 +103927,9 @@ MonoBehaviour:
   otherString: Player
   damageAmount: 2
   hitSignal: {fileID: 0}
+  playerDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   impulseSource: {fileID: 0}
 --- !u!114 &1326064816
 MonoBehaviour:
@@ -104127,12 +104131,12 @@ PrefabInstance:
     - target: {fileID: 6766705975061521755, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 22.35
       objectReference: {fileID: 0}
     - target: {fileID: 6766705975061521755, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: -18.88
       objectReference: {fileID: 0}
     - target: {fileID: 6766705975061521755, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
         type: 3}
@@ -104187,7 +104191,7 @@ PrefabInstance:
     - target: {fileID: 6766705975061521758, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6766705975061521758, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
         type: 3}
@@ -104286,6 +104290,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ebf28ca79694ee44cb795b98c613158e,
         type: 2}
+    - target: {fileID: 6766705975911064946, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
+        type: 3}
+      propertyPath: damageInvincibilityDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6766705975911065231, guid: d9c3e3a91f6795c4c8f0a77614fb28ec,
         type: 3}
       propertyPath: m_IsActive
@@ -130883,6 +130892,9 @@ MonoBehaviour:
   otherString: Player
   damageAmount: 2
   hitSignal: {fileID: 0}
+  playerDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   impulseSource: {fileID: 0}
 --- !u!114 &1498704346
 MonoBehaviour:
@@ -136834,6 +136846,9 @@ MonoBehaviour:
   otherString: Player
   damageAmount: 2
   hitSignal: {fileID: 0}
+  playerDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   impulseSource: {fileID: 0}
 --- !u!114 &1748493261
 MonoBehaviour:
@@ -136929,7 +136944,7 @@ Transform:
   m_GameObject: {fileID: 1756121057}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.661065, y: 3.4420173, z: -10}
+  m_LocalPosition: {x: 19.854343, y: -15.273951, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -137782,7 +137797,7 @@ Transform:
   m_GameObject: {fileID: 1846026200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.002998, y: 5.0587234, z: -10}
+  m_LocalPosition: {x: -4.2363663, y: 5.060892, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
