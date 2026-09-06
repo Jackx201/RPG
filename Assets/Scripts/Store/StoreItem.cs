@@ -2,61 +2,69 @@ using UnityEngine;
 
 public class StoreItem : Interactable
 {
-    
-    [SerializeField] IntValue playerMoney;
-    [SerializeField] int price;
-    [SerializeField] Notification updateCoinsSignal;
-    [SerializeField] GameObject actionButton;
+    [SerializeField] private IntValue playerMoney;
+    [SerializeField] private int price;
+    [SerializeField] private Notification updateCoinsSignal;
+    [SerializeField] private GameObject actionButton;
     [SerializeField] private StringValue itemDescription;
     [SerializeField] private string newItemDescription;
-    [SerializeField] private bool itemDescriptionActive = false;
     [SerializeField] private Notification itemDescriptionNotification;
     [SerializeField] private BoolValue itemBought;
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private GameObject itemInstance;
     [SerializeField] private Transform itemContainer;
+
     private Transform itemParent;
     private Vector3 itemLocalPosition;
     private Quaternion itemLocalRotation;
     private Vector3 itemLocalScale;
     private bool repeatableItemBought;
-    
-    
+    private bool itemDescriptionActive;
 
-    private void Update()
-    {
-        if(playerInRange && !IsBought() && canBuy())
-        {
-            if(Input.GetButtonDown("Check"))
-            {
-                Debug.Log("Store buying");
-                buy();
-            }
-        }
-    }
+    // Cached once in Awake — avoids repeated string-based child lookups at runtime.
+    private Transform _itemBlocker;
+    private Transform _priceDialog;
 
     private void Awake()
     {
         itemParent = itemContainer;
+
         if (itemInstance != null)
         {
-            Transform itemTransform = itemInstance.transform;
+            Transform t = itemInstance.transform;
             if (itemParent == null)
-                itemParent = itemTransform.parent;
-            itemLocalPosition = itemTransform.localPosition;
-            itemLocalRotation = itemTransform.localRotation;
-            itemLocalScale = itemTransform.localScale;
+                itemParent = t.parent;
+
+            itemLocalPosition = t.localPosition;
+            itemLocalRotation = t.localRotation;
+            itemLocalScale    = t.localScale;
+        }
+
+        _itemBlocker = transform.Find("StoreItemBlocker");
+        _priceDialog = transform.Find("PriceDialog");
+    }
+
+    private void Update()
+    {
+        if (playerInRange && !IsBought() && CanBuy())
+        {
+            if (Input.GetButtonDown("Check"))
+                Buy();
         }
     }
 
     public override void OnTriggerEnter2D(UnityEngine.Collider2D other)
     {
         base.OnTriggerEnter2D(other);
+
         if (!IsBought() && other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            actionButton.SetActive(true);
-            itemDescription.value = newItemDescription;
-            itemDescriptionActive = true;
+            if (actionButton != null)
+                actionButton.SetActive(true);
+
+            itemDescription.value  = newItemDescription;
+            itemDescriptionActive  = true;
+
             if (itemDescriptionNotification != null)
                 itemDescriptionNotification.Raise();
         }
@@ -65,40 +73,69 @@ public class StoreItem : Interactable
     public override void OnTriggerExit2D(UnityEngine.Collider2D other)
     {
         base.OnTriggerExit2D(other);
+
         if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            actionButton.SetActive(false);
-            if (!IsUnique() && repeatableItemBought)
-            {
-                RespawnRepeatableItem();
-                repeatableItemBought = false;
-            }
+            if (actionButton != null)
+                actionButton.SetActive(false);
 
-            if (itemDescriptionActive)
-            {
-                itemDescriptionActive = false;
-                if (itemDescriptionNotification != null && !IsBought())
-                {
-                    Debug.Log("Exit 2D area, toggling description and button");
-                    itemDescriptionNotification.Raise();
-                }
-            }
+            if (!IsPersistentItem() && repeatableItemBought)
+                RespawnRepeatableItem();
+
+            if (itemDescriptionActive && !IsBought())
+                DeactivateItemDescription();
         }
     }
 
-
-    public bool canBuy(){
+    /// <summary>Returns true if the player has enough money to buy this item.</summary>
+    public bool CanBuy()
+    {
         return playerMoney.RuntimeValue >= price;
     }
 
-    private bool IsUnique()
+    /// <summary>Returns true if this item tracks a persistent bought state (i.e. is non-repeatable).</summary>
+    private bool IsPersistentItem()
     {
         return itemBought != null;
     }
 
+    /// <summary>Returns true if this is a persistent item that has already been purchased.</summary>
     private bool IsBought()
     {
-        return IsUnique() && itemBought.value;
+        return IsPersistentItem() && itemBought.value;
+    }
+
+    private void DeactivateItemDescription()
+    {
+        itemDescriptionActive = false;
+
+        if (itemDescriptionNotification != null)
+            itemDescriptionNotification.Raise();
+    }
+
+    private void Buy()
+    {
+        // Guard: re-validate affordability before mutating any state.
+        if (!CanBuy())
+            return;
+
+        playerMoney.RuntimeValue -= price;
+        updateCoinsSignal.Raise();
+        SetStoreItemVisuals(false);
+
+        if (IsPersistentItem())
+            itemBought.value = true;
+        else
+            repeatableItemBought = true;
+
+        DeactivateItemDescription();
+
+        if (actionButton != null)
+            actionButton.SetActive(false);
+
+#if UNITY_EDITOR
+        Debug.Log($"StoreItem: '{name}' purchased for {price} coins.");
+#endif
     }
 
     private void RespawnRepeatableItem()
@@ -107,57 +144,35 @@ public class StoreItem : Interactable
         {
             itemInstance.SetActive(true);
             SetStoreItemVisuals(true);
+            repeatableItemBought = false;
             return;
         }
 
         if (itemPrefab != null && itemParent != null)
         {
             itemInstance = Instantiate(itemPrefab, itemParent, false);
-            Transform itemTransform = itemInstance.transform;
-            itemTransform.localPosition = itemLocalPosition;
-            itemTransform.localRotation = itemLocalRotation;
-            itemTransform.localScale = itemLocalScale;
+            Transform t  = itemInstance.transform;
+            t.localPosition = itemLocalPosition;
+            t.localRotation = itemLocalRotation;
+            t.localScale    = itemLocalScale;
             itemInstance.SetActive(true);
             SetStoreItemVisuals(true);
+            repeatableItemBought = false;
             return;
         }
 
+        // Respawn failed: no instance or prefab available.
+        // repeatableItemBought is intentionally NOT cleared here so the
+        // next exit will retry rather than silently swallowing the failure.
         SetStoreItemVisuals(true);
     }
 
     private void SetStoreItemVisuals(bool isActive)
     {
-        Transform itemBlocker = transform.Find("StoreItemBlocker");
-        Transform priceDialog = transform.Find("PriceDialog");
+        if (_itemBlocker != null)
+            _itemBlocker.gameObject.SetActive(isActive);
 
-        if (itemBlocker != null)
-            itemBlocker.gameObject.SetActive(isActive);
-        if (priceDialog != null)
-            priceDialog.gameObject.SetActive(isActive);
+        if (_priceDialog != null)
+            _priceDialog.gameObject.SetActive(isActive);
     }
-
-
-    void buy(){
-        playerMoney.RuntimeValue -= price;
-        updateCoinsSignal.Raise();
-        SetStoreItemVisuals(false);
-
-        if (IsUnique())
-        {
-            itemBought.value = true;
-        }
-        else
-        {
-            repeatableItemBought = true;
-        }
-        itemDescriptionActive = false;
-        if (itemDescriptionNotification != null)
-            itemDescriptionNotification.Raise();
-        Debug.Log("Bought, toggling description and button");
-        actionButton.SetActive(false);
-    }
-
-    
-
-    
 }
