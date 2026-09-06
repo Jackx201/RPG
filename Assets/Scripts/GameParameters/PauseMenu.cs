@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public bool usingPausePanel;
     [SerializeField] StateMachine playerState;
     [SerializeField] GameObject selectedButton;
+    [SerializeField] GameObject pauseSelectedButton;
 
     void Start()
     {
@@ -39,11 +41,14 @@ public class PauseMenu : MonoBehaviour
             pausePanel.SetActive(true);
             Time.timeScale = 0f;
             usingPausePanel = true;
+            SelectPanelButton(pausePanel, pauseSelectedButton);
         }
         else
         {
             inventoryPanel.SetActive(false);
             pausePanel.SetActive(false);
+            usingPausePanel = false;
+            EventSystem.current?.SetSelectedGameObject(null);
             Time.timeScale = 1f;
         }
     }
@@ -56,18 +61,36 @@ public class PauseMenu : MonoBehaviour
 
     public void SwitchPanels()
     {
-        var eventSystem = EventSystem.current;
         usingPausePanel = !usingPausePanel;
         if (usingPausePanel)
         {
             pausePanel.SetActive(true);
             inventoryPanel.SetActive(false);
+            SelectPanelButton(pausePanel, pauseSelectedButton);
         }
         else
         {
             inventoryPanel.SetActive(true);
             pausePanel.SetActive(false);
-             eventSystem.SetSelectedGameObject(selectedButton, new BaseEventData(eventSystem));
+            SelectPanelButton(inventoryPanel, selectedButton);
+        }
+    }
+
+    private void SelectPanelButton(GameObject panel, GameObject preferredButton)
+    {
+        var eventSystem = EventSystem.current;
+        if (eventSystem == null)
+        {
+            return;
+        }
+
+        var button = preferredButton != null
+            ? preferredButton
+            : panel.GetComponentInChildren<Selectable>(true)?.gameObject;
+
+        if (button != null && button.activeInHierarchy)
+        {
+            eventSystem.SetSelectedGameObject(button, new BaseEventData(eventSystem));
         }
     }
 }
