@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d991317532ae9941be2ec0d1a86b09f, type: 3}
   m_Name: MultipleArrows
   m_EditorClassIdentifier: 
-  costMagic: 0
+  costMagic: 3
   duration: 0.3
   playerMagic: {fileID: 11400000, guid: c2f8a7820168f4e44a0823245af2321e, type: 2}
   usePlayerMagic: {fileID: 11400000, guid: eae966be468973544882fdae78185f21, type: 2}

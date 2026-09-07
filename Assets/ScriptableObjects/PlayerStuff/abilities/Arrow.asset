@@ -21,3 +21,5 @@ MonoBehaviour:
   uiImage: {fileID: 21300000, guid: cbf938a29b95b7f4382be90c49f32b41, type: 3}
   thisprojectile: {fileID: 4177395362564594237, guid: 83fd914b27a4754478cf765a7214d679,
     type: 3}
+  animParameter: Shooting
+  shootDelay: 0.5

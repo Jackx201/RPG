@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonsAbility : MonoBehaviour
@@ -18,16 +16,11 @@ public class ButtonsAbility : MonoBehaviour
 
     public void UpdateAbilities()
     {
-        if(players.currentAbility)
-        {
         currentability = players.currentAbility;
-        currentAbilityContainer.sprite = currentability.uiImage;
-        }
-        if(players.secondaryAbility)
-        {
-            secondaryAbility = players.secondaryAbility;
-            secondaryAbilityContainer.sprite = secondaryAbility.uiImage;
-        }
+        secondaryAbility = players.secondaryAbility;
+
+        currentAbilityContainer.sprite = currentability != null ? currentability.uiImage : null;
+        secondaryAbilityContainer.sprite = secondaryAbility != null ? secondaryAbility.uiImage : null;
     }
 }
 

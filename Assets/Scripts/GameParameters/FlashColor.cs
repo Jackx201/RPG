@@ -9,7 +9,7 @@ public class FlashColor : MonoBehaviour
     [SerializeField] private Color flashColor;
     [SerializeField] private int numberOfFlashes;
     [SerializeField] private float flashDelay;
-    private bool isFlashing = false;
+    [SerializeField] private bool isFlashing = false;
 
     public void StartFlash()
     {

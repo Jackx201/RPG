@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/level01.unity
+    guid: 6e86891741ff5ed46a0dd8e71440b648
+  - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: 3f354a403b8ba6c4482b3e93f3037c90
   - enabled: 1
@@ -18,3 +21,4 @@ EditorBuildSettings:
     path: Assets/Scenes/Dungeon1.unity
     guid: 9646afec7d3b2b041bd7f7f2b6602005
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

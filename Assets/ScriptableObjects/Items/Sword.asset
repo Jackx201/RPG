@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: e74907ca87892754e9c90475de9c9fc1, type: 3}
-  myName: Generic Sword
-  myDescription: You found a Sword! Might be some monsters nearby
+  myName: Espada oxidada
+  myDescription: "Una Espada oxidada que podr\xEDa derrotar enemigos y cortar hierba"
   isUsable: 0
   isUnique: 1
   numberHeld: 1

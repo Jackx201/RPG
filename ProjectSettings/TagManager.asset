@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - breakable
   - enemy
@@ -22,7 +22,7 @@ TagManager:
   - Player
   - PlayerProjectile
   - Minimap
-  - 
+  - Buttons
   - 
   - 
   - 
@@ -53,3 +53,8 @@ TagManager:
   - name: breakable
     uniqueID: 1288147269
     locked: 0
+  - name: Buttons
+    uniqueID: 568411855
+    locked: 0
+  m_RenderingLayers:
+  - Default

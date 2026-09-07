@@ -1,0 +1,16 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "Toadberto",
+            "speakerAnimParam": "store_owner",
+            "boxColorHex": "#A4FF96",
+            "text": "AUXILIO TOADBERTO ESTA EN UN APRIETO",
+            "choices": [],
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": ""
+        }
+    ]
+}

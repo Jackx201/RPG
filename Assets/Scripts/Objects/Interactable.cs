@@ -1,32 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [SerializeField] protected bool playerInRange;
+    [SerializeField] protected string otherTag;
+    [SerializeField] protected Notification myNotification;
+    [SerializeField] protected AnimatorController animm;
 
-    [SerializeField] public bool playerInRange;
-    [SerializeField] public string otherTag;
-	[SerializeField] public Notification myNotification;
-    [SerializeField] public AnimatorController animm;
+    protected virtual void OnAnimationEnter()
+    {
+        if (animm != null)
+            animm.SetAnimParameter("contextActive", true);
+    }
+
+    protected virtual void OnAnimationExit()
+    {
+        if (animm != null)
+            animm.SetAnimParameter("contextActive", false);
+    }
 
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
+        if (string.IsNullOrEmpty(otherTag) || other == null)
+            return;
+
         if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            animm.SetAnimParameter("contextActive", true);
+            OnAnimationEnter();
             playerInRange = true;
-			myNotification.Raise();
+
+            if (myNotification != null)
+                myNotification.Raise();
         }
     }
 
     public virtual void OnTriggerExit2D(Collider2D other)
     {
+        if (string.IsNullOrEmpty(otherTag) || other == null)
+            return;
+
         if (other.gameObject.CompareTag(otherTag) && !other.isTrigger)
         {
-            animm.SetAnimParameter("contextActive", false);
+            OnAnimationExit();
             playerInRange = false;
-			myNotification.Raise();
+
+            if (myNotification != null)
+                myNotification.Raise();
         }
     }
 }
