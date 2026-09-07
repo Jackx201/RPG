@@ -68,16 +68,19 @@ public class Slime : log
     public IEnumerator DashAttackCo()
     {
         dashInterrupted = false;
-        currentState = EnemyState.attack;
+        currentState = EnemyState.charging;
         myRigidBody2D.linearVelocity = Vector2.zero; // Stop moving
         
         // 1. Charge a dash
-        anim.SetBool("Attacking", true);
+        anim.SetBool("charging", true);
         yield return new WaitForSeconds(chargeTime);
+        anim.SetBool("charging", false);
 
         if (!dashInterrupted)
         {
             // 2. Dash towards the player
+            currentState = EnemyState.attack;
+            anim.SetBool("Attacking", true);
             Vector3 dashDirection = (target.position - transform.position).normalized;
             float dashSpeed = dashForce / dashDuration;
 
@@ -98,13 +101,14 @@ public class Slime : log
 
     private void StopDash()
     {
-        if (currentState != EnemyState.attack)
+        if (currentState != EnemyState.attack && currentState != EnemyState.charging)
         {
             return;
         }
 
         dashInterrupted = true;
         myRigidBody2D.linearVelocity = Vector2.zero;
+        anim.SetBool("charging", false);
         anim.SetBool("Attacking", false);
     }
 }
