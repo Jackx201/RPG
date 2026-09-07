@@ -9,6 +9,32 @@ public class Slime : log
     public float chargeTime = 0.5f;
     public float cooldownTime = 1f;
 
+    private DamageOnContact[] damageOnContacts;
+    private bool dashInterrupted;
+
+    private void OnEnable()
+    {
+        damageOnContacts = GetComponentsInChildren<DamageOnContact>();
+
+        foreach (DamageOnContact damageOnContact in damageOnContacts)
+        {
+            damageOnContact.AddPlayerDamagedListener(StopDash);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (damageOnContacts == null)
+        {
+            return;
+        }
+
+        foreach (DamageOnContact damageOnContact in damageOnContacts)
+        {
+            damageOnContact.RemovePlayerDamagedListener(StopDash);
+        }
+    }
+
     public override void CheckDistance()
     {
         float distanceToTarget = Vector3.Distance(target.position, transform.position);
@@ -41,6 +67,7 @@ public class Slime : log
 
     public IEnumerator DashAttackCo()
     {
+        dashInterrupted = false;
         currentState = EnemyState.attack;
         myRigidBody2D.linearVelocity = Vector2.zero; // Stop moving
         
@@ -48,11 +75,14 @@ public class Slime : log
         anim.SetBool("Attacking", true);
         yield return new WaitForSeconds(chargeTime);
 
-        // 2. Dash towards the player
-        Vector3 dashDirection = (target.position - transform.position).normalized;
-        float dashSpeed = dashForce / dashDuration;
-        
-        myRigidBody2D.linearVelocity = dashDirection * dashSpeed;
+        if (!dashInterrupted)
+        {
+            // 2. Dash towards the player
+            Vector3 dashDirection = (target.position - transform.position).normalized;
+            float dashSpeed = dashForce / dashDuration;
+
+            myRigidBody2D.linearVelocity = dashDirection * dashSpeed;
+        }
 
         // Wait for dash to finish
         yield return new WaitForSeconds(dashDuration);
@@ -64,5 +94,17 @@ public class Slime : log
 
         // 4. Reset state
         currentState = EnemyState.idle;
+    }
+
+    private void StopDash()
+    {
+        if (currentState != EnemyState.attack)
+        {
+            return;
+        }
+
+        dashInterrupted = true;
+        myRigidBody2D.linearVelocity = Vector2.zero;
+        anim.SetBool("Attacking", false);
     }
 }

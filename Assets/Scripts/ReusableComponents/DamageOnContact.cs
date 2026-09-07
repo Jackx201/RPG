@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Cinemachine;
 
 public class DamageOnContact : Damage
@@ -8,6 +9,7 @@ public class DamageOnContact : Damage
     [SerializeField] private string otherString;
     [SerializeField] private int damageAmount;
     [SerializeField] private SignalSender hitSignal; // Señal opcional para vibrar pantalla o efectos
+    [SerializeField] private UnityEvent playerDamaged;
     
     [SerializeField] private CinemachineImpulseSource impulseSource; //Si está en un borde, no va funcionar, hay que subir el Damping del Cinemachine confiner en cámaras cuyas habitaciones tengan enemigos.   
 
@@ -39,6 +41,22 @@ public class DamageOnContact : Damage
                 }
                 hitSignal.Raise();
             }
+
+            if (tempPlayer != null)
+            {
+                playerDamaged?.Invoke();
+            }
         }
+    }
+
+    public void AddPlayerDamagedListener(UnityAction listener)
+    {
+        playerDamaged ??= new UnityEvent();
+        playerDamaged.AddListener(listener);
+    }
+
+    public void RemovePlayerDamagedListener(UnityAction listener)
+    {
+        playerDamaged?.RemoveListener(listener);
     }
 }

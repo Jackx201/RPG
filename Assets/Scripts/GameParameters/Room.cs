@@ -7,17 +7,20 @@ public class Room : MonoBehaviour
     public Enemmy[] enemies;
     public pot[] pots;
     public GameObject virtualCamera;
+    [SerializeField] protected BoolValue roomCleared;
 
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player") && !other.isTrigger)
         {
-            int enemiesquantity = enemies.Length;
             int potsquantity = pots.Length;
 
-            for(int i=0; i< enemiesquantity; i++)
+            if (roomCleared == null || !roomCleared.value)
             {
-                ChangeActive(enemies[i], true);
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    ChangeActive(enemies[i], true);
+                }
             }
 
             for (int i=0; i < potsquantity; i++)
@@ -50,6 +53,7 @@ public class Room : MonoBehaviour
 
     public void OnDisable()
     {
+        Debug.LogWarning($"Room disabled: {name}. Disabling virtual camera.");
         virtualCamera.SetActive(false);
     }
 
