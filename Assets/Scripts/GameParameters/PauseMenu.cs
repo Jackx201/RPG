@@ -15,12 +15,14 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] StateMachine playerState;
     [SerializeField] GameObject selectedButton;
     [SerializeField] GameObject pauseSelectedButton;
+    [SerializeField] GameObject blackBackgroundLayer;
 
     void Start()
     {
         Paused = false;
         pausePanel.SetActive(false);
         inventoryPanel.SetActive(false);
+        blackBackgroundLayer.SetActive(false);
         usingPausePanel = false;
     }
 
@@ -39,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         if (Paused)
         {
             pausePanel.SetActive(true);
+            blackBackgroundLayer.SetActive(true);
             Time.timeScale = 0f;
             usingPausePanel = true;
             SelectPanelButton(pausePanel, pauseSelectedButton);
@@ -47,6 +50,7 @@ public class PauseMenu : MonoBehaviour
         {
             inventoryPanel.SetActive(false);
             pausePanel.SetActive(false);
+            blackBackgroundLayer.SetActive(false);
             usingPausePanel = false;
             EventSystem.current?.SetSelectedGameObject(null);
             Time.timeScale = 1f;

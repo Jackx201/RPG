@@ -9,8 +9,3 @@ public class GlobalAbilities : ScriptableObject
     public GenericAbility secondaryAbility;
     public Notification changedAbility;
 }
-
-/*
-TWITCH LOG
-- KnockBack
-*/
