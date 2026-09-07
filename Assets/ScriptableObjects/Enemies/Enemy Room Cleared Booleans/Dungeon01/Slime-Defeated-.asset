@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6777cbc951e6987428d12177ef0d2e13, type: 3}
-  m_Name: MainPlayerInventory
+  m_Script: {fileID: 11500000, guid: aee7aa926eb76f34dab8c41b693b2616, type: 3}
+  m_Name: Slime-Defeated-
   m_EditorClassIdentifier: 
-  myInventory:
-  - {fileID: 11400000, guid: 53e8271673cc0c843a359d4de347817f, type: 2}
-  - {fileID: 11400000, guid: f4fb324935697724c9c5138daecbd064, type: 2}
+  listeners: []

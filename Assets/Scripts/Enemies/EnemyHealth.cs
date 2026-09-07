@@ -71,9 +71,15 @@ public class EnemyHealth : Health
             onDeathSignal.Raise();
         }
 
-        Instantiate(deathEffect, transform.position, transform.rotation);
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, transform.rotation);
+        }
         DropLoot();
-        this.transform.parent.gameObject.SetActive(false);
+        Enemmy enemy = GetComponentInParent<Enemmy>();
+        GameObject enemyObject = enemy != null ? enemy.gameObject : gameObject;
+        Debug.Log($"Enemy defeated. Disabling object: {enemyObject.name}");
+        enemyObject.SetActive(false);
     }
 
 }

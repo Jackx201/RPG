@@ -6,6 +6,15 @@
  {
 
      public Door[] doors;
+     private bool roomActive;
+
+     private void Update()
+     {
+         if (roomActive && (roomCleared == null || !roomCleared.value))
+         {
+             CheckEnemies();
+         }
+     }
 
      public void CheckEnemies()
      {
@@ -17,6 +26,11 @@
                  return;
              }
          }
+         if (roomCleared != null)
+         {
+             roomCleared.value = true;
+         }
+         roomActive = false;
          Debug.Log("All enemies defeated, opening doors.");
          OpenDoors();
      }
@@ -25,19 +39,25 @@
      {
          if(other.CompareTag("Player") && !other.isTrigger)
          {
-             int enemiesquantity = enemies.Length;
              int potsquantity = pots.Length;
 
-             for(int i=0; i< enemiesquantity; i++)
+             if (roomCleared == null || !roomCleared.value)
              {
-                 ChangeActive(enemies[i], true);
+                 for (int i = 0; i < enemies.Length; i++)
+                 {
+                     ChangeActive(enemies[i], true);
+                 }
+                 roomActive = true;
              }
 
              for (int i=0; i < potsquantity; i++)
              {
                  ChangeActive(pots[i], true);
              }
-                 CloseDoors();
+                 if (roomCleared == null || !roomCleared.value)
+                 {
+                     CloseDoors();
+                 }
                  Debug.Log("Player entered the room, activating camera.");
                 virtualCamera.SetActive(true);
 
@@ -49,6 +69,7 @@
      {
          if(other.CompareTag("Player") && !other.isTrigger)
          {
+             roomActive = false;
              int enemiesquantity = enemies.Length;
              int potsquantity = pots.Length;
 
@@ -61,9 +82,14 @@
              {
                  ChangeActive(pots[i], false);
              }
+
+             virtualCamera.SetActive(false);
+             Debug.Log("Player exited dungeon room. Disabling virtual camera.");
+             if (roomCleared == null || !roomCleared.value)
+             {
+                 CloseDoors();
+             }
          }
-         virtualCamera.SetActive(false);
-         CloseDoors();
      }
 
      public void CloseDoors()
