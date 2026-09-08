@@ -36,7 +36,7 @@ public class EventToggler : MonoBehaviour
         };
 
         gameObject.SetActive(shouldBeActive);
-        Destroy(gameObject); 
+        //Destroy(gameObject); 
         //Debug.Log($"[{nameof(EventToggler)}] Estado actualizado en {gameObject.name}: {(shouldBeActive ? "Activo" : "Inactivo")}");
     }
 }
