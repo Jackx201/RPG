@@ -9,3 +9,8 @@ public class BoolValue : ScriptableObject
     public bool value;
     [SerializeField] public bool resetValue;
 
+    public void ResetValue()
+    {
+        value = resetValue;
+    }
+}

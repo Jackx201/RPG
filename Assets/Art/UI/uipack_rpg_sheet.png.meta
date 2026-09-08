@@ -510,6 +510,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: uipack_rpg_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 373
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 7, y: 5, z: 7, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3892dfb68efcf25488bb3be5f41fdf8f
+      internalID: 1064573888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -533,6 +555,7 @@ TextureImporter:
       uipack_rpg_sheet_14: -953431813
       uipack_rpg_sheet_15: 243170543
       uipack_rpg_sheet_16: 498491170
+      uipack_rpg_sheet_17: 1064573888
       uipack_rpg_sheet_2: 6866464857702916786
       uipack_rpg_sheet_3: -6768044818946543642
       uipack_rpg_sheet_4: 5647483563723225417
