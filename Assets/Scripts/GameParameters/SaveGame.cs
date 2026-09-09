@@ -153,6 +153,13 @@ public class SaveGame : MonoBehaviour
             if (item != null) item.ResetValue();
         }
 
+        // 7c. Reset GlobalAbilities
+        GlobalAbilities[] allAbilities = Resources.FindObjectsOfTypeAll<GlobalAbilities>();
+        foreach (var ga in allAbilities)
+        {
+            if (ga != null) ga.Reset();
+        }
+
         // 8. Reset active instance objects list
         if (gameSave != null && gameSave.objects != null)
         {
@@ -192,6 +199,10 @@ public class SaveGame : MonoBehaviour
         else if (obj is ItemInventory itemInvVal)
         {
             itemInvVal.ResetValue();
+        }
+        else if (obj is GlobalAbilities ga)
+        {
+            ga.Reset();
         }
     }
 
@@ -377,6 +388,13 @@ public class SaveGame : MonoBehaviour
             {
                 ResetObject(objects[i]);
             }
+        }
+
+        // Rebuild GenericAbility references from saved names
+        GlobalAbilities[] allAbilities = Resources.FindObjectsOfTypeAll<GlobalAbilities>();
+        foreach (var ga in allAbilities)
+        {
+            if (ga != null) ga.LoadFromNames();
         }
     }
 

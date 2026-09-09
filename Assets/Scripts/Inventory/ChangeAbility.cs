@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,10 +16,10 @@ public class ChangeAbility : MonoBehaviour
                 if(myAbility == myAbilities.secondaryAbility)
                 {
                     //Swap ability from Y to B if the ability is already selected in Y.
-                    myAbilities.secondaryAbility = myAbilities.mainAbility;
-                    myAbilities.mainAbility = myAbility;
+                    myAbilities.SetSecondaryAbility(myAbilities.mainAbility);
+                    myAbilities.SetMainAbility(myAbility);
                 }
-                myAbilities.mainAbility = myAbility; 
+                myAbilities.SetMainAbility(myAbility); 
         }
         
         if(button.RuntimeValue == 2)
@@ -27,10 +27,10 @@ public class ChangeAbility : MonoBehaviour
                 if(myAbility == myAbilities.mainAbility)
                 {
                     //Swap ability from Y to B if the ability is already selected in Y.
-                    myAbilities.mainAbility = myAbilities.secondaryAbility;
-                    myAbilities.secondaryAbility = myAbility;
+                    myAbilities.SetMainAbility(myAbilities.secondaryAbility);
+                    myAbilities.SetSecondaryAbility(myAbility);
                 }
-                myAbilities.secondaryAbility = myAbility; 
+                myAbilities.SetSecondaryAbility(myAbility); 
         }          
                
         myAbilities.changedAbility.Raise();
