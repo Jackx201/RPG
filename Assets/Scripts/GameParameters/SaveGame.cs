@@ -139,7 +139,21 @@ public class SaveGame : MonoBehaviour
             }
         }
 
-        // 7. Reset active instance objects list
+        // 7. Reset numberHeld on every InventoryItem asset
+        InventoryItem[] items = Resources.FindObjectsOfTypeAll<InventoryItem>();
+        foreach (var item in items)
+        {
+            if (item != null) item.ResetValue();
+        }
+
+        // 7b. Reset numberHeld on every ItemInventory asset
+        ItemInventory[] itemInvs = Resources.FindObjectsOfTypeAll<ItemInventory>();
+        foreach (var item in itemInvs)
+        {
+            if (item != null) item.ResetValue();
+        }
+
+        // 8. Reset active instance objects list
         if (gameSave != null && gameSave.objects != null)
         {
             for (int i = 0; i < gameSave.objects.Count; i++)
@@ -170,6 +184,14 @@ public class SaveGame : MonoBehaviour
         else if (obj is VectorValue vectorVal)
         {
             vectorVal.initialValue = vectorVal.defaultValue;
+        }
+        else if (obj is InventoryItem itemVal)
+        {
+            itemVal.ResetValue();
+        }
+        else if (obj is ItemInventory itemInvVal)
+        {
+            itemInvVal.ResetValue();
         }
     }
 

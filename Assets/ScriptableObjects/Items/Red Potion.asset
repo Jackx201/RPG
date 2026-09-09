@@ -17,7 +17,8 @@ MonoBehaviour:
   myDescription: Un sorbo basta para recuperar hasta 3 corazones
   isUsable: 1
   isUnique: 0
-  numberHeld: 10
+  initialNumberHeld: 1
+  numberHeld: 2
   thisEvent:
     m_PersistentCalls:
       m_Calls:
