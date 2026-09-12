@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee7aa926eb76f34dab8c41b693b2616, type: 3}
-  m_Name: Dungeon01-SpawnRoom02
+  m_Script: {fileID: 11500000, guid: 7c7f20bd7422bc148ab5368f52b95586, type: 3}
+  m_Name: Enemy Room 4
   m_EditorClassIdentifier: 
-  listeners: []
+  value: 0
+  resetValue: 0

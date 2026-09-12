@@ -18,12 +18,11 @@ MonoBehaviour:
   isUsable: 1
   isUnique: 0
   initialNumberHeld: 1
-  numberHeld: 2
+  numberHeld: 1
   thisEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -3859175878331219439, guid: e0fab9c171e7df04aa8067c9b61eeb6d,
-          type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthReaction, Assembly-CSharp
         m_MethodName: Use
         m_Mode: 3
