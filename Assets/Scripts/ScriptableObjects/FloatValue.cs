@@ -5,16 +5,9 @@ using System;
 
 [CreateAssetMenu]
 [System.Serializable]
-public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
+public class FloatValue : ScriptableObject
 {
     public float initialValue;
     public float RuntimeValue;
     internal float value;
-
-    public void OnAfterDeserialize()
-    {
-        RuntimeValue = initialValue;
-    }
-
-    public void OnBeforeSerialize() { }
 }

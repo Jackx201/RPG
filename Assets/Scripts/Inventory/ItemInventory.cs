@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+ using System.Collections;
  using System.Collections.Generic;
  using UnityEngine;
  using UnityEngine.Events;
@@ -9,8 +9,14 @@
      public string itemName;
      public string itemDescription;
      public Sprite itemImage;
+     public int initialNumberHeld;
      public int numberHeld;
      public bool usable;
+
+     public void ResetValue()
+     {
+         numberHeld = initialNumberHeld;
+     }
      public bool unique;
      public UnityEvent thisEvent;
 

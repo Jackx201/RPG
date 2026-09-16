@@ -21,8 +21,15 @@ public class PlayerMovement : Movement
 
     void Start()
     {
-        currentAbility.canUse = true;
         UpdateAbilities();
+        if (currentAbility != null)
+        {
+            currentAbility.canUse = true;
+        }
+        if (secondaryAbility != null)
+        {
+            secondaryAbility.canUse = true;
+        }
         myState.ChangeState(GenericState.idle);
     }
 
@@ -66,20 +73,16 @@ public class PlayerMovement : Movement
             }
         }
 
-        if(Input.GetButtonDown("skill") && currentAbility.canUse)
+        if(Input.GetButtonDown("skill") && currentAbility != null && currentAbility.canUse)
         {
-            if(currentAbility){
-                StartCoroutine(AbilityCo(currentAbility.duration));
-                StartCoroutine(CoolDownCo());
-            }
+            StartCoroutine(AbilityCo(currentAbility.duration));
+            StartCoroutine(CoolDownCo());
         }
 
-        if(Input.GetButtonDown("skill2") && secondaryAbility.canUse)
+        if(Input.GetButtonDown("skill2") && secondaryAbility != null && secondaryAbility.canUse)
         {
-            if(secondaryAbility){
-                StartCoroutine(SecondaryAbiltyCo(secondaryAbility.duration));
-                StartCoroutine(CoolDownCo());
-            }
+            StartCoroutine(SecondaryAbiltyCo(secondaryAbility.duration));
+            StartCoroutine(SecondaryCoolDownCo());
         }
 
         else if (myState.myState != GenericState.attack || myState.myState != GenericState.dead)
@@ -132,6 +135,7 @@ public class PlayerMovement : Movement
 
      public IEnumerator AbilityCo(float abilityDuration)
      {
+         if (currentAbility == null) yield break;
          myState.ChangeState(GenericState.ability);
          ArrowAbility currentArrow = currentAbility as ArrowAbility;
          if (currentArrow != null && !string.IsNullOrEmpty(currentArrow.animParameter))
@@ -149,6 +153,7 @@ public class PlayerMovement : Movement
 
      public IEnumerator SecondaryAbiltyCo(float abilityDuration)
      {
+         if (secondaryAbility == null) yield break;
          myState.ChangeState(GenericState.ability);
          ArrowAbility secondaryArrow = secondaryAbility as ArrowAbility;
          if (secondaryArrow != null && !string.IsNullOrEmpty(secondaryArrow.animParameter))
@@ -166,15 +171,31 @@ public class PlayerMovement : Movement
 
      public IEnumerator CoolDownCo()
      {
-        currentAbility.canUse = false;
-        yield return new WaitForSeconds(currentAbility.coolDown);
-        currentAbility.canUse = true;
+        if (currentAbility != null)
+        {
+            currentAbility.canUse = false;
+            yield return new WaitForSeconds(currentAbility.coolDown);
+            currentAbility.canUse = true;
+        }
+     }
+
+     public IEnumerator SecondaryCoolDownCo()
+     {
+        if (secondaryAbility != null)
+        {
+            secondaryAbility.canUse = false;
+            yield return new WaitForSeconds(secondaryAbility.coolDown);
+            secondaryAbility.canUse = true;
+        }
      }
 
      public void UpdateAbilities()
      {
-         currentAbility = abilities.mainAbility;
-         secondaryAbility = abilities.secondaryAbility;
+         if (abilities != null)
+         {
+             currentAbility = abilities.mainAbility;
+             secondaryAbility = abilities.secondaryAbility;
+         }
      }
 
      public void Knock(float knockTime)

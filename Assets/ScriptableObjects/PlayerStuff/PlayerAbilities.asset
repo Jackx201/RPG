@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b014280076c154fb6e7b3654b830db, type: 3}
   m_Name: PlayerAbilities
   m_EditorClassIdentifier: 
-  mainAbility: {fileID: 0}
-  secondaryAbility: {fileID: 0}
+  mainAbilityName: 
+  secondaryAbilityName: dash
   changedAbility: {fileID: 11400000, guid: dce3883b22b04e04c8785e8766bfa102, type: 2}

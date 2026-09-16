@@ -14,6 +14,11 @@
          {
              CheckEnemies();
          }
+
+        if(roomCleared != null && roomCleared.value){
+            OpenDoors();
+        }
+
      }
 
      public void CheckEnemies()
@@ -31,7 +36,6 @@
              roomCleared.value = true;
          }
          roomActive = false;
-         Debug.Log("All enemies defeated, opening doors.");
          OpenDoors();
      }
 
@@ -84,7 +88,6 @@
              }
 
              virtualCamera.SetActive(false);
-             Debug.Log("Player exited dungeon room. Disabling virtual camera.");
              if (roomCleared == null || !roomCleared.value)
              {
                  CloseDoors();

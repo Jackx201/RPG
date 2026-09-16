@@ -53,7 +53,6 @@ public class Room : MonoBehaviour
 
     public void OnDisable()
     {
-        Debug.LogWarning($"Room disabled: {name}. Disabling virtual camera.");
         virtualCamera.SetActive(false);
     }
 
