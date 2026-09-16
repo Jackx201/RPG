@@ -101,7 +101,9 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationMethod: 0
   spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -522,7 +524,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      magic_sword_attack_0: -1019220679853720683
+      magic_sword_attack_1: 7650225938006397262
+      magic_sword_attack_10: -3472972986303707434
+      magic_sword_attack_11: -7872332052678653975
+      magic_sword_attack_12: 1085573639311009871
+      magic_sword_attack_13: 7674854587017134072
+      magic_sword_attack_14: 6637862349654150239
+      magic_sword_attack_15: -4581238996592355657
+      magic_sword_attack_2: -6980511317769376655
+      magic_sword_attack_3: -7955677542989167114
+      magic_sword_attack_4: -4809304967562389306
+      magic_sword_attack_5: 5789381659691449606
+      magic_sword_attack_6: -7883033155258371291
+      magic_sword_attack_7: 5010393471504050350
+      magic_sword_attack_8: -7345730765851414626
+      magic_sword_attack_9: -2518575308923248997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
