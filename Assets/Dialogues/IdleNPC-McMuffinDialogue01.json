@@ -1,0 +1,99 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "Sir. McMuffin",
+            "speakerAnimParam": "knight",
+            "boxColorHex": "#86D2F3",
+            "text": "Esos Infantes son unos delincuentes",
+            "choices": [],
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": ""
+        },
+        {
+            "type": 0,
+            "speakerName": "Sir. McMuffin",
+            "speakerAnimParam": "knight",
+            "boxColorHex": "#86D2F3",
+            "text": "Granjear presencia esta prohibido en estas tierras",
+            "choices": [],
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": ""
+        },
+        {
+            "type": 1,
+            "speakerName": "Bell",
+            "speakerAnimParam": "player",
+            "boxColorHex": "#FFD8C4",
+            "text": "Deberia decir algo",
+            "choices": [
+                {
+                    "choiceText": "Totalmente",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "Sir. McMuffin",
+                            "speakerAnimParam": "knight",
+                            "boxColorHex": "#86D2F3",
+                            "text": "Es bueno ver ue no todos los infantes son unos vandalos rebeldes y vagabundos",
+                            "choices": [],
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": ""
+                        }
+                    ]
+                },
+                {
+                    "choiceText": "Los Monstruos...",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "Bell",
+                            "speakerAnimParam": "player",
+                            "boxColorHex": "#FFD8C4",
+                            "text": "Tal vez deberian priorizar la caceria de monstruos para asegurar el bienestar de la gente...",
+                            "choices": [],
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": ""
+                        },
+                        {
+                            "type": 0,
+                            "speakerName": "Bell",
+                            "speakerAnimParam": "player",
+                            "boxColorHex": "#FFD8C4",
+                            "text": "Ellos secuestraron a mi hermanito y ahora estoy dispuesto a salvarlo",
+                            "choices": [],
+                            "setBoolValue": false,
+                            "setFloatValue": 0.0,
+                            "setIntValue": 0,
+                            "setStringValue": ""
+                        }
+                    ]
+                }
+            ],
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": ""
+        },
+        {
+            "type": 0,
+            "speakerName": "Sir. McMuffin",
+            "speakerAnimParam": "knight",
+            "boxColorHex": "#86D2F3",
+            "text": "Una vez las batallas de granjear presencia terminen podremos encargarnos de los monstruos.",
+            "choices": [],
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": ""
+        }
+    ]
+}

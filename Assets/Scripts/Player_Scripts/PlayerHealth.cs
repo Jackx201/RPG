@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +10,11 @@ public class PlayerHealth : Health
     //[SerializeField] private StateMachine myStateMachine;
     [SerializeField] Notification GameOverNotification;
     
+    public bool isInvincible = false;
+
     public void FloatDamage(float amountt)
     {
+        if (isInvincible) return;
         health.RuntimeValue -= amountt;
         if(health.RuntimeValue <= 0)
         {
@@ -22,6 +25,7 @@ public class PlayerHealth : Health
 
     public override void Damage(int damage)
     {
+        if (isInvincible) return;
         base.Damage(damage);
         if(health.RuntimeValue > 0)
         {

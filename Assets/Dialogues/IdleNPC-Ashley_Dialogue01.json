@@ -1,0 +1,139 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "Bell",
+            "speakerAnimParam": "player",
+            "boxColorHex": "#FFD8C4",
+            "text": "No termino de entender que estan haciendo esos dos chicos",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 0,
+            "speakerName": "Ashley",
+            "speakerAnimParam": "ashley",
+            "boxColorHex": "#FF88CB",
+            "text": "Estan en una batalla de granjear presencia.",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 0,
+            "speakerName": "Ashley",
+            "speakerAnimParam": "ashley",
+            "boxColorHex": "#FF88CB",
+            "text": "Los chicos y chicas se agrupan para expresarse en espacios publicos",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 0,
+            "speakerName": "Ashley",
+            "speakerAnimParam": "ashley",
+            "boxColorHex": "#FF88CB",
+            "text": "La verdad no perjudican a nadie. Pero, a ciertos adultos, por algun motivo les hace enojar bastante",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "type": 0,
+            "speakerName": "Bell",
+            "speakerAnimParam": "player",
+            "boxColorHex": "#FFD8C4",
+            "text": "No entiendo por que a un adulto funcional le molestaria algo asi. Suena bastante genial.",
+            "choices": [],
+            "variableToSet": {
+                "instanceID": 0
+            },
+            "variableType": "",
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": "",
+            "signalToRaise": {
+                "instanceID": 0
+            },
+            "notificationToRaise": {
+                "instanceID": 0
+            },
+            "onCommandEvent": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        }
+    ]
+}

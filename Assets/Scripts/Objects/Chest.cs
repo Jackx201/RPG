@@ -55,6 +55,10 @@ public class Chest : Interactable
             playerInRange = true;
             if (!isOpen)
             {
+                if (animm != null)
+                {
+                    animm.SetAnimParameter("contextActive", true);
+                }
                 myNotification.Raise();
             }
         }
@@ -68,6 +72,10 @@ public class Chest : Interactable
             if (!isOpen)
             {
                 myNotification.Raise();
+            }
+             if (animm != null)
+            {
+                animm.SetAnimParameter("contextActive", false);
             }
         }
     }

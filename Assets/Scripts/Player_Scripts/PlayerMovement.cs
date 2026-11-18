@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +9,11 @@ public class PlayerMovement : Movement
     [SerializeField] private float WeaponAttackDuration;
     [SerializeField] private ReceiveItem myItem;
     [SerializeField] private GlobalAbilities abilities;
+    [SerializeField] private Inventory playerInventory;
+    [SerializeField] private InventoryItem swordItem;
     public GenericAbility currentAbility;
     public GenericAbility secondaryAbility;
+
 
     public Vector2 tempMovement = Vector2.left;
     private Vector2 facingDirection = Vector2.down;
@@ -18,8 +21,15 @@ public class PlayerMovement : Movement
 
     void Start()
     {
-        currentAbility.canUse = true;
         UpdateAbilities();
+        if (currentAbility != null)
+        {
+            currentAbility.canUse = true;
+        }
+        if (secondaryAbility != null)
+        {
+            secondaryAbility.canUse = true;
+        }
         myState.ChangeState(GenericState.idle);
     }
 
@@ -35,7 +45,7 @@ public class PlayerMovement : Movement
             }
             return;
         }
-        if(!IsRestrictedState(myState.myState))
+        if(!IsRestrictedState(myState.myState) && !myState.blockPlayerMovement)
         {
             GetInput();
             SetAnimation();
@@ -55,26 +65,24 @@ public class PlayerMovement : Movement
     {
         if(Input.GetButtonDown("Weapon Attack"))
         {
-            StartCoroutine(WeaponCo());
-            //tempMovement = Vector2.zero;
-            Motion(tempMovement);
-            screenKick.Raise();
-        }
-
-        if(Input.GetButtonDown("skill") && currentAbility.canUse)
-        {
-            if(currentAbility){
-                StartCoroutine(AbilityCo(currentAbility.duration));
-                StartCoroutine(CoolDownCo());
+            if (playerInventory != null && swordItem != null && playerInventory.IsItemInInventory(swordItem))
+            {
+                StartCoroutine(WeaponCo());
+                //tempMovement = Vector2.zero;
+                Motion(tempMovement);
             }
         }
 
-        if(Input.GetButtonDown("skill2") && secondaryAbility.canUse)
+        if(Input.GetButtonDown("skill") && currentAbility != null && currentAbility.canUse)
         {
-            if(secondaryAbility){
-                StartCoroutine(SecondaryAbiltyCo(secondaryAbility.duration));
-                StartCoroutine(CoolDownCo());
-            }
+            StartCoroutine(AbilityCo(currentAbility.duration));
+            StartCoroutine(CoolDownCo());
+        }
+
+        if(Input.GetButtonDown("skill2") && secondaryAbility != null && secondaryAbility.canUse)
+        {
+            StartCoroutine(SecondaryAbiltyCo(secondaryAbility.duration));
+            StartCoroutine(SecondaryCoolDownCo());
         }
 
         else if (myState.myState != GenericState.attack || myState.myState != GenericState.dead)
@@ -109,7 +117,7 @@ public class PlayerMovement : Movement
 
     bool IsRestrictedState(GenericState currentState)
     {
-        if(currentState == GenericState.attack || currentState == GenericState.ability || currentState == GenericState.dead)
+        if(currentState == GenericState.attack || currentState == GenericState.ability || currentState == GenericState.dead || currentState == GenericState.stun)
         {
             return true;
         } 
@@ -125,32 +133,85 @@ public class PlayerMovement : Movement
         anim.SetAnimParameter("Attacking", false);
     }
 
-         public IEnumerator AbilityCo(float abilityDuration)
+     public IEnumerator AbilityCo(float abilityDuration)
      {
+         if (currentAbility == null) yield break;
          myState.ChangeState(GenericState.ability);
+         ArrowAbility currentArrow = currentAbility as ArrowAbility;
+         if (currentArrow != null && !string.IsNullOrEmpty(currentArrow.animParameter))
+         {
+             anim.SetAnimParameter(currentArrow.animParameter, true);
+         }
          currentAbility.Ability(transform.position, facingDirection, anim.anim, myRigidbody);
-         yield return new WaitForSeconds(0.3f );
+         yield return new WaitForSeconds(0.3f);
+         if (currentArrow != null && !string.IsNullOrEmpty(currentArrow.animParameter))
+         {
+             anim.SetAnimParameter(currentArrow.animParameter, false);
+         }
          myState.ChangeState(GenericState.idle);
      }
 
      public IEnumerator SecondaryAbiltyCo(float abilityDuration)
      {
+         if (secondaryAbility == null) yield break;
          myState.ChangeState(GenericState.ability);
+         ArrowAbility secondaryArrow = secondaryAbility as ArrowAbility;
+         if (secondaryArrow != null && !string.IsNullOrEmpty(secondaryArrow.animParameter))
+         {
+             anim.SetAnimParameter(secondaryArrow.animParameter, true);
+         }
          secondaryAbility.Ability(transform.position, facingDirection, anim.anim, myRigidbody);
          yield return new WaitForSeconds(abilityDuration);
+         if (secondaryArrow != null && !string.IsNullOrEmpty(secondaryArrow.animParameter))
+         {
+             anim.SetAnimParameter(secondaryArrow.animParameter, false);
+         }
          myState.ChangeState(GenericState.idle);
      }
 
      public IEnumerator CoolDownCo()
      {
-        currentAbility.canUse = false;
-        yield return new WaitForSeconds(currentAbility.coolDown);
-        currentAbility.canUse = true;
+        if (currentAbility != null)
+        {
+            currentAbility.canUse = false;
+            yield return new WaitForSeconds(currentAbility.coolDown);
+            currentAbility.canUse = true;
+        }
+     }
+
+     public IEnumerator SecondaryCoolDownCo()
+     {
+        if (secondaryAbility != null)
+        {
+            secondaryAbility.canUse = false;
+            yield return new WaitForSeconds(secondaryAbility.coolDown);
+            secondaryAbility.canUse = true;
+        }
      }
 
      public void UpdateAbilities()
      {
-         currentAbility = abilities.mainAbility;
-         secondaryAbility = abilities.secondaryAbility;
+         if (abilities != null)
+         {
+             currentAbility = abilities.mainAbility;
+             secondaryAbility = abilities.secondaryAbility;
+         }
+     }
+
+     public void Knock(float knockTime)
+     {
+         StartCoroutine(KnockCo(knockTime));
+     }
+
+     private IEnumerator KnockCo(float knockTime)
+     {
+         if(myRigidbody != null)
+         {
+            Debug.Log("Player Knocked Back");
+             SetState(GenericState.stun);
+             yield return new WaitForSeconds(knockTime);
+             myRigidbody.linearVelocity = Vector2.zero;
+             SetState(GenericState.idle);
+         }
      }
 }

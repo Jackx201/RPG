@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +7,9 @@ using UnityEngine;
 public class BoolValue : ScriptableObject
 {
     public bool value;
-    [SerializeField] private bool resetValue;
+    [SerializeField] public bool resetValue;
 
-    private void OnEnable()
+    public void ResetValue()
     {
         value = resetValue;
     }

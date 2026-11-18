@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,20 +16,42 @@ public class log : Enemmy //Herencia del Script Enemy
     [Header("animator")]
     public Animator anim;
 
+    [Header("Spawn Delay")]
+    [SerializeField] private float spawnDelay = 1f;
+    private bool isSpawning = true;
 
     void Start()
     {
         currentState = EnemyState.idle;
         myRigidBody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform;
+        
+        if (target == null)
+        {
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                target = playerObj.transform;
+                playerState = playerObj.GetComponentInChildren<StateMachine>();
+            }
+        }
+        
         anim.SetBool("WakeUp", true);
+        StartCoroutine(SpawnDelayCo());
+    }
+
+    private IEnumerator SpawnDelayCo()
+    {
+        isSpawning = true;
+        yield return new WaitForSeconds(spawnDelay);
+        isSpawning = false;
     }
 
     
     void FixedUpdate()
     {
-        CheckDistance();
+        if (!isSpawning)
+            CheckDistance();
     }
     public virtual void CheckDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaseRadious

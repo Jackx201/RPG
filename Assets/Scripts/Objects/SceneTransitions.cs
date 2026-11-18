@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -33,6 +33,18 @@ public class SceneTransitions : MonoBehaviour
             StartCoroutine(fadeCo());
             //SceneManager.LoadScene(sceneToLoad);
         }
+    }
+
+    /// <summary>
+    /// Call this from a UnityEvent (e.g. dialog choice onSelect) to trigger
+    /// the fade + scene load. Sets the player spawn position first.
+    /// </summary>
+    public void StartTransition()
+    {
+        playerStorage.initialValue = playerPosition;
+        // Route through CoroutineRunner: works even if this object or its
+        // parents are inactive (inactive objects can't run coroutines).
+        CoroutineRunner.Instance.Run(fadeCo());
     }
 
     public IEnumerator fadeCo()

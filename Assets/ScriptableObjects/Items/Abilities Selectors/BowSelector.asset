@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BowSelector
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: cbf938a29b95b7f4382be90c49f32b41, type: 3}
-  myName: Bow
-  myDescription: Allows You to shot Arrows
+  myName: Arco
+  myDescription: Un arco para disparar flechas
   isUsable: 0
   isUnique: 1
   numberHeld: 1
@@ -23,6 +23,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6386494294899799823, guid: dfac12fe72e915f499048154f14fbffd,
           type: 3}
+        m_TargetAssemblyTypeName: ChangeAbility, Assembly-CSharp
         m_MethodName: Use
         m_Mode: 1
         m_Arguments:

@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Sign : Interactable
 {
-    [SerializeField] private Notification signNotification;
-    [SerializeField] private StringValue signText;
-    [SerializeField] private string newSignText;
+    [SerializeField] private Notification individualDialogueNotification;
+    [SerializeField] private StringValue individualDialogueStringText;
+    [SerializeField] private string newIndividualDialogueStringText;
     [SerializeField] private bool dialogActive = false;
     
 
@@ -17,8 +17,8 @@ public class Sign : Interactable
             if(Input.GetButtonDown("Check"))
             {
                 dialogActive = !dialogActive;
-                signText.value = newSignText;
-                signNotification.Raise();
+                individualDialogueStringText.value = newIndividualDialogueStringText;
+                individualDialogueNotification.Raise();
             }
         }
     }
@@ -31,7 +31,7 @@ public class Sign : Interactable
             if (dialogActive)
             {
                 dialogActive = !dialogActive;
-                signNotification.Raise();
+                individualDialogueNotification.Raise();
             }
         }
     }

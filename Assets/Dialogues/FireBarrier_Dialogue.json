@@ -1,0 +1,47 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "Bell",
+            "speakerAnimParam": "player",
+            "boxColorHex": "#FFD8C4",
+            "text": "Mucho gusto en conocerte",
+            "choices": []
+        },
+        {
+            "type": 1,
+            "speakerName": "Toadberto",
+            "speakerAnimParam": "store_owner",
+            "boxColorHex": "#E0FFC4",
+            "text": "Que te gustaria hacer",
+            "choices": [
+                {
+                    "choiceText": "Donar dinero",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "Toadberto",
+                            "speakerAnimParam": "store_owner",
+                            "boxColorHex": "#E0FFC4",
+                            "text": "Muchas gracias",
+                            "choices": []
+                        }
+                    ]
+                },
+                {
+                    "choiceText": "Nada",
+                    "nestedCommands": [
+                        {
+                            "type": 0,
+                            "speakerName": "Toadberto",
+                            "speakerAnimParam": "store_owner",
+                            "boxColorHex": "#E0FFC4",
+                            "text": "...",
+                            "choices": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

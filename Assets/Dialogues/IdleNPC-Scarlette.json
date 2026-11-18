@@ -1,0 +1,16 @@
+{
+    "commands": [
+        {
+            "type": 0,
+            "speakerName": "New",
+            "speakerAnimParam": "AAAA",
+            "boxColorHex": "#FFFFFF",
+            "text": "HOLAAAAAAA\t",
+            "choices": [],
+            "setBoolValue": false,
+            "setFloatValue": 0.0,
+            "setIntValue": 0,
+            "setStringValue": ""
+        }
+    ]
+}

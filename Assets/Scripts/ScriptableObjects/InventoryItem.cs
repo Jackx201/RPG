@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +11,13 @@ public class InventoryItem : ScriptableObject
     public string myDescription;
     public bool isUsable;
     public bool isUnique;
+    public int initialNumberHeld;
     public int numberHeld;
+
+    public void ResetValue()
+    {
+        numberHeld = initialNumberHeld;
+    }
 
     public UnityEvent thisEvent;
 

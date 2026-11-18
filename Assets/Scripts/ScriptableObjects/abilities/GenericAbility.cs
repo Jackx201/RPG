@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Playables;
 using DG.Tweening;
 using UnityEngine.UI;
@@ -25,5 +25,20 @@ public class GenericAbility : ScriptableObject
     {
         playerMagic.RuntimeValue -= costMagic;
         usePlayerMagic.Raise();
+    }
+
+    public void StartCooldown(MonoBehaviour playerMono)
+    {
+        if (playerMono != null)
+        {
+            playerMono.StartCoroutine(CooldownCo());
+        }
+    }
+
+    protected System.Collections.IEnumerator CooldownCo()
+    {
+        canUse = false;
+        yield return new WaitForSeconds(coolDown);
+        canUse = true;
     }
 }

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: e7c10d523bc5a6149ad2868b32554992, type: 3}
-  ItemDescription: You Found a Key. There must be a Door aorund here...
+  ItemDescription: Encontraste una llave, debe haber una puerta cerrada en algun
+    lado
   IsKey: 1

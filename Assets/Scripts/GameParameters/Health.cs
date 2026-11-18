@@ -36,6 +36,7 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
+        Debug.Log("Healing" + currentHealth + " by " + amount);
         currentHealth += amount;
         if(currentHealth > maxHealth)
         {
