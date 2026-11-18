@@ -33,6 +33,13 @@ public class ChangeAbility : MonoBehaviour
                 myAbilities.SetSecondaryAbility(myAbility); 
         }          
                
-        myAbilities.changedAbility.Raise();
+        if (myAbilities.changedAbility != null)
+        {
+            myAbilities.changedAbility.Raise();
+        }
+        else
+        {
+            Debug.LogWarning("GlobalAbilities.changedAbility is not assigned.", myAbilities);
+        }
     }
 }

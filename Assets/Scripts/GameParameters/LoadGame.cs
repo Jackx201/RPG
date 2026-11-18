@@ -144,7 +144,7 @@ public class LoadGame : MonoBehaviour
                 {
                     FileStream file = File.Open(path, FileMode.Open);
                     BinaryFormatter binary = new BinaryFormatter();
-                    JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objectsToLoad[i]);
+                    SaveGame.LoadObjectJson((string)binary.Deserialize(file), objectsToLoad[i]);
                     file.Close();
                 }
                 else

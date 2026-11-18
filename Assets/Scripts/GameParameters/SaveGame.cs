@@ -206,6 +206,20 @@ public class SaveGame : MonoBehaviour
         }
     }
 
+    public static void LoadObjectJson(string json, ScriptableObject target)
+    {
+        Notification changedAbility = target is GlobalAbilities abilities
+            ? abilities.changedAbility
+            : null;
+
+        JsonUtility.FromJsonOverwrite(json, target);
+
+        if (target is GlobalAbilities restoredAbilities)
+        {
+            restoredAbilities.changedAbility = changedAbility;
+        }
+    }
+
     private void OnEnable()
     {
         if (HasSave(GetActiveSlot()))
@@ -381,7 +395,7 @@ public class SaveGame : MonoBehaviour
             {
                 FileStream file = File.Open(path, FileMode.Open);
                 BinaryFormatter binary = new BinaryFormatter();
-                JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objects[i]);
+                LoadObjectJson((string)binary.Deserialize(file), objects[i]);
                 file.Close();
             }
             else

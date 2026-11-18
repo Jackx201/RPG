@@ -16,6 +16,13 @@ public class ButtonsAbility : MonoBehaviour
 
     public void UpdateAbilities()
     {
+        if (players == null)
+        {
+            Debug.LogError("ButtonsAbility requires a PlayerMovement reference.", this);
+            return;
+        }
+
+        players.UpdateAbilities();
         currentability = players.currentAbility;
         secondaryAbility = players.secondaryAbility;
 
